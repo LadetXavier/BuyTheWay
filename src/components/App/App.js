@@ -1,13 +1,16 @@
 import React from 'react';
 
 
+import Route from './Routes.js';
+
+
 
 // == Composant
-const App = () => (
-  <div className="app">
-    <h1>Composant : App</h1>
-  </div>
+const App = () => {
+  return(    
+  <Route/>  
 );
+}
 
 // == Export
 export default App;
