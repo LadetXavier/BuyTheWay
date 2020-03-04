@@ -11,7 +11,7 @@ export const apiEnd = label => ({
 });
 
 // apiAction used to create call API
-export const apiAction = ({
+export const requestAction = ({
  url = "",
  method = "GET",
  data = null,

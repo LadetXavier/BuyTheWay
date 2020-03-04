@@ -1,4 +1,4 @@
-import {Loading} from 'src/actions/types.js';
+import {} from 'src/actions/types.js';
 
 const initialState = {
   connected: false
@@ -6,8 +6,12 @@ const initialState = {
 }
 
 const shop = (state = initialState, action) => {
-  switch(action) {
-    case Loading :
+  switch(action.type) {
+    case 0 :
+      return {
+        ...state
+      }
+    default :
       return {
         ...state
       }

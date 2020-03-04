@@ -4,8 +4,8 @@ import shop from './shop.js';
 import user from './user.js';
 
 const mainReducer = combineReducers({
-  shop,
-  user
+  shop: shop,
+  user: user
 });
 
 export default mainReducer
