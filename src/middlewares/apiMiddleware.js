@@ -1,15 +1,16 @@
 import axios from 'axios';
-import {dispatch} from 'redux';
 
 import {API} from '../actions/types.js';
 import {apiStart, apiEnd} from '../actions/apiActions.js';
 
 const apiMiddleware = ({dispatch}) => next => action => {
 
+  // because it's async, we spread the action to the next
   next(action);
 
   if( action.type != API) return ;
 
+  // destructuring payload
   const {
     url,
     method,
@@ -55,11 +56,7 @@ const apiMiddleware = ({dispatch}) => next => action => {
     if(label) {
       dispatch(apiEnd(label));
     }
-  })
-  
-
-
-  return next(action);
+  })  
 }
 
 export default apiMiddleware

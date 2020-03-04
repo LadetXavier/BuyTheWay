@@ -10,14 +10,17 @@ export const apiEnd = label => ({
   payload: label
 });
 
+// apiAction used to create call API
 export const apiAction = ({
  url = "",
  method = "GET",
  data = null,
  token = null,
  headers = null,
+ // onSucess and onFailure are actionMaker that will be dispatched when the call API fail and success
  onSucess = () => {},
  onFailure = () => {},
+ // label is used to handle loading with apiEnd and apiStart action
  label = ""
 }) => {
   return {
@@ -25,7 +28,9 @@ export const apiAction = ({
     payload: {
       url,
       method,
+      token,
       data,
+      headers,
       onSucess,
       onFailure,
       label,
