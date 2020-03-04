@@ -1,0 +1,15 @@
+.header > h1 {
+  text-align: center;
+  flex: 1;
+  a {
+    text-decoration: none;
+    color: #f0f ;
+    letter-spacing: 4px;
+    transition: color .3s;
+    font-size: 1.8rem;
+    &:active, &:hover
+    { 
+      color: #444;
+    }
+  }
+}
