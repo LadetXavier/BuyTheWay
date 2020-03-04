@@ -1,7 +1,11 @@
 import {combineReducers} from 'redux';
 
-const mainReducer = combineReducers({
+import shop from './shop.js';
+import user from './user.js';
 
+const mainReducer = combineReducers({
+  shop,
+  user
 });
 
 export default mainReducer

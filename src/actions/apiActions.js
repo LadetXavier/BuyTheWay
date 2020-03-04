@@ -1,4 +1,4 @@
-import {API,API_START,API_END} from './types/js';
+import {API,API_START,API_END} from './types.js';
 
 export const apiStart = label => ({
   type: API_START,
