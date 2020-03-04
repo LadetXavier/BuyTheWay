@@ -3,13 +3,11 @@ import React from 'react';
 
 import Header from '../components/Header';
 
-export const home = () => {
-  return (
-    <>
-      <Header />
-      <div>
-        <h1>home</h1>
-      </div>
-    </>
-  );
-};
+export const home = () => (
+  <>
+    <Header />
+    <div>
+      <h1>home</h1>
+    </div>
+  </>
+);
