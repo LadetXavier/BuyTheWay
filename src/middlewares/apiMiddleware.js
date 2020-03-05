@@ -6,6 +6,7 @@ import {apiStart, apiEnd} from '../actions/apiActions.js';
 const apiMiddleware = ({dispatch}) => next => action => {
 
   // because it's async, we spread the action to the next
+  next(action);
 
   if( action.type !== API) return ;
 
@@ -44,25 +45,24 @@ const apiMiddleware = ({dispatch}) => next => action => {
   })
   .then( reponse => {
     // dispatch the action you want to do when the request ended
-    console.log(reponse);
+    
     dispatch(onSucess(reponse));
   })
   .catch( error => {
     // dispatch the action to handle api error and dispatch the action for failure
     //dispatch(apiError(error));
     //dispatch(onFailure(error));
-    console.error(error)
-    
-    
+    console.error(error)    
   })
   .finally( () => {
     // handle loading
-    if(label) {
+   
+    if(label) {      
       dispatch(apiEnd(label));
     }
   })  
 
-  next(action);
+  
 }
 
 export default apiMiddleware
