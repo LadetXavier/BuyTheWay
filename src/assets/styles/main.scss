@@ -1,0 +1,10 @@
+@import './vars'; // colors, fonts etc...
+
+@font-face {
+  src: $mainFont-src;
+  font-family: $mainFont-Family;
+}
+
+body {
+  font-family: $mainFont-Family;
+}

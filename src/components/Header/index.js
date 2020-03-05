@@ -2,7 +2,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import './styles.scss';
+import Animate from 'animate.css-react';
+import 'animate.css/animate.css';
+
+
+import 'src/assets/styles/header.scss';
 import '../../assets/FontAwesome/css/all.css';
 import '../../assets/fonts/Roboto-Regular.ttf';
 import Logo from './logo';
@@ -10,7 +14,8 @@ import Logo from './logo';
 const Header = () => (
   <nav className="navbar">
     <Link to="/"> <Logo /> </Link>
-    <ul className="nav-links">
+    { window.innerWidth > 1200 && (
+    <Animate component="ul" className="nav-links" appear="fadeInDown" durationAppear={1750}>
       <div className="dropdown">
         <li><Link id="men" className="categories" to="/">HOMMES</Link></li>
         <div className="dropdown-content">
@@ -38,7 +43,8 @@ const Header = () => (
       </div>
       <li><Link id="trend" className="categories" to="/">TENDANCES</Link></li>
       <li><Link id="challenges" className="categories" to="/">DEFIS</Link></li>
-    </ul>
+    </Animate>
+    ) }
     <ul className="nav-icons">
       <li><Link className="far fa-user icons" /></li>
       <li><Link className="far fa-shopping-cart icons" /></li>

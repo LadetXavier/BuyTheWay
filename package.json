@@ -57,6 +57,8 @@
     "@material-ui/icons": "^4.9.1",
     "@svgr/cli": "^5.2.0",
     "@svgr/webpack": "^5.2.0",
+    "animate.css": "^3.7.2",
+    "animate.css-react": "^1.0.0",
     "babel": "^6.23.0",
     "bootstrap": "^4.4.1",
     "prop-types": "*",
