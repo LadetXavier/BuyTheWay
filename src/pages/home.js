@@ -1,11 +1,13 @@
-import React from 'react'
+/* eslint-disable import/prefer-default-export */
+import React from 'react';
 
-export const home = () => {
-  return (
+import Header from '../components/Header';
+
+export const home = () => (
+  <>
+    <Header />
     <div>
       <h1>home</h1>
     </div>
-  )
-}
-
-
+  </>
+);
