@@ -46,7 +46,7 @@ const apiMiddleware = ({dispatch}) => next => action => {
   .then( reponse => {
     // dispatch the action you want to do when the request ended
     
-    dispatch(onSucess(reponse));
+    dispatch(onSucess(reponse.data));
   })
   .catch( error => {
     // dispatch the action to handle api error and dispatch the action for failure
