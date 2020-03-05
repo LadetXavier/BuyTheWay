@@ -1,7 +1,11 @@
-import {SAVE_PRODUCTS,SAVE_HEADER,SAVE_PRODUCT_DETAIL} from 'src/actions/types.js';
+import {
+  SAVE_PRODUCTS,
+  SAVE_HEADER,
+  SAVE_PRODUCT_DETAIL,  
+} from 'src/actions/types.js';
 
 const initialState = {
-  loading:true
+  
 };
 
 const shop = (state = initialState, action) => {
@@ -21,7 +25,7 @@ const shop = (state = initialState, action) => {
       return {
         ...state,
         listHeader: action.data
-      };
+      };     
     default:
       return {
         ...state

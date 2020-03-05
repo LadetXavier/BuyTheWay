@@ -1,4 +1,9 @@
-import {SAVE_PRODUCTS,SAVE_PRODUCT_DETAIL,SAVE_HEADER} from './types.js';
+import {
+  SAVE_PRODUCTS,
+  SAVE_PRODUCT_DETAIL,
+  SAVE_HEADER,
+  //TOOGLE_LOADING
+} from './types.js';
 
 export const saveProducts = data => ({
   type: SAVE_PRODUCTS,
@@ -13,3 +18,7 @@ export const saveHeader = data => ({
   type: SAVE_HEADER,
   data
 });
+
+/* export const toogleLoading = () => ({
+  type: TOOGLE_LOADING
+}) */

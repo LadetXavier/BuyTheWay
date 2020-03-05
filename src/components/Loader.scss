@@ -1,0 +1,15 @@
+.loader {
+  display: block;
+  width: 10%;
+  max-width: 50px;
+  margin: 0 auto;
+  animation: rotation 1s steps(12,end) infinite;
+ 
+}
+
+@keyframes rotation {
+  
+  to {
+    transform:rotate(360deg);
+  }
+}
