@@ -2,7 +2,7 @@
   max-width: 100%;
   margin: 1em 3em;
   padding: 0.5em;
-  background-color: gold;
+  /*background-color: gold;*/
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -11,7 +11,7 @@
     margin-right: 0.25em;
     text-decoration: none;
     color: black ;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
     transition: color .3s;
     font-size: 1.5rem;
     &:active, &:hover
@@ -24,10 +24,43 @@
 .categories {
   font-size: 0.1rem;
   font-weight: bold;
+  padding-right: 1.5rem;
 }
+
+.dropdown {
+
+position: relative;
+display: inline-block;
+
+}
+
+.dropdown-content {
+
+display: none;
+position: absolute;
+z-index: 1;
+
+  a {
+color: black;
+display: block;
+text-decoration: none;
+padding-top: 1rem;
+letter-spacing: 1px;
+
+  }
+
+  a:hover {
+
+  }
+
+}
+
+.dropdown:hover .dropdown-content { display: block;}
+
 .nav-links {
-  display: flex;  
+  display: flex; 
   flex-wrap: wrap;
+  margin-left: -10em;
 }
 
 .navbar li {
