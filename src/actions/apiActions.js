@@ -1,4 +1,4 @@
-import {API,API_START,API_END} from './types/js';
+import {API,API_START,API_END} from './types.js';
 
 export const apiStart = label => ({
   type: API_START,
@@ -11,7 +11,7 @@ export const apiEnd = label => ({
 });
 
 // apiAction used to create call API
-export const apiAction = ({
+export const requestAction = ({
  url = "",
  method = "GET",
  data = null,

@@ -6,17 +6,17 @@ import {apiStart, apiEnd} from '../actions/apiActions.js';
 const apiMiddleware = ({dispatch}) => next => action => {
 
   // because it's async, we spread the action to the next
-  next(action);
 
-  if( action.type != API) return ;
+  if( action.type !== API) return ;
 
+  
   // destructuring payload
   const {
     url,
     method,
     data,
     token,   
-    onSuccess,
+    onSucess,
     onFailure,
     label,
     headers
@@ -24,10 +24,11 @@ const apiMiddleware = ({dispatch}) => next => action => {
 
   // if the request's method is GET or DELETE, then it's params and not data 
   const dataOrParams = ["GET","DELETE"].includes(method) ? "params" : "data";
+  
 
   // default config
-  axios.defaults.baseURL = window.location.origin;
-  axios.defaults.headers.common["Content-Type"]="application/json";
+  axios.defaults.baseURL = "http://54.164.43.47:3000";
+  axios.defaults.headers.common["Content-Type"]="application/json"; 
 
   // dispatch an action for handling loader
   if(label) {
@@ -43,12 +44,15 @@ const apiMiddleware = ({dispatch}) => next => action => {
   })
   .then( reponse => {
     // dispatch the action you want to do when the request ended
-    dispatch(onSuccess(reponse));
+    console.log(reponse);
+    dispatch(onSucess(reponse));
   })
   .catch( error => {
     // dispatch the action to handle api error and dispatch the action for failure
     //dispatch(apiError(error));
-    dispatch(onFailure(error));
+    //dispatch(onFailure(error));
+    console.error(error)
+    
     
   })
   .finally( () => {
@@ -57,6 +61,8 @@ const apiMiddleware = ({dispatch}) => next => action => {
       dispatch(apiEnd(label));
     }
   })  
+
+  next(action);
 }
 
 export default apiMiddleware
