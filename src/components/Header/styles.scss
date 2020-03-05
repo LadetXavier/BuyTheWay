@@ -38,6 +38,7 @@ display: inline-block;
 
 display: none;
 position: absolute;
+background-color: white;
 z-index: 1;
 
   a {
@@ -60,7 +61,6 @@ letter-spacing: 1px;
 .nav-links {
   display: flex; 
   flex-wrap: wrap;
-  margin-left: -10em;
 }
 
 .navbar li {
