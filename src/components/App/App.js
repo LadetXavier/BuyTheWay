@@ -1,9 +1,11 @@
 import React from 'react';
 
 
-import Route from './Routes';
+
+
 import 'src/assets/styles/reset.css';
 import './styles.scss';
+import Route from './Routes.js';
 
 
 // == Composant
