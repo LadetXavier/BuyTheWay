@@ -13,7 +13,7 @@ const shop = (state = initialState, action) => {
     case SAVE_PRODUCTS :
       return {
         ...state,
-        listProducts: action.data
+        listProducts: action.data.category
       };
 
     case SAVE_PRODUCT_DETAIL:
