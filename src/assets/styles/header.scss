@@ -1,7 +1,13 @@
 
 @import './vars'; // colors, fonts etc...
-@import './layout'; // responsive grid and media queries
-.navbar {
+
+/* -------------------------------- 
+
+ Header WEB
+
+-------------------------------- */
+
+.navbar-desktop {
   max-width: 100%;
   margin: 1em 3em;
   padding: 0.5em;
@@ -22,7 +28,6 @@
       }
     }
   }
-
 .categories {
   font-size: 0.1rem;
   font-weight: bold;
@@ -49,7 +54,6 @@ display: block;
 text-decoration: none;
 padding-top: 1rem;
 letter-spacing: 1px;
-
   }
 }
 
@@ -60,7 +64,7 @@ letter-spacing: 1px;
   flex-wrap: wrap;
 }
 
-.navbar li {
+.navbar-desktop li {
   list-style: none;
   display: inline-block;
 }
@@ -68,25 +72,121 @@ letter-spacing: 1px;
 .icons {
   padding: 0.5rem;
 }
+.nav-icons {
 
-.logo {
-width: 15rem;
+}
+
+.logo-desktop {
+width: 15.5rem;
 height: 5rem;
 }
+/* -------------------------------- 
 
-#men {
+ Header MOBILE
 
+-------------------------------- */
+
+.logo-mobile {
+  width: 7.7em;
+  height: 2.2em;
+  z-index: 0;
+  }
+
+  .navbar-mobile {
+    max-width: 100%;
+    //margin: 1em 3em;
+    //padding: 0.5em;
+    display: flex;
+    //align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    
+    a {
+      text-decoration: none;
+      color: $linksColor ;
+      font-size: 1rem;
+      &:active
+        { 
+        color: $linksActiveHoverColor;
+        }
+      }
+    }
+
+  .dropleft {
+
+    position: relative;
+    display: inline-block;
+    
+    }
+
+  .dropleft-content {
+
+    position: relative;
+    background-color: grey;
+    z-index: 10;
+    flex-direction: column;
+    
+      a {
+    color: $linksColor;
+    display: block;
+    text-decoration: none;
+    padding-top: 1rem;
+    letter-spacing: 1px;
+      }
+    }
+
+    .nav-links-mobile {
+      position: absolute;
+      display: none;
+    }
+
+    .displayNone {
+      display: none;
+    }
+/* -------------------------------- 
+
+ menu MOBILE
+
+-------------------------------- */
+
+/* .close {
+	display: flex;
+	justify-content: flex-end;
+	padding: 0 15px 0 0;
+	font-size: 3rem;
+	font-weight: bold;
+	color: #AAA;
+	cursor: pointer;
 }
 
-#women {
-
+.nav.show {
+	left: 0;
 }
 
-#trend {
-
+.menu-button {
+	position: relative;
+	z-index: 99;
+	font-size: 36px;
+	cursor: pointer;
+	padding: 10px 8px;
 }
 
-#challenges{
-
+.menu-items {
+	padding: 0;
+	margin: 0;
 }
 
+.menu-list {
+	list-style: none;
+}
+
+.menu-link {
+	text-decoration: none;
+	color: #555;
+	display: flex;
+	padding: 16px 10px;
+	font-size: 24px;
+	border-bottom: 1px solid #555;
+}
+*/

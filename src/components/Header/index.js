@@ -1,56 +1,54 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import MediaQuery from 'react-responsive';
+
 
 import Animate from 'animate.css-react';
 import 'animate.css/animate.css';
 
-
+import Category from 'src/components/Header/category';
+import Icons from 'src/components/Header/icons';
 import 'src/assets/styles/header.scss';
 import '../../assets/FontAwesome/css/all.css';
 import '../../assets/fonts/Roboto-Regular.ttf';
-import Logo from './logo';
+import Logo from '../../assets/Pictures/logoBuyTheWay.png';
+import handleMobileClick from '../../assets/functions/handleMobileFunctions.js';
+//import Logo from './logo';
 
-const Header = () => (
-  <nav className="navbar">
-    <Link to="/"> <Logo /> </Link>
-    { window.innerWidth > 1200 && (
-    <Animate component="ul" className="nav-links" appear="fadeInDown" durationAppear={1750}>
-      <div className="dropdown">
-        <li><Link id="men" className="categories" to="/">HOMMES</Link></li>
-        <div className="dropdown-content">
-          <Link to="/">T-shirts</Link>
-          <Link to="/">Chemises</Link>
-          <Link to="/">Pulls & Sweats</Link>
-          <Link to="/">Manteaux & Vestes</Link>
-          <Link to="/">Pantalons</Link>
-          <Link to="/">Jeans</Link>
-          <Link to="/">Costumes</Link>
-        </div>
-      </div>
-      <div className="dropdown">
-        <li><Link id="women" className="categories" to="/">FEMMES</Link></li>
-        <div className="dropdown-content">
-          <Link to="/">T-shirts</Link>
-          <Link to="/">Chemisiers</Link>
-          <Link to="/">Pulls & Sweats</Link>
-          <Link to="/">Manteaux & Vestes</Link>
-          <Link to="/">Jeans</Link>
-          <Link to="/">Pantalons</Link>
-          <Link to="/">Jupes</Link>
-          <Link to="/">Robes</Link>
-        </div>
-      </div>
-      <li><Link id="trend" className="categories" to="/">TENDANCES</Link></li>
-      <li><Link id="challenges" className="categories" to="/">DEFIS</Link></li>
-    </Animate>
-    ) }
-    <ul className="nav-icons">
-      <li><Link className="far fa-user icons" /></li>
-      <li><Link className="far fa-shopping-cart icons" /></li>
-      <li><Link className="far fa-search icons" /></li>
-    </ul>
-  </nav>
-);
+const Header = () => {
+  const handleMediaQueryChange = (matches) => {
+    // matches will be true or false based on the value for the media query
+  };
+  return (
+    <>
+      <MediaQuery maxDeviceWidth={1199} onChange={handleMediaQueryChange}>
+        <nav className="navbar-mobile"> 
+          <div type="button" className="far fa-bars icons dropleft" onClick={handleMobileClick} />
+          <Link to="/"> <img src={Logo} alt="logo" className="logo-mobile" /> </Link>
+          <ul className="">
+            <Category class1="dropleft-content" class2="" />
+          </ul>
+          <Icons />
+        </nav>
+      </MediaQuery>
+
+
+      <MediaQuery minDeviceWidth={1200} onChange={handleMediaQueryChange}>
+        <nav className="navbar-desktop">
+          <Animate component="ul" className="nav-links" appear="fadeInLeft" durationAppear={1750}>
+            <Link to="/"> <img src={Logo} alt="logo" className="logo-desktop" /> </Link>
+          </Animate>
+          <Animate component="ul" className="nav-links" appear="fadeInDown" durationAppear={1750}>
+            <Category class1="dropdown" class2="dropdown-content" />
+          </Animate>
+          <Animate component="ul" className="nav-links" appear="fadeInRight" durationAppear={1750}>
+            <Icons />
+          </Animate>
+        </nav>
+      </MediaQuery>
+    </>
+  );
+};
 
 export default Header;

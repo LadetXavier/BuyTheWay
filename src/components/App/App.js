@@ -1,6 +1,6 @@
 import React from 'react';
 
-
+import Header from 'src/components/Header';
 import Route from './Routes';
 import 'src/assets/styles/reset.css';
 import 'src/assets/styles/_vars.scss';
@@ -9,7 +9,10 @@ import 'src/assets/styles/main.scss';
 
 // == Composant
 const App = () => (
-  <Route />
+  <>
+    <Header />
+    <Route />
+  </>
 );
 
 
