@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import React, { useEffect } from 'react';
-import { saveProductDetail } from 'src/actions/store.js';
+import { saveProductDetail } from 'src/actions/shop.js';
 import Loader from 'src/components/Loader.js';
 import { Link } from 'react-router-dom';
 import Hierarchy from 'src/components/shop/Hierarchy.js';
@@ -37,7 +37,7 @@ export const Product = ({
           <div className="product-description">
             <h2>{product.name}</h2>
             <p>{product.description}</p>
-            <p>{product.price.$numberDecimal} </p>
+            <p>{product.price} </p>
           </div>
         </section>
     </>
@@ -66,9 +66,6 @@ Product.propTypes = {
       picture2: PropTypes.string
     }),
     description: PropTypes.string,
-    price: PropTypes.shape({
-      $numberDecimal: PropTypes.string
-    })
-  })
-  
+    price: PropTypes.number
+  })  
 }

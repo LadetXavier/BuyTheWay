@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 
 // Component to display Hiearchy of the items
-const Hierarchy = ({match, productName}) => {  
-  const {gender,category,productID} = match.params   
+const Hierarchy = ({match, productName,categoryName}) => {  
+  const gender = match.params.gender  
   return (    
-     <h1> {gender} / <Link to={`/${category}`}> {category}</Link> / {productName}</h1>
+     <h1> 
+      {gender ? gender : null} / <Link to={`/${categoryName}`}> {categoryName}</Link>  {productName ? `/ ${productName}` : null}
+     </h1>
   )
 }
 export default Hierarchy
@@ -14,10 +16,22 @@ export default Hierarchy
 Hierarchy.propTypes = {
   match: PropTypes.shape({
     params: PropTypes.shape({
-      gender: PropTypes.string.isRequired,
-      category: PropTypes.string.isRequired,
-      productId: PropTypes.string.isRequired
+      gender: PropTypes.string,
+      category: PropTypes.string,
+      productId: PropTypes.string
     })
-  }).isRequired,
-  productName: PropTypes.string.isRequired
+  }),
+  productName: PropTypes.string
+}
+
+Hierarchy.defaultProps = {
+  match: {
+    params:{
+      gender: null,
+      category: null,
+      productId: null
+    }
+  },
+  productName: null,
+  categoryName: null
 }
