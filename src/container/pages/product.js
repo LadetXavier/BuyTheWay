@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 
-import {product} from 'src/pages';
+import {Product} from 'src/pages';
 import {requestAction} from 'src/actions/apiActions.js';
 
 const mapDispatchToProps = (dispatch) => {
@@ -11,9 +11,9 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {
-    listProducts: state.shop.listProducts,
+    productDetail: state.shop.productDetail,
     isLoading: state.api.isLoading
   }
 }
 
-export const productContainer = connect(mapStateToProps, mapDispatchToProps)(product);
+export const productContainer = connect(mapStateToProps, mapDispatchToProps)(Product);
