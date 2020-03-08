@@ -12,7 +12,8 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
   return {
     productDetail: state.shop.productDetail,
-    isLoading: state.api.isLoading
+    isLoading: state.api.isLoading,
+    sizeAvailable: state.shop.sizeAvailable
   }
 }
 

@@ -1,10 +1,11 @@
 /* eslint-disable import/prefer-default-export */
 import React, { useEffect } from 'react';
-import { saveProductDetail } from 'src/actions/shop.js';
+import { saveProductDetail,saveSizeAvailable } from 'src/actions/shop.js';
 import Loader from 'src/components/Loader.js';
 import { Link } from 'react-router-dom';
 import Hierarchy from 'src/components/shop/Hierarchy.js';
 import PropTypes from 'prop-types';
+import {FormPurchaseContainer as FormPurchase} from 'src/container/components/FormPurchase.js';
 
 import './product.scss';
 
@@ -13,14 +14,22 @@ export const Product = ({
   requestAction,
   isLoading,
   match,
-  productDetail,
+  productDetail  
 }) => {
   useEffect(() => {
+    // call api to get detail about product 
     requestAction({
       url: `http://54.164.43.47:3000/products/${match.params.productId}`,
       onSucess: saveProductDetail,
       label: 'productsLoading',
     });
+
+    // call api to get all the size available 
+    requestAction({
+      url: `http://54.164.43.47:3000/skus-by-product/${match.params.productId}`,
+      onSucess: saveSizeAvailable,
+      label: 'sizeLoading',
+    });    
   }, []);
 
   // Display the loading icon by default
@@ -38,6 +47,7 @@ export const Product = ({
             <h2>{product.name}</h2>
             <p>{product.description}</p>
             <p>{product.price} </p>
+            <FormPurchase/>
           </div>
         </section>
     </>
