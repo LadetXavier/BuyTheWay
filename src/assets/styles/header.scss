@@ -1,0 +1,192 @@
+
+@import './vars'; // colors, fonts etc...
+
+/* -------------------------------- 
+
+ Header WEB
+
+-------------------------------- */
+
+.navbar-desktop {
+  max-width: 100%;
+  margin: 2.5em 15em;
+  padding: 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  a {
+    margin-right: 0.25em;
+    text-decoration: none;
+    color: $linksColor ;
+    letter-spacing: 3px;
+    transition: color .3s;
+    font-size: 1.5rem;
+    &:active, &:hover
+      { 
+      color: $linksActiveHoverColor;
+      }
+    }
+  }
+.categories {
+  font-size: 0.1rem;
+  font-weight: bold;
+  padding-right: 1.5rem;
+}
+
+.dropdown {
+
+position: relative;
+display: inline-block;
+
+}
+
+.dropdown-content {
+
+display: none;
+position: absolute;
+background-color: white;
+z-index: 1;
+
+  a {
+color: $linksColor;
+display: block;
+text-decoration: none;
+padding-top: 1rem;
+letter-spacing: 1px;
+  }
+}
+
+.dropdown:hover .dropdown-content { display: block;}
+
+.nav-links {
+  display: flex; 
+  flex-wrap: wrap;
+}
+
+.navbar-desktop li {
+  list-style: none;
+  display: inline-block;
+}
+
+.icons {
+  padding: 0.5rem;
+}
+.nav-icons {
+
+}
+
+.logo-desktop {
+width: 17.5rem;
+height: 5rem;
+}
+/* -------------------------------- 
+
+ Header MOBILE
+
+-------------------------------- */
+
+.logo-mobile {
+  width: 7.7em;
+  height: 2.2em;
+  z-index: 0;
+  }
+
+  .navbar-mobile {
+    max-width: 100%;
+    //margin: 1em 3em;
+    //padding: 0.5em;
+    display: flex;
+    //align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    
+    a {
+      text-decoration: none;
+      color: $linksColor ;
+      font-size: 1rem;
+      &:active
+        { 
+        color: $linksActiveHoverColor;
+        }
+      }
+    }
+
+  .dropleft {
+
+    position: relative;
+    display: inline-block;
+    
+    }
+
+  .dropleft-content {
+
+    position: relative;
+    background-color: grey;
+    z-index: 10;
+    flex-direction: column;
+    
+      a {
+    color: $linksColor;
+    display: block;
+    text-decoration: none;
+    padding-top: 1rem;
+    letter-spacing: 1px;
+      }
+    }
+
+    .nav-links-mobile {
+      position: absolute;
+      display: none;
+    }
+
+    .displayNone {
+      display: none;
+    }
+/* -------------------------------- 
+
+ menu MOBILE
+
+-------------------------------- */
+
+/* .close {
+	display: flex;
+	justify-content: flex-end;
+	padding: 0 15px 0 0;
+	font-size: 3rem;
+	font-weight: bold;
+	color: #AAA;
+	cursor: pointer;
+}
+
+.nav.show {
+	left: 0;
+}
+
+.menu-button {
+	position: relative;
+	z-index: 99;
+	font-size: 36px;
+	cursor: pointer;
+	padding: 10px 8px;
+}
+
+.menu-items {
+	padding: 0;
+	margin: 0;
+}
+
+.menu-list {
+	list-style: none;
+}
+
+.menu-link {
+	text-decoration: none;
+	color: #555;
+	display: flex;
+	padding: 16px 10px;
+	font-size: 24px;
+	border-bottom: 1px solid #555;
+}
+*/

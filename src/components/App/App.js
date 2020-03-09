@@ -1,13 +1,18 @@
 import React from 'react';
 
+import Header from 'src/components/Header';
+import Route from './Routes';
 import 'src/assets/styles/reset.css';
-import './styles.scss';
-import Route from './Routes.js';
-
+import 'src/assets/styles/_vars.scss';
+import 'src/assets/styles/main.scss';
+import 'src/assets/FontAwesome/css/all.css';
 
 // == Composant
 const App = () => (
-  <Route />
+  <>
+    <Header />
+    <Route />
+  </>
 );
 
 

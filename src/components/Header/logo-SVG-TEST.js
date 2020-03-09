@@ -6,13 +6,13 @@ function logo() {
       className="logo"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
-      width="799.98"
-      height="204.122"
+     
       viewBox="0 0 533 136"
     >
       <image
+      
         width="478"
-        height="91"
+        height="100"
         x="21"
         y="26"
         data-name="Way copie"
