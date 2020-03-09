@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const Category = ({ class1 = '', class2 = '' }) => (
-  <div id="categories">
+const Category = React.forwardRef(({ class1 = '', class2 = '' }, ref) => (
+  <div ref={ref}>
     <div className={class1}>
       <li><Link id="men" className="categories" to="/">HOMMES</Link></li>
       <div className={class2}>
@@ -34,7 +34,7 @@ const Category = ({ class1 = '', class2 = '' }) => (
       <li><Link id="challenges" className="categories" to="/">DEFIS</Link></li>
     </div>
   </div>
-);
+));
 
 Category.propTypes = {
   class1: PropTypes.string.isRequired,
@@ -42,4 +42,3 @@ Category.propTypes = {
 };
 
 export default Category;
-
