@@ -25,7 +25,7 @@ const apiMiddleware = ({dispatch}) => next => action => {
 
   // if the request's method is GET or DELETE, then it's params and not data 
   const dataOrParams = ["GET","DELETE"].includes(method) ? "params" : "data";
-  
+  console.log(url);
 
   // default config
   axios.defaults.baseURL = "http://54.164.43.47:3000";
@@ -44,13 +44,13 @@ const apiMiddleware = ({dispatch}) => next => action => {
     [dataOrParams]: data
   })
   .then( reponse => {
-    // dispatch the action you want to do when the request ended
-    
+    // dispatch the action you want to do when the request ended    
     dispatch(onSucess(reponse.data));
   })
   .catch( error => {
     // dispatch the action to handle api error and dispatch the action for failure    
-    dispatch(onFailure());
+   
+    dispatch(onFailure());       
     console.error(error)    
   })
   .finally( () => {

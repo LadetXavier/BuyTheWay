@@ -4,7 +4,8 @@ import {
   SAVE_HEADER,
   SAVE_SIZE,
   CHANGE_PURCHASE,
-  ADD_CART
+  ADD_CART,
+  LOAD_NAV
   //TOOGLE_LOADING
 } from './types.js';
 
@@ -35,6 +36,12 @@ export const changePurchase = data => ({
 export const addCart = data => ({
   type: ADD_CART,
   data
+});
+
+export const loadNav = (data,gender) => ({
+  type: LOAD_NAV,
+  gender,
+  data: data.category
 });
 
 /* export const toogleLoading = () => ({

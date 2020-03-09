@@ -23,21 +23,21 @@ export const Category = ({
       url: `http://54.164.43.47:3000/category/${match.params.category}`,
       onSuccess: saveProducts,
       onFailure: apiError,
-      label: 'productsLoading',
+      label: 'isLoading',
     });
   }, []);
-
   // Display the loading icon by default
   let displayed = <Loader />;
 
   // Once datas are collected, display the dynamic content
   if (!isLoading) {
-    if (hasError) {
+    if (hasError || listProducts === undefined) {
       //displayed = <p>Un problème est survenu, il semblerait que notre serveur soit momentanément innacessible, veuillez réessayer plus tard.</p>;
       //console.log(data.category[0].picture.picture1);
       displayed = (<ItemCard picture={data.category[0].picture.picture1} price={data.category[0].price} name={data.category[0].name} description={data.category[0].description} />);
     }
     /* else {
+
       const categoryName = listProducts[0].category.type;
       let productArray = listProducts.map((itemCurrent) => (
         <ItemCard key={itemCurrent._id} item={itemCurrent} />
