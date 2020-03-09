@@ -8,8 +8,7 @@ export const SAVE_HEADER = { type: "SAVE_HEADER" };
 export const SAVE_SIZE = { type: "SAVE_SIZE" };
 export const CHANGE_PURCHASE = { type: "CHANGE_PURCHASE" };
 export const ADD_CART = { type: "ADD_CART" };
-
-
+export const API_ERROR = { type: "API_ERROR" };
 
 
 //export const TOOGLE_LOADING = {type: "TOOGLE_LOADING"}

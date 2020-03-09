@@ -1,4 +1,4 @@
-import {API,API_START,API_END} from './types.js';
+import {API,API_START,API_END,API_ERROR} from './types.js';
 
 export const apiStart = label => ({
   type: API_START,
@@ -8,6 +8,11 @@ export const apiStart = label => ({
 export const apiEnd = label => ({
   type: API_END,
   payload: label
+});
+
+export const apiError = hasError => ({
+  type: API_ERROR,
+  error: hasError
 });
 
 // apiAction used to create call API

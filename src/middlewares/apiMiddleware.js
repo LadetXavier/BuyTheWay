@@ -49,9 +49,8 @@ const apiMiddleware = ({dispatch}) => next => action => {
     dispatch(onSucess(reponse.data));
   })
   .catch( error => {
-    // dispatch the action to handle api error and dispatch the action for failure
-    //dispatch(apiError(error));
-    //dispatch(onFailure(error));
+    // dispatch the action to handle api error and dispatch the action for failure    
+    dispatch(onFailure());
     console.error(error)    
   })
   .finally( () => {
