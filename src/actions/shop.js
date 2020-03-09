@@ -2,6 +2,9 @@ import {
   SAVE_PRODUCTS,
   SAVE_PRODUCT_DETAIL,
   SAVE_HEADER,
+  SAVE_SIZE,
+  CHANGE_PURCHASE,
+  ADD_CART
   //TOOGLE_LOADING
 } from './types.js';
 
@@ -16,6 +19,21 @@ export const saveProductDetail = data => ({
 });
 export const saveHeader = data => ({
   type: SAVE_HEADER,
+  data
+});
+
+export const saveSizeAvailable = data => ({
+  type: SAVE_SIZE,
+  data
+});
+
+export const changePurchase = data => ({
+  type: CHANGE_PURCHASE,
+  data
+});
+
+export const addCart = data => ({
+  type: ADD_CART,
   data
 });
 

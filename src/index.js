@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Provider } from "react-redux";
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import {AppContainer as App} from 'src/container/App/AppContainer.js';
+import {AppContainer as App} from 'src/container/components/AppContainer.js';
 import store from 'src/store.js';
 
 const rootReactElement = (
