@@ -3,9 +3,11 @@ import {connect} from 'react-redux';
 import {Category} from 'src/pages';
 import {requestAction} from 'src/actions/apiActions.js';
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch) => {  
   return {
-    requestAction : (request) => dispatch(requestAction(request))    
+    requestAction : (request) => {      
+      return (dispatch(requestAction(request)))  
+      }
   }
 }
 

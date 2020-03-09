@@ -22,19 +22,20 @@ const initialState = {
 
 const shop = (state = initialState, action) => {
   switch(action.type) {
-    case LOAD_NAV :      
+    case LOAD_NAV :          
       return {
         ...state,
         nav:{
           ...state.nav,
-          [action.gender]: action.data 
+          [action.gender]: action.data.data.category 
         }
       }
 
     case SAVE_PRODUCTS :
+      console.log('save product',action.data.data.category);
       return {
         ...state,
-        listProducts: action.data.category
+        listProducts: action.data.data.category
       };
 
     case SAVE_PRODUCT_DETAIL:

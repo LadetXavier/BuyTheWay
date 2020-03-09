@@ -9,7 +9,8 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Tooltip from "@material-ui/core/Tooltip";
 import Button from "@material-ui/core/Button";
 
-const ItemCard = ({ picture, price, name, description }) => {
+const ItemCard = ({ item }) => {
+  const {picture,name,price,description} = item;
   return (
     <Card
       style={{
@@ -22,7 +23,7 @@ const ItemCard = ({ picture, price, name, description }) => {
       >
         <CardMedia
               style={{ height: 140 }}
-              image={picture} // ça ne marche plus, mais pourquoi? Bonne question...
+              image={picture.picture1} // ça ne marche plus, mais pourquoi? Bonne question...
         />
           <CardContent style={{ height: 50 }}>
             <div

@@ -41,7 +41,7 @@ export const addCart = data => ({
 export const loadNav = (data,gender) => ({
   type: LOAD_NAV,
   gender,
-  data: data.category
+  data: data
 });
 
 /* export const toogleLoading = () => ({
