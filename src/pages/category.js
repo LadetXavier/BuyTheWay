@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react'
 import { saveProducts } from 'src/actions/shop.js';
+import { apiError } from 'src/actions/apiActions.js';
 import Loader from 'src/components/Loader.js';
 import { Link } from 'react-router-dom';
 import Hierarchy from 'src/components/shop/Hierarchy.js';
@@ -12,12 +13,14 @@ export const Category = ({
   match,
   requestAction,
   listProducts,
-  isLoading
+  isLoading,
+  hasError
 }) => {
   useEffect(() => {
     requestAction({
       url: `http://54.164.43.47:3000/category/${match.params.category}`,
       onSucess: saveProducts,
+      onFailure: apiError,
       label: 'productsLoading',
     });
   }, []);
@@ -26,8 +29,12 @@ export const Category = ({
    let displayed = <Loader />;
   
    // Once datas are collected, display the dynamique content
-   if (!isLoading) {     
-     const categoryName = listProducts[0].category.type;
+   if (!isLoading) {
+     if(hasError) {
+       displayed = <p>Un problème est survenu, il semblerait que notre serveur soit momentanément innacessible, veuillez réessayer plus tard.</p>
+     }
+     else {
+      const categoryName = listProducts[0].category.type;
      let productArray = listProducts.map((itemCurrent) => (
       <ItemCard key={itemCurrent._id} item={itemCurrent} />
     )); 
@@ -39,7 +46,7 @@ export const Category = ({
            {productArray}
           </section> 
      </>);
-        
+    }       
   }
 
   return (
