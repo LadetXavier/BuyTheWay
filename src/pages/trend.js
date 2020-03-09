@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const trend = () => {
+export const Trend = () => {
   return (
     <div>
       <h1>trend</h1>

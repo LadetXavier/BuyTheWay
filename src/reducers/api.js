@@ -1,0 +1,30 @@
+import {API_START,API_END,API_ERROR} from 'src/actions/types.js';
+
+const initialState = {
+  isLoading:true
+}
+
+const shop = (state = initialState, action) => {  
+  switch(action.type) {
+    case API_END :
+      
+      return {
+        ...state,
+        isLoading: false
+      }
+    case API_ERROR : {
+      return {
+        ...state,
+        error:true
+      }
+    }
+    default :
+      return {
+        ...state
+      }
+  }
+    
+  
+}
+
+export default shop;

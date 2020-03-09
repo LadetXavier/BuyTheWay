@@ -3,7 +3,7 @@ import React from 'react';
 
 
 
-export const home = () => (
+export const Home = () => (
   <>
     <div>
       <h1>home</h1>

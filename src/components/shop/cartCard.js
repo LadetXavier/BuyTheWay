@@ -1,10 +1,11 @@
 import React from 'react'
 
-export const User = () => {
+const CartCard = ({product}) => {
   return (
     <div>
-      <h1>user</h1>
+      
     </div>
   )
 }
 
+export default CartCard
