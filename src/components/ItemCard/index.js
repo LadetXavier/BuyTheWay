@@ -25,7 +25,7 @@ const ItemCard = ({ picture, price, name }) => {
         >
           <CardMedia
             style={{ height: 140 }}
-            image={ picture } // ça ne marche plus, mais pourquoi? Bonne question...
+            image={picture} // ça ne marche plus, mais pourquoi? Bonne question...
           />
           <CardContent style={{ height: 50 }}>
             <div
