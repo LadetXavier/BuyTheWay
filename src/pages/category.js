@@ -35,7 +35,7 @@ export const Category = ({
     if (hasError) {
       //displayed = <p>Un problème est survenu, il semblerait que notre serveur soit momentanément innacessible, veuillez réessayer plus tard.</p>;
       //console.log(data.category[0].picture.picture1);
-      displayed = (<ItemCard picture={data.category[1].picture.picture1} price={data.category[0].price} name={data.category[0].name} />);
+      displayed = (<ItemCard picture={data.category[0].picture.picture1} price={data.category[0].price} name={data.category[0].name} description={data.category[0].description} />);
     }
     /* else {
       const categoryName = listProducts[0].category.type;

@@ -9,7 +9,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Tooltip from "@material-ui/core/Tooltip";
 import Button from "@material-ui/core/Button";
 
-const ItemCard = ({ picture, price, name }) => {
+const ItemCard = ({ picture, price, name, description }) => {
   return (
     <Card
       style={{
@@ -20,13 +20,10 @@ const ItemCard = ({ picture, price, name }) => {
         onClick={() => {
         }}
       >
-        <CardActions
-          style={{ display: "flex", alignItems: "center", height: 45 }}
-        >
-          <CardMedia
-            style={{ height: 140 }}
-            image={picture} // ça ne marche plus, mais pourquoi? Bonne question...
-          />
+        <CardMedia
+              style={{ height: 140 }}
+              image={picture} // ça ne marche plus, mais pourquoi? Bonne question...
+        />
           <CardContent style={{ height: 50 }}>
             <div
               style={{
@@ -41,10 +38,12 @@ const ItemCard = ({ picture, price, name }) => {
             </div>
             <div style={{ margin: 5 }}>Price: {price} $</div>
             <div style={{ color: "#1a9349", fontWeight: "bold", margin: 5 }}>
-              EN STOCK
+            EN STOCK
+            </div>
+            <div style={{ margin: 5 }}>
+              {description}
             </div>
           </CardContent>
-        </CardActions>
       </CardActionArea>
     </Card>
   );
