@@ -24,7 +24,7 @@ export const requestAction = ({
  headers = null,
  // onSucess and onFailure are actionMaker that will be dispatched when the call API fail and success
  onSucess = () => {},
- onFailure = () => {},
+ onFailure = false,
  // label is used to handle loading with apiEnd and apiStart action
  label = ""
 }) => {

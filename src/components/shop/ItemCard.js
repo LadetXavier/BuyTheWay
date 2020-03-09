@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ItemCard = ({item, key}) => {
+const ItemCard = ({item}) => {
   const {picture,name,price,description} = item;
   return (
     <div className="list-products-card">
