@@ -2,31 +2,24 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const Category = React.forwardRef(({ class1 = '', class2 = '' }, ref) => (
-  <div ref={ref}>
+const Category = React.forwardRef(({ class1 = '', class2 = '', data }, ref) => {  
+  let men,women = (<></>);
+  if(!data.menLoading && !data.womenLoading) {
+    console.log(data);
+    men = (data.nav.homme.map((current,key) => (<Link to={`/shop/homme/${key}`} key={key}>{current.name}</Link>)));
+    women = (data.nav.femme.map((current,key) => (<Link to={`/shop/femme/${key}`} key={key}>{current.name}</Link>)));
+  }
+  return (<div ref={ref}>
     <div className={class1}>
       <li><Link id="men" className="categories" to="/">HOMMES</Link></li>
       <div className={class2}>
-        <Link to="/">T-shirts</Link>
-        <Link to="/">Chemises</Link>
-        <Link to="/">Pulls & Sweats</Link>
-        <Link to="/">Manteaux & Vestes</Link>
-        <Link to="/">Pantalons</Link>
-        <Link to="/">Jeans</Link>
-        <Link to="/">Costumes</Link>
+        {men}        
       </div>
     </div>
     <div className={class1}>
       <li><Link id="women" className="categories" to="/">FEMMES</Link></li>
       <div className={class2}>
-        <Link to="/">T-shirts</Link>
-        <Link to="/">Chemisiers</Link>
-        <Link to="/">Pulls & Sweats</Link>
-        <Link to="/">Manteaux & Vestes</Link>
-        <Link to="/">Jeans</Link>
-        <Link to="/">Pantalons</Link>
-        <Link to="/">Jupes</Link>
-        <Link to="/">Robes</Link>
+        {women}
       </div>
     </div>
     <div className={class1}>
@@ -34,7 +27,8 @@ const Category = React.forwardRef(({ class1 = '', class2 = '' }, ref) => (
       <li><Link id="challenges" className="categories" to="/">DEFIS</Link></li>
     </div>
   </div>
-));
+);
+})
 
 Category.propTypes = {
   class1: PropTypes.string.isRequired,

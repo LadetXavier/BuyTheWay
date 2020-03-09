@@ -21,7 +21,7 @@ export const Category = ({
       url: `http://54.164.43.47:3000/category/${match.params.category}`,
       onSucess: saveProducts,
       onFailure: apiError,
-      label: 'productsLoading',
+      label: 'isLoading',
     });
   }, []);
 
@@ -30,7 +30,7 @@ export const Category = ({
   
    // Once datas are collected, display the dynamique content
    if (!isLoading) {
-     if(hasError) {
+     if(hasError || listProducts === undefined) {
        displayed = <p>Un problème est survenu, il semblerait que notre serveur soit momentanément innacessible, veuillez réessayer plus tard.</p>
      }
      else {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Header from 'src/components/Header';
+import {HeaderContainer} from 'src/container/components/Header.js';
 import Route from './Routes';
 import 'src/assets/styles/reset.css';
 import 'src/assets/styles/_vars.scss';
@@ -10,7 +10,7 @@ import 'src/assets/FontAwesome/css/all.css';
 // == Composant
 const App = () => (
   <>
-    <Header />
+    <HeaderContainer />
     <Route />
   </>
 );

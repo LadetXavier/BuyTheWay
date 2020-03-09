@@ -4,7 +4,8 @@ import {
   SAVE_PRODUCT_DETAIL,
   SAVE_SIZE,
   ADD_CART,
-  CHANGE_PURCHASE  
+  CHANGE_PURCHASE,
+  LOAD_NAV  
 } from 'src/actions/types.js';
 
 const initialState = {
@@ -12,11 +13,24 @@ const initialState = {
   purchase:{
     size:'',
     quantity:1
+  },
+  nav: {
+    homme: [],
+    femme: []
   }
 };
 
 const shop = (state = initialState, action) => {
   switch(action.type) {
+    case LOAD_NAV :      
+      return {
+        ...state,
+        nav:{
+          ...state.nav,
+          [action.gender]: action.data 
+        }
+      }
+
     case SAVE_PRODUCTS :
       return {
         ...state,
