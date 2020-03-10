@@ -48,7 +48,7 @@ export const Product = ({
   console.log(isLoading);
 
   // Once data are collected, display the dynamic content
-  if (!isLoading) {
+  if (!isLoading && productDetail !== null) {
     const { product } = productDetail;
     displayed = (
       <>
@@ -88,6 +88,11 @@ Product.propTypes = {
   productDetail: PropTypes.shape({
     product: PropTypes.shape({
       name: PropTypes.string,
+      category: PropTypes.shape({
+        id: PropTypes.number,
+        name: PropTypes.string,
+        gender: PropTypes.string,
+      }),
       picture: PropTypes.shape({
         picture1: PropTypes.string,
         picture2: PropTypes.string,
