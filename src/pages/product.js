@@ -60,15 +60,15 @@ export const Product = ({
             <h2 className="product-name">{product.name}</h2>
             <p className="product-description">{product.description}</p>
             <p className="product-price">
-              <span className="far fa-cart-plus cart"></span>
+              <span className="far fa-cart-plus cart" />
               {product.price} €
             </p>
             {/* <FormPurchase/> */}
           </div>
         </section>
-    </>
-  );
-  } 
+      </>
+    );
+  }
   // console.log ( displayed );
   return (
     <div>
@@ -86,12 +86,18 @@ Product.propTypes = {
     }).isRequired,
   }).isRequired,
   productDetail: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    picture: PropTypes.shape({
-      picture1: PropTypes.string.isRequired,
-      picture2: PropTypes.string.isRequired
+    product: PropTypes.shape({
+      name: PropTypes.string,
+      picture: PropTypes.shape({
+        picture1: PropTypes.string,
+        picture2: PropTypes.string,
+      }),
+      description: PropTypes.string,
+      price: PropTypes.string,
     }),
-    description: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-  }).isRequired,
+  }),
+};
+
+Product.defaultProps = {
+  productDetail: null,
 };
