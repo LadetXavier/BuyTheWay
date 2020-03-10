@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import Hierarchy from 'src/components/shop/Hierarchy.js';
 //import ItemCard from 'src/components/shop/ItemCard.js';
 import ItemCard from 'src/components/shop/ItemCard/index.js';
-import { data } from 'src/components/ItemCard/data';
+//import { data } from 'src/components/ItemCard/data';
 import PropTypes from 'prop-types';
 import './category.scss';
 
