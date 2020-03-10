@@ -47,7 +47,7 @@ export const Product = ({
   console.log('detail du produit', productDetail);
   console.log(isLoading);
 
-  // Once datas are collected, display the dynamique content
+  // Once data are collected, display the dynamic content
   if (!isLoading) {
     const { product } = productDetail;
     displayed = (
