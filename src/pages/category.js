@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import Hierarchy from 'src/components/shop/Hierarchy.js';
 //import ItemCard from 'src/components/shop/ItemCard.js';
 import ItemCard from 'src/components/shop/ItemCard/index.js';
-import { data } from 'src/components/ItemCard/data';
+//import { data } from 'src/components/ItemCard/data';
 import PropTypes from 'prop-types';
 import './category.scss';
 
@@ -37,10 +37,9 @@ export const Category = ({
       //displayed = (<ItemCard item={item} />);
     }
     else {
-
       const categoryName = listProducts[0].category.type;
       let productArray = listProducts.map((itemCurrent) => (
-        <ItemCard key={itemCurrent._id} item={itemCurrent} />
+        <ItemCard key={itemCurrent._id} item={itemCurrent} match={match}/>
       )); 
 
       displayed = (

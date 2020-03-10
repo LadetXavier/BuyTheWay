@@ -21,24 +21,26 @@ export const Product = ({
     requestAction({
       url: `http://54.164.43.47:3000/products/${match.params.productId}`,
       onSucess: saveProductDetail,
-      label: 'productsLoading',
+      label: 'isLoading',
     });
 
     // call api to get all the size available 
-    requestAction({
+   /*  requestAction({
       url: `http://54.164.43.47:3000/skus-by-product/${match.params.productId}`,
       onSucess: saveSizeAvailable,
       label: 'sizeLoading',
-    });    
+    });  */   
   }, []);
 
   // Display the loading icon by default
-  let Displayed = () => (<Loader />);
+  let displayed = (<Loader />);
+  console.log('detail du produit',productDetail);
+  console.log(isLoading);
   
   // Once datas are collected, display the dynamique content
   if (!isLoading) {
     const { product } = productDetail;
-    Displayed = () => (
+    displayed = (
       <>
         <Hierarchy match={match} productName={product.name} />
         <section className="product">
@@ -47,16 +49,16 @@ export const Product = ({
             <h2>{product.name}</h2>
             <p>{product.description}</p>
             <p>{product.price} </p>
-            <FormPurchase/>
+            {/* <FormPurchase/> */}
           </div>
         </section>
     </>
   );
-  }
+  } 
   // console.log ( displayed );
   return (
     <div>
-      <Displayed />
+      {displayed}
     </div>
   );
 };
