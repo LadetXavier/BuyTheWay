@@ -6,8 +6,8 @@ import Loader from 'src/components/Loader.js';
 import { Link } from 'react-router-dom';
 import Hierarchy from 'src/components/shop/Hierarchy.js';
 //import ItemCard from 'src/components/shop/ItemCard.js';
-import ItemCard from 'src/components/ItemCard';
-import { data } from 'src/components/ItemCard/data';
+import ItemCard from 'src/components/shop/ItemCard/index.js';
+//import { data } from 'src/components/ItemCard/data';
 import PropTypes from 'prop-types';
 import './category.scss';
 
@@ -23,7 +23,7 @@ export const Category = ({
       url: `http://54.164.43.47:3000/category/${match.params.category}`,
       onSuccess: saveProducts,
       onFailure: apiError,
-      label: 'isLoading',
+      label: 'isLoading'
     });
   }, []);
   // Display the loading icon by default
@@ -32,15 +32,14 @@ export const Category = ({
   // Once datas are collected, display the dynamic content
   if (!isLoading) {
     if (hasError || listProducts === undefined) {
-      //displayed = <p>Un problème est survenu, il semblerait que notre serveur soit momentanément innacessible, veuillez réessayer plus tard.</p>;
+      displayed = <p>Un problème est survenu, il semblerait que notre serveur soit momentanément innacessible, veuillez réessayer plus tard.</p>;
       //console.log(data.category[0].picture.picture1);
-      displayed = (<ItemCard picture={data.category[0].picture.picture1} price={data.category[0].price} name={data.category[0].name} description={data.category[0].description} />);
+      //displayed = (<ItemCard item={item} />);
     }
-    /* else {
-
-      const categoryName = listProducts[0].category.type;
+    else {
+      const categoryName = listProducts[0].category.name;
       let productArray = listProducts.map((itemCurrent) => (
-        <ItemCard key={itemCurrent._id} item={itemCurrent} />
+        <ItemCard key={itemCurrent._id} item={itemCurrent} match={match}/>
       )); 
 
       displayed = (
@@ -50,7 +49,7 @@ export const Category = ({
             {productArray}
           </section> 
         </>);
-    } */
+    }
   }
 
   return (

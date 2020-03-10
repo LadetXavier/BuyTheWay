@@ -16,7 +16,7 @@ export const saveProducts = data => ({
 
 export const saveProductDetail = data => ({
   type: SAVE_PRODUCT_DETAIL,
-  data
+  data: data.data
 });
 export const saveHeader = data => ({
   type: SAVE_HEADER,
@@ -41,7 +41,7 @@ export const addCart = data => ({
 export const loadNav = (data,gender) => ({
   type: LOAD_NAV,
   gender,
-  data: data.category
+  data: data
 });
 
 /* export const toogleLoading = () => ({

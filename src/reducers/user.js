@@ -1,4 +1,6 @@
-import {} from 'src/actions/types.js';
+import {REDIRECT} from 'src/actions/types.js';
+
+import {Redirect} from 'react-router-dom';
 
 const initialState = {
   connected: false
@@ -6,8 +8,10 @@ const initialState = {
 }
 
 const shop = (state = initialState, action) => {
+  
   switch(action.type) {
-    case 0 :
+    case REDIRECT :
+      <Redirect to={action.url}/>
       return {
         ...state
       }
