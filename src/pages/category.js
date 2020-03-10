@@ -37,10 +37,9 @@ export const Category = ({
       //displayed = (<ItemCard item={item} />);
     }
     else {
-
       const categoryName = listProducts[0].category.type;
       let productArray = listProducts.map((itemCurrent) => (
-        <ItemCard key={itemCurrent._id} item={itemCurrent} />
+        <ItemCard key={itemCurrent._id} item={itemCurrent} match={match}/>
       )); 
 
       displayed = (

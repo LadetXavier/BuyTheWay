@@ -16,7 +16,7 @@ export const saveProducts = data => ({
 
 export const saveProductDetail = data => ({
   type: SAVE_PRODUCT_DETAIL,
-  data
+  data: data.data
 });
 export const saveHeader = data => ({
   type: SAVE_HEADER,

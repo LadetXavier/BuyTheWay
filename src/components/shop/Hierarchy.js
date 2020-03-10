@@ -6,9 +6,9 @@ import 'src/assets/styles/hierarchy.scss';
 // Component to display Hiearchy of the items
 const Hierarchy = ({match, productName,categoryName}) => {  
   const gender = match.params.gender  
-  return (    
+  return (
      <h1 className='hierarchy'> 
-      {gender ? gender : null} / <Link to={`/${categoryName}`}> {categoryName}</Link>  {productName ? `/ ${productName}` : null}
+      {gender ? gender : null} / <Link to={`/shop/${gender}/${match.params.category}`}> {categoryName}</Link>  {productName ? `/ ${productName}` : null}
      </h1>
   )
 }
