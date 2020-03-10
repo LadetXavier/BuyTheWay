@@ -33,9 +33,7 @@ export const Product = ({
   }, []);
 
   // Display the loading icon by default
-  let displayed = (<Loader />);
-  console.log('detail du produit',productDetail);
-  console.log(isLoading);
+  let displayed = (<Loader />);  
   
   // Once datas are collected, display the dynamique content
   if (!isLoading) {
