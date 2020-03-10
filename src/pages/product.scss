@@ -4,10 +4,36 @@
   display: flex;
 }
 
-.product-img {
-  width: 50%;
+.product-mainImg {
+  width: 30em;
+  height: auto;
+}
+
+.product-otherImg {
+  width: 10em;
+  height: 15em;
+}
+
+.product-aside {
+  margin-left: 3em;
+}
+
+.product-name {
+  font-weight: bold;
+  font-size: 2em;
+  margin-bottom: 1em;
 }
 
 .product-description {
-  
+  font-size: 1em;
+  margin-bottom: 1.5em;
+}
+
+.product-price {
+  font-size: 1.5em;
+  float: right;
+}
+
+.cart {
+  margin-right: 1em;
 }

@@ -42,13 +42,17 @@ export const Product = ({
     const { product } = productDetail;
     displayed = (
       <>
-        <Hierarchy match={match} productName={product.name} />
+        <Hierarchy match={match} productName={product.name} categoryName={product.category.type} />
         <section className="product">
-          <img className="product-img" src={product.picture.picture1} alt="photo du produit" />
-          <div className="product-description">
-            <h2>{product.name}</h2>
-            <p>{product.description}</p>
-            <p>{product.price} </p>
+          <img className="product-mainImg" src={product.picture.picture1} alt="Produit" />
+          <img className="product-otherImg" src={product.picture.picture2} alt="Produit" />
+          <div className="product-aside">
+            <h2 className="product-name">{product.name}</h2>
+            <p className="product-description">{product.description}</p>
+            <p className="product-price">
+              <span className="far fa-cart-plus cart"></span>
+              {product.price} €
+            </p>
             {/* <FormPurchase/> */}
           </div>
         </section>
