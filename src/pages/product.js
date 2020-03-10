@@ -3,9 +3,9 @@ import React, { useEffect } from 'react';
 import { saveProductDetail,saveSizeAvailable } from 'src/actions/shop.js';
 import Loader from 'src/components/Loader.js';
 import { Link } from 'react-router-dom';
-import Hierarchy from 'src/components/shop/Hierarchy.js';
+import Hierarchy from 'src/components/shop/Hierarchy';
 import PropTypes from 'prop-types';
-import {FormPurchaseContainer as FormPurchase} from 'src/container/components/FormPurchase.js';
+import { FormPurchaseContainer as FormPurchase } from 'src/container/components/FormPurchase.js';
 
 import './product.scss';
 
@@ -14,45 +14,61 @@ export const Product = ({
   requestAction,
   isLoading,
   match,
-  productDetail  
+  productDetail,
 }) => {
+  const mainPic = React.createRef();
+  const secondPic = React.createRef();
+
+  const handleChangePic = () => {
+    mainPic.current.classList.toggle('product-mainImg');
+    mainPic.current.classList.toggle('product-otherImg');
+    secondPic.current.classList.toggle('product-mainImg');
+    secondPic.current.classList.toggle('product-otherImg');
+  };
+
   useEffect(() => {
-    // call api to get detail about product 
+    // call api to get detail about product
     requestAction({
       url: `http://54.164.43.47:3000/products/${match.params.productId}`,
       onSucess: saveProductDetail,
       label: 'isLoading',
     });
 
-    // call api to get all the size available 
-   /*  requestAction({
+    // call api to get all the size available
+    /*  requestAction({
       url: `http://54.164.43.47:3000/skus-by-product/${match.params.productId}`,
-      onSucess: saveSizeAvailable,
+      onSuccess: saveSizeAvailable,
       label: 'sizeLoading',
-    });  */   
+    });  */
   }, []);
 
   // Display the loading icon by default
-  let displayed = (<Loader />);  
-  
-  // Once datas are collected, display the dynamique content
-  if (!isLoading) {
+
+  let displayed = (<Loader />);
+
+  // Once data are collected, display the dynamic content
+  if (!isLoading && productDetail !== null) {
+
     const { product } = productDetail;
     displayed = (
       <>
-        <Hierarchy match={match} productName={product.name} />
+        <Hierarchy match={match} categoryName={product.category.name} productName={product.name} />
         <section className="product">
-          <img className="product-img" src={product.picture.picture1} alt="photo du produit" />
-          <div className="product-description">
-            <h2>{product.name}</h2>
-            <p>{product.description}</p>
-            <p>{product.price} </p>
+          <img className="product-mainImg" ref={mainPic} onClick={handleChangePic} src={product.picture.picture1} alt="Produit" />
+          <img className="product-otherImg" ref={secondPic} onClick={handleChangePic} src={product.picture.picture2} alt="Produit" />
+          <div className="product-aside">
+            <h2 className="product-name">{product.name}</h2>
+            <p className="product-description">{product.description}</p>
+            <p className="product-price">
+              <span className="far fa-cart-plus cart" />
+              {product.price} €
+            </p>
             {/* <FormPurchase/> */}
           </div>
         </section>
-    </>
-  );
-  } 
+      </>
+    );
+  }
   // console.log ( displayed );
   return (
     <div>
@@ -66,16 +82,27 @@ Product.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
-      productId: PropTypes.string.isRequired
-    })
+      productId: PropTypes.string.isRequired,
+    }).isRequired,
   }).isRequired,
   productDetail: PropTypes.shape({
-    name: PropTypes.string,
-    picture: PropTypes.shape({
-      picture1: PropTypes.string,
-      picture2: PropTypes.string
+    product: PropTypes.shape({
+      name: PropTypes.string,
+      category: PropTypes.shape({
+        id: PropTypes.number,
+        name: PropTypes.string,
+        gender: PropTypes.string,
+      }),
+      picture: PropTypes.shape({
+        picture1: PropTypes.string,
+        picture2: PropTypes.string,
+      }),
+      description: PropTypes.string,
+      price: PropTypes.string,
     }),
-    description: PropTypes.string,
-    price: PropTypes.number
-  })  
-}
+  }),
+};
+
+Product.defaultProps = {
+  productDetail: null,
+};
