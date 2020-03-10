@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import 'src/assets/styles/hierarchy.scss';
 
-// Component to display Hiearchy of the items
-const Hierarchy = ({match, productName,categoryName}) => {  
-  const gender = match.params.gender  
+// Component to display Hierarchy of the items
+const Hierarchy = ({ match, categoryName, productName }) => {
+  const gender = match.params.gender;
   return (
-    <h1 className='hierarchy'> 
+    <h1 className="hierarchy">
       {gender ? gender : null} / <Link to={`/shop/${gender}/${match.params.category}`}> {categoryName}</Link>  {productName ? `/ ${productName}` : null}
     </h1>
-  )
-}
+  );
+};
 export default Hierarchy;
 
 Hierarchy.propTypes = {

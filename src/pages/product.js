@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import { saveProductDetail,saveSizeAvailable } from 'src/actions/shop.js';
 import Loader from 'src/components/Loader.js';
 import { Link } from 'react-router-dom';
-import Hierarchy from 'src/components/shop/Hierarchy.js';
+import Hierarchy from 'src/components/shop/Hierarchy';
 import PropTypes from 'prop-types';
 import {FormPurchaseContainer as FormPurchase} from 'src/container/components/FormPurchase.js';
 
@@ -14,7 +14,7 @@ export const Product = ({
   requestAction,
   isLoading,
   match,
-  productDetail  
+  productDetail,
 }) => {
   useEffect(() => {
     // call api to get detail about product 
@@ -42,7 +42,7 @@ export const Product = ({
     const { product } = productDetail;
     displayed = (
       <>
-        <Hierarchy match={match} productName={product.name} categoryName={product.category.type} />
+        <Hierarchy match={match} categoryName={product.category.name} productName={product.name} />
         <section className="product">
           <img className="product-mainImg" src={product.picture.picture1} alt="Produit" />
           <img className="product-otherImg" src={product.picture.picture2} alt="Produit" />
