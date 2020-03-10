@@ -18,14 +18,14 @@ const Header = ({requestAction,nav,womenLoading,menLoading}) => {
   useEffect(() => {
     requestAction({
       url: `http://54.164.43.47:3000/gender/homme`,
-      onSucess: (data) => ( loadNav(data,'homme')),
+      onSuccess: (data) => ( loadNav(data,'homme')),
       onFailure: apiError,
       label: 'menLoading',
     });
 
     requestAction({
       url: `http://54.164.43.47:3000/gender/femme`,
-      onSucess: (data) => ( loadNav(data,'femme')),
+      onSuccess: (data) => ( loadNav(data,'femme')),
       label: 'womenLoading',
     });
   },[]);

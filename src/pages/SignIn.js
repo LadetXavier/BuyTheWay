@@ -20,7 +20,7 @@ export const SignIn = ({requestAction}) => {
           mail: email.current.value,
           password: password.current.value,
         },      
-        onSucess: redirect ,
+        onSuccess: redirect ,
         label: 'SignIn',
     }); 
   };

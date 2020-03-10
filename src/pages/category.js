@@ -21,7 +21,7 @@ export const Category = ({
   useEffect(() => {
     requestAction({
       url: `http://54.164.43.47:3000/category/${match.params.category}`,
-      onSucess: saveProducts,
+      onSuccess: saveProducts,
       onFailure: apiError,
       label: 'isLoading'
     });

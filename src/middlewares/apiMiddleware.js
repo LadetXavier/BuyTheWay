@@ -18,7 +18,7 @@ const apiMiddleware = ({dispatch}) => next => action => {
     method,
     data,
     token,   
-    onSucess,
+    onSuccess,
     onFailure,
     callBack,
     label,
@@ -47,13 +47,13 @@ const apiMiddleware = ({dispatch}) => next => action => {
   })
   .then( reponse => {
     // dispatch the action you want to do when the request ended 
-    if(onSucess(reponse) === undefined) {
+    if(onSuccess(reponse) === undefined) {
       console.error('action maker undefined at url',url);
       console.error('reponse',reponse);
       console.error('onSuccess',onSuccess);
 
     } else {
-      dispatch(onSucess(reponse));
+      dispatch(onSuccess(reponse));
     }
     if(callBack() !== undefined){
       callBack();

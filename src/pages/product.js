@@ -30,7 +30,7 @@ export const Product = ({
     // call api to get detail about product
     requestAction({
       url: `http://54.164.43.47:3000/products/${match.params.productId}`,
-      onSucess: saveProductDetail,
+      onSuccess: saveProductDetail,
       label: 'isLoading',
     });
 
