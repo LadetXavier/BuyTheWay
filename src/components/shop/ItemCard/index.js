@@ -12,8 +12,7 @@ import {Link} from 'react-router-dom';
 
 
 const ItemCard = ({ item, match }) => {
-  const {picture,name,price,description} = item;
-  console.log(item);
+  const {picture,name,price,description} = item;  
   return (
     <Link to={`${match.url}/${item._id}`}>
       <Card

@@ -20,8 +20,10 @@ const apiMiddleware = ({dispatch}) => next => action => {
     token,   
     onSucess,
     onFailure,
+    callBack,
     label,
-    headers
+    headers,
+    
   } = action.payload;
 
   // if the request's method is GET or DELETE, then it's params and not data 
@@ -52,6 +54,9 @@ const apiMiddleware = ({dispatch}) => next => action => {
 
     } else {
       dispatch(onSucess(reponse));
+    }
+    if(callBack() !== undefined){
+      callBack();
     }   
   })
   .catch( error => {

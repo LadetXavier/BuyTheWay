@@ -1,15 +1,17 @@
 
-export const API = { type: "API" };
-export const API_START = { type: "API_START" };
-export const API_END = { type: "API_END" };
-export const SAVE_PRODUCTS = { type: "SAVE_PRODUCTS" };
-export const SAVE_PRODUCT_DETAIL = { type: "SAVE_PRODUCT_DETAIL" };
-export const SAVE_HEADER = { type: "SAVE_HEADER" };
-export const SAVE_SIZE = { type: "SAVE_SIZE" };
-export const CHANGE_PURCHASE = { type: "CHANGE_PURCHASE" };
-export const ADD_CART = { type: "ADD_CART" };
-export const API_ERROR = { type: "API_ERROR" };
-export const LOAD_NAV = { type: "LOAD_NAV" };
+export const API = "API" ;
+export const API_START = "API_START";
+export const API_END = "API_END";
+export const SAVE_PRODUCTS = "SAVE_PRODUCTS";
+export const SAVE_PRODUCT_DETAIL = "SAVE_PRODUCT_DETAIL";
+export const SAVE_HEADER = "SAVE_HEADER";
+export const SAVE_SIZE =  "SAVE_SIZE";
+export const CHANGE_PURCHASE =  "CHANGE_PURCHASE";
+export const ADD_CART = "ADD_CART";
+export const API_ERROR = "API_ERROR";
+export const LOAD_NAV = "LOAD_NAV";
+export const REDIRECT = "REDIRECT";
+
 
 
 
