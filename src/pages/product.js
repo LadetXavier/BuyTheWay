@@ -37,16 +37,16 @@ export const Product = ({
     // call api to get all the size available
     /*  requestAction({
       url: `http://54.164.43.47:3000/skus-by-product/${match.params.productId}`,
-      onSucess: saveSizeAvailable,
+      onSuccess: saveSizeAvailable,
       label: 'sizeLoading',
     });  */
   }, []);
 
   // Display the loading icon by default
   let displayed = (<Loader />);
-  console.log('detail du produit',productDetail);
+  console.log('detail du produit', productDetail);
   console.log(isLoading);
-  
+
   // Once datas are collected, display the dynamique content
   if (!isLoading) {
     const { product } = productDetail;
@@ -82,16 +82,16 @@ Product.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
-      productId: PropTypes.string.isRequired
-    })
+      productId: PropTypes.string.isRequired,
+    }).isRequired,
   }).isRequired,
   productDetail: PropTypes.shape({
-    name: PropTypes.string,
+    name: PropTypes.string.isRequired,
     picture: PropTypes.shape({
-      picture1: PropTypes.string,
-      picture2: PropTypes.string
+      picture1: PropTypes.string.isRequired,
+      picture2: PropTypes.string.isRequired
     }),
-    description: PropTypes.string,
-    price: PropTypes.number
-  })  
-}
+    description: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+  }).isRequired,
+};
