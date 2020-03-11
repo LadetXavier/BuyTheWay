@@ -13,9 +13,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
   return {    
-    nav: state.shop.nav,
-    menLoading: state.api.menLoading,
-    womenLoading: state.api.womenLoading,
+   isSignUp: state.api.isSignUp
   }
 }
 

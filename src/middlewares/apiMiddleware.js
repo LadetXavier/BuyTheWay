@@ -10,7 +10,6 @@ const apiMiddleware = ({dispatch}) => next => action => {
   next(action);
 
   if( action.type !== API) return ;
-
   
   // destructuring payload
   const {
@@ -22,10 +21,9 @@ const apiMiddleware = ({dispatch}) => next => action => {
     onFailure,
     callBack,
     label,
-    headers,
-    
+    headers    
   } = action.payload;
-
+  console.log('data',data);  
   // if the request's method is GET or DELETE, then it's params and not data 
   const dataOrParams = ["GET","DELETE"].includes(method) ? "params" : "data";  
 
@@ -33,6 +31,10 @@ const apiMiddleware = ({dispatch}) => next => action => {
   axios.defaults.baseURL = "http://54.164.43.47:3000";
   axios.defaults.headers.common["Content-Type"]="application/json"; 
 
+  const fullHeaders = {
+    ...headers,
+    'Content-Type': 'application/json'
+  }
   // dispatch an action for handling loader
   if(label) {
     dispatch(apiStart(label));
@@ -42,7 +44,7 @@ const apiMiddleware = ({dispatch}) => next => action => {
   axios.request({
     url,
     method,
-    headers,
+    headers: fullHeaders,
     [dataOrParams]: data
   })
   .then( reponse => {
@@ -54,16 +56,15 @@ const apiMiddleware = ({dispatch}) => next => action => {
 
     } else {
       dispatch(onSuccess(reponse));
-    }
-    if(callBack() !== undefined){
-      callBack();
     }   
+      
   })
   .catch( error => {
     // dispatch the action to handle api error and dispatch the action for failure    
-   
-    dispatch(onFailure());       
-    console.error(error)    
+    if(onFailure() !== undefined) {
+      dispatch(onFailure());       
+      console.error(error)
+    }    
   })
   .finally( () => {
     // handle loading

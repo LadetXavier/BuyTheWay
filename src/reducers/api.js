@@ -4,7 +4,8 @@ const initialState = {
   isLoading:true,
   menLoading: true,
   womenLoading: true,
-  
+  isLogged: true,
+  isSignUp: true
 }
 
 const shop = (state = initialState, action) => {  
