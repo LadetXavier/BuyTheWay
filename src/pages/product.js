@@ -48,7 +48,6 @@ export const Product = ({
 
   // Once data are collected, display the dynamic content
   if (!isLoading && productDetail !== null) {
-
     const { product } = productDetail;
     displayed = (
       <>
