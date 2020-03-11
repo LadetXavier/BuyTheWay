@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import MediaQuery from 'react-responsive';
 
@@ -29,29 +29,25 @@ const Header = ({requestAction,nav,womenLoading,menLoading}) => {
       label: 'womenLoading',
     });
   },[]);
-
-  const handleMediaQueryChange = (matches) => {
-    // matches will be true or false based on the value for the media query
-  };
   const ref = React.createRef();
   const handleMobileClick = () => {
     ref.current.classList.toggle('displayNone');
   };
   return (
     <>
-      <MediaQuery maxDeviceWidth={1199} onChange={handleMediaQueryChange}>
+      <MediaQuery maxDeviceWidth={1199}>
         <nav className="navbar-mobile">
           <div type="button" className="far fa-bars icons dropleft" onClick={handleMobileClick} />
           <Link to="/"> <img src={Logo} alt="logo" className="logo-mobile" /> </Link>
           <ul className="">
-            <Category ref={ref} class1="dropleft-content" class2="" data={{nav,womenLoading,menLoading}} />
+            <Category ref={ref} class1="dropleft-content" class3="displayNone" data={{ nav, womenLoading, menLoading }} />
           </ul>
           <Icons />
         </nav>
       </MediaQuery>
 
 
-      <MediaQuery minDeviceWidth={1200} onChange={handleMediaQueryChange}>
+      <MediaQuery minDeviceWidth={1200}>
         <nav className="navbar-desktop">
           <Animate component="div" className="nav-links" appear="fadeInLeft" durationAppear={1750}>
             <Link to="/"> <img src={Logo} alt="logo" className="logo-desktop" /> </Link>
