@@ -1,7 +1,8 @@
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
-import {API} from '../actions/types.js';
-import {apiStart, apiEnd} from '../actions/apiActions.js';
+import {API} from 'src/actions/types.js';
+import {apiStart, apiEnd} from 'src/actions/apiActions.js';
 
 const apiMiddleware = ({dispatch}) => next => action => {
 
@@ -15,15 +16,14 @@ const apiMiddleware = ({dispatch}) => next => action => {
   const {
     url,
     method,
-    data,
-    token,   
+    data,       
     onSuccess,
     onFailure,
     callBack,
     label,
     headers    
   } = action.payload;
-  console.log('data',data);  
+   
   // if the request's method is GET or DELETE, then it's params and not data 
   const dataOrParams = ["GET","DELETE"].includes(method) ? "params" : "data";  
 
@@ -31,15 +31,21 @@ const apiMiddleware = ({dispatch}) => next => action => {
   axios.defaults.baseURL = "http://54.164.43.47:3000";
   axios.defaults.headers.common["Content-Type"]="application/json"; 
 
+  let token = "";
+  if(Cookies.get('access_token') !== undefined) {
+    token = Cookies.get('access_token');
+  }
+
   const fullHeaders = {
     ...headers,
-    'Content-Type': 'application/json'
+    'Content-Type': 'application/json',
+    'Authentification': `Bearer ${token}`,    
   }
   // dispatch an action for handling loader
   if(label) {
     dispatch(apiStart(label));
   }
-
+  
   // send request with some parameters
   axios.request({
     url,
@@ -50,9 +56,9 @@ const apiMiddleware = ({dispatch}) => next => action => {
   .then( reponse => {
     // dispatch the action you want to do when the request ended 
     if(onSuccess(reponse) === undefined) {
-      console.error('action maker undefined at url',url);
-      console.error('reponse',reponse);
-      console.error('onSuccess',onSuccess);
+      console.log('action maker undefined at url',url);
+      console.log('reponse',reponse);
+      console.log('onSuccess',onSuccess);
 
     } else {
       dispatch(onSuccess(reponse));
