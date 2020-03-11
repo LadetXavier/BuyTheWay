@@ -34,7 +34,7 @@ const Header = ({requestAction,nav,womenLoading,menLoading}) => {
     // matches will be true or false based on the value for the media query
   };
   const ref = React.createRef();
-  const handleMobileClick = () => {    
+  const handleMobileClick = () => {
     ref.current.classList.toggle('displayNone');
   };
   return (
@@ -53,7 +53,7 @@ const Header = ({requestAction,nav,womenLoading,menLoading}) => {
 
       <MediaQuery minDeviceWidth={1200} onChange={handleMediaQueryChange}>
         <nav className="navbar-desktop">
-          <Animate component="ul" className="nav-links" appear="fadeInLeft" durationAppear={1750}>
+          <Animate component="div" className="nav-links" appear="fadeInLeft" durationAppear={1750}>
             <Link to="/"> <img src={Logo} alt="logo" className="logo-desktop" /> </Link>
           </Animate>
           <Animate component="ul" className="nav-links" appear="fadeInDown" durationAppear={1750}>

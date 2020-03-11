@@ -9,7 +9,7 @@
 
 .navbar-desktop {
   max-width: 100%;
-  margin: 2.5em 15em;
+  margin: 2.5em 8em;
   padding: 0.5em;
   display: flex;
   align-items: center;
@@ -32,12 +32,12 @@
   font-size: 0.1rem;
   font-weight: bold;
   padding-right: 1.5rem;
+  
 }
 
 .dropdown {
 
 position: relative;
-display: inline-block;
 
 }
 
@@ -62,19 +62,25 @@ letter-spacing: 1px;
 .nav-links {
   display: flex; 
   flex-wrap: nowrap;
-  flex-direction:row;
+  
 }
 
 .navbar-desktop li {
-  list-style: none;
-  display: inline-block;
+  list-style: none;  
+}
+
+.link-container {
+  display: flex; 
+  flex-wrap: nowrap;
 }
 
 .icons {
   padding: 0.5rem;
 }
 .nav-icons{
-  
+  display: flex; 
+  flex-wrap: nowrap;
+  flex-direction:row
 }
 
 .logo-desktop {
@@ -126,7 +132,7 @@ height: 5rem;
     position: relative;
     background-color: grey;
     z-index: 10;
-    flex-direction: column;
+    flex-direction: row;
     
       a {
     color: $linksColor;

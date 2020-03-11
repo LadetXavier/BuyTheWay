@@ -5,19 +5,13 @@
   flex-wrap: wrap;
 }
 
-.product-mainImg {
-  object-fit: contain;
-  max-width: 30vw;
-  max-height: 30vh;
-  width: auto;
+.product-picContainer {
+  width: 30vw;
   height: auto;
 }
 
-.product-otherImg {
-  object-fit: contain;
-  max-width: 15vw;
-  max-height: 15vh;
-  width: auto;
+.product-pic {
+  width: 30vw;
   height: auto;
 }
 
@@ -44,3 +38,5 @@
 .cart {
   margin-right: 1em;
 }
+
+
