@@ -4,6 +4,8 @@ export * from './user.js';
 export * from './trend.js';
 export * from './category.js';
 export * from './cart.js';
-export * from './SignIn.js';
+export * from './SignUp.js';
+export * from './Page404.js';
+
 
 

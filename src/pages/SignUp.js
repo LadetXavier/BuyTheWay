@@ -1,32 +1,32 @@
 import React from 'react'
 
-import {redirect} from 'src/actions/user.js';
+import { Redirect } from 'react-router-dom';
+import { saveToken } from 'src/actions/user';
 
-export const SignIn = ({requestAction}) => {
+export const SignUp = ({requestAction, isSignUp}) => {
 
   let pseudo = React.createRef();
   let email = React.createRef();
   let password = React.createRef();
 
 
-  function handleSignIn(event) {
+  function handleSignUp(event) {
     event.preventDefault();    
-    console.log(pseudo.current.value);
     requestAction({
         method: 'POST',
-        url: `/user/signup`,
-        data: {
+        url: `http://54.164.43.47:3000/user/signup`,
+        data: JSON.stringify({
           nickname: pseudo.current.value,
           mail: email.current.value,
           password: password.current.value,
-        },      
-        onSuccess: redirect ,
-        label: 'SignIn',
+        }),
+        onSuccess:saveToken,        
+        label: 'isSignUp',
     }); 
   };
 
   return (
-    <form action="" onSubmit={handleSignIn}>
+    <form action="" onSubmit={handleSignUp}>
       <label htmlFor="Pseudo">Pseudo</label>
       <input type="text" id="Pseudo" ref={pseudo}/>
       <label htmlFor="Email">Email</label>
@@ -34,6 +34,7 @@ export const SignIn = ({requestAction}) => {
       <label htmlFor="Password">Password</label>
       <input type="password" id="Password" ref={password}/>
       <button type="submit" >Creer un compte</button>
+      {!isSignUp && <Redirect to="/"/>}
     </form>
   )
 };

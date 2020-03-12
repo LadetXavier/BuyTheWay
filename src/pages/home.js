@@ -1,12 +1,14 @@
 /* eslint-disable import/prefer-default-export */
 import React from 'react';
+import Cookies from 'js-cookie';
 
+import {LoginContainer as Login} from 'src/container/components/Login.js';
 
 
 export const Home = () => (
   <>
     <div>
-      <h1>home</h1>
+      {Cookies.get('access_token') === undefined && <Login/>}
     </div>
   </>
 );

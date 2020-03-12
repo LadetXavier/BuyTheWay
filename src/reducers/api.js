@@ -4,13 +4,18 @@ const initialState = {
   isLoading:true,
   menLoading: true,
   womenLoading: true,
-  
+  isLogged: true,
+  isSignUp: true
 }
 
 const shop = (state = initialState, action) => {  
   switch(action.type) {
-    case API_END :
-      
+    case API_START :      
+      return {
+        ...state,
+        [action.payload]: true
+      }
+    case API_END :      
       return {
         ...state,
         [action.payload]: false

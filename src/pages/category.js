@@ -25,7 +25,7 @@ export const Category = ({
       onFailure: apiError,
       label: 'isLoading',
     });
-  }, []);
+  }, [match]);
   // Display the loading icon by default
   let displayed = <Loader />;
 
@@ -41,7 +41,6 @@ export const Category = ({
       let productArray = listProducts.map((itemCurrent) => (
           <ItemCard key={itemCurrent._id} item={itemCurrent} match={match} />
       ));
-
       displayed = (
         <>
           <Hierarchy match={match} categoryName={categoryName} />
