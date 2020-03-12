@@ -1,6 +1,7 @@
 import React from 'react';
 
-import {HeaderContainer} from 'src/container/components/Header.js';
+import { HeaderContainer } from 'src/container/components/Header';
+import Footer from 'src/components/Footer';
 import Route from './Routes';
 import 'src/assets/styles/reset.css';
 import 'src/assets/styles/_vars.scss';
@@ -12,6 +13,7 @@ const App = () => (
   <>
     <HeaderContainer />
     <Route />
+    <Footer />
   </>
 );
 
