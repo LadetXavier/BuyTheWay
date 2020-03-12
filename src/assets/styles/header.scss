@@ -8,8 +8,8 @@
 -------------------------------- */
 
 .navbar-desktop {
-  max-width: 100%;
-  margin: 2.5em 8em;
+  max-width: 100vw;
+  margin-top: 1em;
   padding: 0.5em;
   display: flex;
   align-items: center;
@@ -31,13 +31,12 @@
 .categories {
   font-size: 0.1rem;
   font-weight: bold;
-  //padding-right: 1.5rem;
-  
 }
 
 .dropdown {
 
 position: relative;
+margin-right: 2em;
 
 }
 
@@ -62,7 +61,6 @@ letter-spacing: 1px;
 .nav-links {
   display: flex; 
   flex-wrap: nowrap;
-  
 }
 
 .navbar-desktop li {
