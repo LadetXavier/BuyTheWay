@@ -51,6 +51,8 @@ display: none;
 position: absolute;
 background-color: white;
 z-index: 10;
+padding: 0.5em;
+box-shadow:0px 5px 10px rgba(80, 80, 80, 0.473);
 
   a {
 color: $linksColor;
@@ -134,7 +136,7 @@ height: 5rem;
     }
 
   .dropleft-content {
-    //background-color: grey;
+    
     max-height: 100vh;
     max-width: 15vw;
     margin-bottom: 0.5em;
@@ -143,9 +145,10 @@ height: 5rem;
     color: $linksColor;
     display: block;
     text-decoration: none;
-    //padding-top: 1rem;
     letter-spacing: 1px;
     font-size: 0.9em;
+    
+    
       }
     }
 

@@ -1,12 +1,11 @@
-/* eslint-disable import/prefer-default-export */
 import React from 'react';
+//import Carousel from 'src/components/carousel';
 
+export const Home = () => {
 
-
-export const Home = () => (
-  <>
-    <div>
+  return (
+    <>
       <h1>home</h1>
-    </div>
-  </>
-);
+    </>
+  );
+};
