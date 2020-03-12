@@ -46,6 +46,7 @@ position: relative;
 display: none;
 position: absolute;
 background-color: white;
+z-index: 10;
 
   a {
 color: $linksColor;
@@ -128,14 +129,13 @@ height: 5rem;
     }
 
   .dropleft-content {
-    background-color: grey;
-    flex-direction: row;
-    
+    //background-color: grey;
+    //flex-direction: row;
       a {
     color: $linksColor;
     display: block;
     text-decoration: none;
-    padding-top: 1rem;
+    //padding-top: 1rem;
     letter-spacing: 1px;
       }
     }
