@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 
-import {SignIn} from 'src/pages';
+import {SignUp} from 'src/pages';
 
 import {requestAction} from 'src/actions/apiActions.js';
 //import {changePurchase,addCart} from 'src/actions/shop.js';
@@ -18,4 +18,4 @@ const mapStateToProps = (state) => {
 }
 
 
-export const SignInContainer = connect(mapStateToProps,mapDispatchToProps)(SignIn);
+export const SignUpContainer = connect(mapStateToProps,mapDispatchToProps)(SignUp);

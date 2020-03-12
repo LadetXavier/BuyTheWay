@@ -1,14 +1,13 @@
 import React from 'react'
 import Cookies from 'js-cookie';
 
-import {Redirect} from 'react-router-dom';
+import { Redirect,Link } from 'react-router-dom';
 import { saveToken } from 'src/actions/user';
 
 const Login = ({requestAction,isLogged}) => {
 
   let email = React.createRef();
-  let password = React.createRef();
-  console.log(Cookies.get('access_token'));
+  let password = React.createRef();  
 
   const handleConnexion = (e) => {
     e.preventDefault();
@@ -26,13 +25,14 @@ const Login = ({requestAction,isLogged}) => {
 
   return (
     <form action="" onSubmit={handleConnexion}>    
-    <label htmlFor="Email">Email</label>
-    <input type="email" id="Email" ref={email}/>
-    <label htmlFor="Password">Password</label>
-    <input type="password" id="Password" ref={password}/>
-    <button type="submit" >Se connecter</button>
-    {!isLogged && <Redirect to="/tendances"/>}
-  </form>
+      <label htmlFor="Email">Email</label>
+      <input type="email" id="Email" ref={email}/>
+      <label htmlFor="Password">Password</label>
+      <input type="password" id="Password" ref={password}/>
+      <button type="submit" >Se connecter</button>
+      {!isLogged && <Redirect to="/tendances"/>}
+      <Link to="/SignUp">Pas de compte ?</Link>
+    </form>
   )
 }
 

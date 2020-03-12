@@ -3,14 +3,14 @@ import React from 'react'
 import { Redirect } from 'react-router-dom';
 import { saveToken } from 'src/actions/user';
 
-export const SignIn = ({requestAction, isSignUp}) => {
+export const SignUp = ({requestAction, isSignUp}) => {
 
   let pseudo = React.createRef();
   let email = React.createRef();
   let password = React.createRef();
 
 
-  function handleSignIn(event) {
+  function handleSignUp(event) {
     event.preventDefault();    
     requestAction({
         method: 'POST',
@@ -26,7 +26,7 @@ export const SignIn = ({requestAction, isSignUp}) => {
   };
 
   return (
-    <form action="" onSubmit={handleSignIn}>
+    <form action="" onSubmit={handleSignUp}>
       <label htmlFor="Pseudo">Pseudo</label>
       <input type="text" id="Pseudo" ref={pseudo}/>
       <label htmlFor="Email">Email</label>
