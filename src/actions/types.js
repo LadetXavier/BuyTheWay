@@ -12,6 +12,7 @@ export const API_ERROR = "API_ERROR";
 export const LOAD_NAV = "LOAD_NAV";
 export const REDIRECT = "REDIRECT";
 export const SAVE_TOKEN = "SAVE_TOKEN";
+export const SAVE_USER = "SAVE_USER";
 
 
 

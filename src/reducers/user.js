@@ -1,25 +1,23 @@
-import {REDIRECT,SAVE_TOKEN} from 'src/actions/types.js';
+import {SAVE_TOKEN,SAVE_USER} from 'src/actions/types.js';
 import Cookies from 'js-cookie';
-
-import {Redirect} from 'react-router-dom';
 
 const initialState = {
   connected: false
-
 }
 
 const shop = (state = initialState, action) => {
-  
-  switch(action.type) {
-    /* case REDIRECT :
-      <Redirect to={action.url}/>
-      return {
-        ...state
-      } */
+  /* console.log(action); */
+  switch(action.type) {    
     case SAVE_TOKEN :
       Cookies.set('access_token',action.token);
+      Cookies.set('user_id',action.userID);
       return {
         ...state,        
+      }
+    case SAVE_USER :      
+      return {
+        ...state,
+        userData: action.data
       }
     default :
       return {
