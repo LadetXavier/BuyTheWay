@@ -45,7 +45,7 @@ const apiMiddleware = ({dispatch}) => next => action => {
   if(label) {
     dispatch(apiStart(label));
   }
-  
+  console.log(url);
   // send request with some parameters
   axios.request({
     url,
@@ -69,9 +69,9 @@ const apiMiddleware = ({dispatch}) => next => action => {
   .catch( error => {
     // dispatch the action to handle api error and dispatch the action for failure    
     if(onFailure() !== undefined) {
-      dispatch(onFailure());       
-      console.error(error)
-    }    
+      dispatch(onFailure());      
+    } 
+    console.error(error)   
   })
   .finally( () => {
     // handle loading

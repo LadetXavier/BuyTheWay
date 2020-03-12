@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import { FormPurchaseContainer as FormPurchase } from 'src/container/components/FormPurchase.js';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
+import CommentsContainer from 'src/components/shop/Comments.js'
 
 import './product.scss';
 
@@ -28,11 +29,11 @@ export const Product = ({
     });
 
     // call api to get all the size available
-    /*  requestAction({
+    requestAction({
       url: `http://54.164.43.47:3000/skus-by-product/${match.params.productId}`,
       onSuccess: saveSizeAvailable,
       label: 'sizeLoading',
-    });  */
+    });  
   }, []);
 
   // Display the loading icon by default
@@ -63,12 +64,13 @@ export const Product = ({
               {product.price} €
             </p>
             {/* <FormPurchase/> */}
+            <Comments />
           </div>
         </section>
       </>
     );
   }
-  // console.log ( displayed );
+  
   return (
     <div>
       {displayed}

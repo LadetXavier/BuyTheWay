@@ -21,8 +21,8 @@ const Category = React.forwardRef(({ class1, class2, class3, data }, ref) => {
 
 
   if (!data.menLoading && !data.womenLoading) {    
-    men = (data.nav.homme.map((current) => (<Link to={`/shop/homme/${current._id}`} key={current._id}>{current.name}</Link>)));
-    women = (data.nav.femme.map((current) => (<Link to={`/shop/femme/${current._id}`} key={current._id}>{current.name}</Link>)));    
+    men = (data.nav.homme.map((current) => (<Link to={`/shop/homme/${current.customId}`} key={current._id}>{current.name}</Link>)));
+    women = (data.nav.femme.map((current) => (<Link to={`/shop/femme/${current.customId}`} key={current._id}>{current.name}</Link>)));    
   }
   return (
     <div className={`link-container ${class3}`} ref={ref}>
