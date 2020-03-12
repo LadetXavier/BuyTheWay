@@ -4,22 +4,38 @@ import PropTypes from 'prop-types';
 
 const Category = React.forwardRef(({ class1, class2, class3, data }, ref) => {
   let men,women = (<></>);
-  if(!data.menLoading && !data.womenLoading) {
+  let refMen = React.createRef();
+  let refWomen = React.createRef();
+  const handleMobileClickMen = () => {
+    if (!refWomen.current.classList.contains('displayNone')) {
+      refWomen.current.classList.toggle('displayNone');
+    }
+    refMen.current.classList.toggle('displayNone');
+  };
+  const handleMobileClickWomen = () => {
+    if (!refMen.current.classList.contains('displayNone')) {
+      refMen.current.classList.toggle('displayNone');
+    }
+    refWomen.current.classList.toggle('displayNone');
+  };
+
+
+  if (!data.menLoading && !data.womenLoading) {
     console.log(data);
     men = (data.nav.homme.map((current,key) => (<Link to={`/shop/homme/${key}`} key={key}>{current.name}</Link>)));
-    women = (data.nav.femme.map((current,key) => (<Link to={`/shop/femme/${key}`} key={key}>{current.name}</Link>)));
+    women = (data.nav.femme.map((current,key) => (<Link to={`/shop/femme/${key}`} key={key}>{current.name}</Link>)));    
   }
   return (
     <div className={`link-container ${class3}`} ref={ref}>
       <div className={class1}>
-        <div><Link id="men" className="categories" to="/">HOMMES</Link></div>
-        <div className={class2}>
+        <div onClick={handleMobileClickMen}><Link id="men" className="categories" to="/">HOMMES</Link></div>
+        <div ref={refMen} className={class2}>
           {men}
         </div>
       </div>
       <div className={class1}>
-        <div><Link id="women" className="categories" to="/">FEMMES</Link></div>
-        <div className={class2}>
+        <div onClick={handleMobileClickWomen}><Link id="women" className="categories" to="/">FEMMES</Link></div>
+        <div ref={refWomen} className={class2}>
           {women}
         </div>
       </div>
@@ -30,7 +46,7 @@ const Category = React.forwardRef(({ class1, class2, class3, data }, ref) => {
         <div><Link id="challenges" className="categories" to="/">DEFIS</Link></div>
       </div>
     </div>
-);
+  );
 });
 
 Category.propTypes = {

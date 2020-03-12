@@ -10,8 +10,8 @@ import Icons from 'src/components/Header/icons';
 import 'src/assets/styles/header.scss';
 import Logo from 'src/assets/Pictures/logoBuyTheWay.png';
 
-import { loadNav } from 'src/actions/shop.js';
-import { apiError } from 'src/actions/apiActions.js';
+import { loadNav } from 'src/actions/shop';
+import { apiError } from 'src/actions/apiActions';
 
 
 const Header = ({requestAction,nav,womenLoading,menLoading}) => {
@@ -41,7 +41,7 @@ const Header = ({requestAction,nav,womenLoading,menLoading}) => {
             <div className="far fa-bars icons" onClick={handleMobileClick} />
             <Link to="/"> <img src={Logo} alt="logo" className="logo-mobile" /> </Link>
             <Icons />
-            <Category ref={ref} class1="" class2="dropleft-content" class3="displayNone" data={{ nav, womenLoading, menLoading }} />
+            <Category ref={ref} class1="" class2="dropleft-content displayNone" class3={`displayNone width100vw`} data={{ nav, womenLoading, menLoading }} />
           </div>
         </nav>
       </MediaQuery>

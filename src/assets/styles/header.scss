@@ -31,7 +31,7 @@
 .categories {
   font-size: 0.1rem;
   font-weight: bold;
-  padding-right: 1.5rem;
+  //padding-right: 1.5rem;
   
 }
 
@@ -72,6 +72,7 @@ letter-spacing: 1px;
 .link-container {
   display: flex; 
   flex-wrap: nowrap;
+  justify-content: space-between;
 }
 
 .icons {
@@ -130,18 +131,26 @@ height: 5rem;
 
   .dropleft-content {
     //background-color: grey;
-    //flex-direction: row;
+    max-height: 100vh;
+    max-width: 15vw;
+    margin-bottom: 0.5em;
       a {
+    margin-top: 0.5em;
     color: $linksColor;
     display: block;
     text-decoration: none;
     //padding-top: 1rem;
     letter-spacing: 1px;
+    font-size: 0.9em;
       }
     }
 
     .displayNone {
       display: none;
+    }
+
+    .width100vw {
+      width: 100vw;
     }
 /* -------------------------------- 
 
