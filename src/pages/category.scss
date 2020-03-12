@@ -3,18 +3,3 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
-
-.list-products-card {
-  width: 31%;
-  margin: 0.2rem;
-  background-color: darkgray;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.list-products-img {
-  width: 50%;  
-  max-height: 50vh;
-}

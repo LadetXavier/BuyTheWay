@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import Hierarchy from 'src/components/shop/Hierarchy';
 import PropTypes from 'prop-types';
 import { FormPurchaseContainer as FormPurchase } from 'src/container/components/FormPurchase.js';
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
 
 import './product.scss';
 
@@ -16,15 +18,6 @@ export const Product = ({
   match,
   productDetail,
 }) => {
-  const mainPic = React.createRef();
-  const secondPic = React.createRef();
-
-  const handleChangePic = () => {
-    mainPic.current.classList.toggle('product-mainImg');
-    mainPic.current.classList.toggle('product-otherImg');
-    secondPic.current.classList.toggle('product-mainImg');
-    secondPic.current.classList.toggle('product-otherImg');
-  };
 
   useEffect(() => {
     // call api to get detail about product
@@ -48,14 +41,20 @@ export const Product = ({
 
   // Once data are collected, display the dynamic content
   if (!isLoading && productDetail !== null) {
-
     const { product } = productDetail;
     displayed = (
       <>
         <Hierarchy match={match} categoryName={product.category.name} productName={product.name} />
         <section className="product">
-          <img className="product-mainImg" ref={mainPic} onClick={handleChangePic} src={product.picture.picture1} alt="Produit" />
-          <img className="product-otherImg" ref={secondPic} onClick={handleChangePic} src={product.picture.picture2} alt="Produit" />
+          <div className="product-picContainer">
+            <AliceCarousel
+              buttonsDisabled={true}
+              responsive={1}
+            >
+              <img src={product.picture.picture1} className="product-pic" />
+              <img src={product.picture.picture2} className="product-pic" />
+            </AliceCarousel>
+          </div>
           <div className="product-aside">
             <h2 className="product-name">{product.name}</h2>
             <p className="product-description">{product.description}</p>

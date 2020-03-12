@@ -2,16 +2,17 @@
   width: 80%;
   margin: 0 auto;
   display: flex;
+  flex-wrap: wrap;
 }
 
-.product-mainImg {
+.product-picContainer {
   width: 30vw;
   height: auto;
 }
 
-.product-otherImg {
-  width: 8vw;
-  height: 16vh;
+.product-pic {
+  width: 30vw;
+  height: auto;
 }
 
 .product-aside {
@@ -37,3 +38,5 @@
 .cart {
   margin-right: 1em;
 }
+
+

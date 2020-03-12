@@ -23,7 +23,7 @@ export const Category = ({
       url: `http://54.164.43.47:3000/category/${match.params.category}`,
       onSuccess: saveProducts,
       onFailure: apiError,
-      label: 'isLoading'
+      label: 'isLoading',
     });
   }, [match]);
   // Display the loading icon by default
@@ -39,15 +39,16 @@ export const Category = ({
     else {
       const categoryName = listProducts[0].category.name;
       let productArray = listProducts.map((itemCurrent) => (
-        <ItemCard key={itemCurrent._id} item={itemCurrent} match={match}/>
-      )); 
+          <ItemCard key={itemCurrent._id} item={itemCurrent} match={match} />
+      ));
       displayed = (
         <>
-          <Hierarchy match={match} categoryName={categoryName}/>
+          <Hierarchy match={match} categoryName={categoryName} />
           <section className="list-products">
             {productArray}
-          </section> 
-        </>);
+          </section>
+        </>
+      );
     }
   }
 
