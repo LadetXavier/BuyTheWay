@@ -31,8 +31,7 @@ const shop = (state = initialState, action) => {
         }
       }
 
-    case SAVE_PRODUCTS :
-      console.log('save product',action.data.data.category);
+    case SAVE_PRODUCTS :      
       return {
         ...state,
         listProducts: action.data.data.category
