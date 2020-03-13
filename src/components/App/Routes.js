@@ -1,10 +1,9 @@
 import React from 'react'
 import {Switch,Route} from 'react-router-dom';
 
-import {Home, Trend, User} from 'src/pages';
-import { productContainer,categoryContainer, cartContainer,SignInContainer, homeContainer } from 'src/container/pages';
 
-
+import { Trend, User,Page404} from 'src/pages';
+import { productContainer, categoryContainer, cartContainer, SignUpContainer, homeContainer} from 'src/container/pages'
 
 
 const Routes = () => {
@@ -15,8 +14,9 @@ const Routes = () => {
       <Route path="/shop/:gender/:category/:productId" exact component={productContainer}/>
       <Route path="/tendances" exact component={Trend}/>
       <Route path="/profil" exact component={User}/>
-      <Route path="/signIn" exact component={SignInContainer}/>
+      <Route path="/signup" exact component={SignUpContainer}/>
       <Route path="/panier" exact component={cartContainer}/>
+      <Route path="*" component={Page404} />
     </Switch>
   )
 }

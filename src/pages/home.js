@@ -1,4 +1,5 @@
 /* eslint-disable import/prefer-default-export */
+
 import React, { useEffect } from 'react';
 import { saveRandom } from 'src/actions/shop.js';
 import Loader from 'src/components/Loader.js';
@@ -8,6 +9,7 @@ import PropTypes from 'prop-types';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import './home.scss';
+import Cookies from 'js-cookie';
 
 export const Home = ({
   requestAction,
