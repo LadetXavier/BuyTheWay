@@ -33,7 +33,7 @@ export const Product = ({
       onSuccess: saveSizeAvailable,
       label: 'sizeLoading',
     });  */
-  }, []);
+  }, [Product]);
 
   // Display the loading icon by default
 
