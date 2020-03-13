@@ -34,6 +34,11 @@ export const Home = ({
 
   console.log(listRandom);
 
+  const addDefaultSrc = (e) => {
+    e.target.src = 'src/assets/Pictures/error_403.png';
+    return e.target.src;
+  };
+
   let displayed = (<Loader />);
 
   if (!isLoading) {
@@ -46,7 +51,7 @@ export const Home = ({
         >
           {listRandom.random.map((item) => (
             <div key={item._id}>
-              <img src={item.picture.picture1} alt="" className="index-pic" onError="this.src='src/assets/Pictures/error_403.png'" />
+              <img src={item.picture.picture1} alt="" className="index-pic" onError={addDefaultSrc} />
             </div>
           ))}
         </AliceCarousel>
