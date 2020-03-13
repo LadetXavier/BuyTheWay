@@ -46,7 +46,7 @@ export const Home = ({
         >
           {listRandom.random.map((item) => (
             <div key={item._id}>
-              <img src={item.picture.picture1} alt="" className="index-pic" />
+              <img src={item.picture.picture1} alt="" className="index-pic" onError="this.src='src/assets/Pictures/error_403.png'" />
             </div>
           ))}
         </AliceCarousel>
@@ -54,10 +54,10 @@ export const Home = ({
     );
   }
 
-let prevButton = document.getElementsByClassName("alice-carousel__prev-btn-item");
+  /* let prevButton = document.getElementsByClassName("alice-carousel__prev-btn-item");
 let nextButton = document.getElementsByClassName("alice-carousel__next-btn-item");
 console.log(prevButton);
-console.log(nextButton);
+console.log(nextButton); */
 
   return (
     <>
