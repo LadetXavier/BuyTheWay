@@ -2,7 +2,9 @@ import {SAVE_TOKEN,SAVE_USER} from 'src/actions/types.js';
 import Cookies from 'js-cookie';
 
 const initialState = {
-  connected: false
+  loadingLogged: true,
+  connected: false,
+  userData: null
 }
 
 const shop = (state = initialState, action) => {

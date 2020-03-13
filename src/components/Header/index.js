@@ -6,7 +6,7 @@ import MediaQuery from 'react-responsive';
 import Animate from 'animate.css-react';
 import 'animate.css/animate.css';
 import Category from 'src/components/Header/category';
-import Icons from 'src/components/Header/icons';
+import { IconsContainer as Icons } from 'src/container/components/Icons';
 import 'src/assets/styles/header.scss';
 import Logo from 'src/assets/Pictures/logoBuyTheWay.png';
 
@@ -17,7 +17,7 @@ import { apiError } from 'src/actions/apiActions';
 const Header = ({requestAction,nav,womenLoading,menLoading}) => {
   useEffect(() => {
     requestAction({
-      url: `http://localhost:3000/gender/homme`,
+      url: `http://54.164.43.47:3000/gender/homme`,
       onSuccess: (data) => ( loadNav(data,'homme')),
       onFailure: apiError,
       label: 'menLoading',

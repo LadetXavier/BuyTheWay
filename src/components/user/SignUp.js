@@ -1,6 +1,4 @@
 import React from 'react'
-
-import { Redirect } from 'react-router-dom';
 import { saveToken } from 'src/actions/user';
 
 export const SignUp = ({requestAction, isSignUp}) => {
@@ -33,8 +31,7 @@ export const SignUp = ({requestAction, isSignUp}) => {
       <input type="email" id="Email" ref={email}/>
       <label htmlFor="Password">Password</label>
       <input type="password" id="Password" ref={password}/>
-      <button type="submit" >Creer un compte</button>
-      {!isSignUp && <Redirect to="/"/>}
+      <button type="submit" >Creer un compte</button>      
     </form>
   )
 };

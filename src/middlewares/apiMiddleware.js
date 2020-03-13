@@ -55,6 +55,7 @@ const apiMiddleware = ({dispatch}) => next => action => {
   })
   .then( reponse => {      
     // dispatch the action you want to do when the request ended 
+    console.log(onSuccess(reponse));
     if(onSuccess(reponse) === undefined) {
       console.log('action maker undefined at url',url);
       console.log('reponse',reponse);

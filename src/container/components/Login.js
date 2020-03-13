@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 
-import Login from 'src/components/shop/Login.js';
+import Login from 'src/components/user/Login.js';
 
 import {requestAction} from 'src/actions/apiActions.js';
 //import {changePurchase,addCart} from 'src/actions/shop.js';
