@@ -1,8 +1,8 @@
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
-import {SignUp} from 'src/pages';
+import { SignUp } from 'src/components/user/SignUp.js';
 
-import {requestAction} from 'src/actions/apiActions.js';
+import { requestAction } from 'src/actions/apiActions.js';
 //import {changePurchase,addCart} from 'src/actions/shop.js';
 
 const mapDispatchToProps = (dispatch) => {

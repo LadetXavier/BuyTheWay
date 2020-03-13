@@ -1,7 +1,8 @@
 import {
   REDIRECT,
   SAVE_TOKEN,
-  SAVE_USER
+  SAVE_USER,
+  CHANGE_STATE
 } from './types.js';
 
 export const redirect = (url) => ({
@@ -20,3 +21,11 @@ export const saveUser = (data) => ({
   data: data.data
   
 })
+
+export const changeState = (state) => ({  
+  type:CHANGE_STATE,
+  data: state
+  
+})
+
+

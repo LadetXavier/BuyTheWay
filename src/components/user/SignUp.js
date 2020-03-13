@@ -24,14 +24,14 @@ export const SignUp = ({requestAction, isSignUp}) => {
   };
 
   return (
-    <form action="" onSubmit={handleSignUp}>
-      <label htmlFor="Pseudo">Pseudo</label>
-      <input type="text" id="Pseudo" ref={pseudo}/>
-      <label htmlFor="Email">Email</label>
-      <input type="email" id="Email" ref={email}/>
-      <label htmlFor="Password">Password</label>
-      <input type="password" id="Password" ref={password}/>
-      <button type="submit" >Creer un compte</button>      
+    <form className= "user-form" action="" onSubmit={handleSignUp}>
+      <label className = "user-label" htmlFor="Pseudo">Pseudo</label>
+      <input className = "user-textInput" type="text" id="Pseudo" ref={pseudo}/>
+      <label className = "user-label" htmlFor="Email">Email</label>
+      <input className = "user-textInput" type="email" id="Email" ref={email}/>
+      <label className = "user-label" htmlFor="Password">Password</label>
+      <input className = "user-textInput" type="password" id="Password" ref={password}/>
+      <button className = "user-submit" type="submit" >Creer un compte</button>      
     </form>
   )
 };

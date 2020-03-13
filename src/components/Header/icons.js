@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import {LoginContainer as Login} from 'src/container/components/Login.js';
+import { LoginContainer as Login } from 'src/container/components/Login.js';
+import { SignUpContainer as SignUp } from 'src/container/components/SignUp.js';
+
+
 import 'src/assets/styles/icons.scss';
 
 
-const Icons = ({ connected, isLogged, userData}) => {
-  console.log(userData);  
+const Icons = ({ connected, userLoading, userData}) => {
+  //console.log(userData);  
   const [hasAccount,setHasAccount] = useState(true);
   
   const handleSwitch = (e) => {
@@ -14,18 +17,21 @@ const Icons = ({ connected, isLogged, userData}) => {
     setHasAccount(!hasAccount);    
   }
   let displayed = <> </>
-  if(connected) {
-    displayed = (
+  if(connected && !userLoading ) {    
+   displayed = (
       <div className="user-content user-signIn">
-        <p>{userData.nickname}</p>
-        <p>{userData.rank}</p>
-        <p>586 / 1200</p>
+        <p className="user-nickname">{userData.user.nickname}</p>
+        <p className="user-rank">{userData.user.rank}</p>
+        <div className= "user-gaugeContainer">
+          <p className= "user-gaugeNumber">586 / 1200</p>
+          <div className="user-gauge"></div>          
+        </div>        
       </div>
-    );
+    ); 
   }
   else if(hasAccount){
     displayed = (
-      <div className="user-content">
+      <div className="user-content min-heightContent">
         <Login />
         <a href="" className= "user-fakeLink" onClick={handleSwitch}>Pas de compte ?</a>
       </div>
@@ -33,8 +39,8 @@ const Icons = ({ connected, isLogged, userData}) => {
   }
   else {
     displayed = (
-      <div className="user-content">
-        <Login />
+      <div className="user-content min-heightContent">
+        <SignUp />
         <a href="" className= "user-fakeLink" onClick={handleSwitch}>Deja un compte ?</a>
       </div>
     )

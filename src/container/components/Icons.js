@@ -5,12 +5,13 @@ import { requestAction } from 'src/actions/apiActions.js';
 
 const mapDispatchToProps = ( dispatch ) => {
   return {
-    requestAction : ( request ) => dispatch(requestAction(request)),    
+    requestAction : ( request ) => dispatch(requestAction(request)),
+       
   }
 }
 const mapStateToProps = ( state ) => {
   return {   
-    isLogged: state.api.isLogged,
+    userLoading: state.api.userLoading,
     connected: state.user.connected,
     userData: state.user.userData    
   }
