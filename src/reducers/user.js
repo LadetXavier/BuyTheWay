@@ -8,8 +8,8 @@ const initialState = {
 }
 
 const shop = (state = initialState, action) => {
-  /* console.log(action); */
-  switch(action.type) {    
+
+  switch(action.type) {
     case SAVE_TOKEN :
       Cookies.set('access_token',action.token);
       Cookies.set('user_id',action.userID);

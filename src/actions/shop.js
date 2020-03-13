@@ -5,7 +5,8 @@ import {
   SAVE_SIZE,
   CHANGE_PURCHASE,
   ADD_CART,
-  LOAD_NAV
+  LOAD_NAV,
+  SAVE_RANDOM
   //TOOGLE_LOADING
 } from './types.js';
 
@@ -42,6 +43,11 @@ export const loadNav = (data,gender) => ({
   type: LOAD_NAV,
   gender,
   data: data
+});
+
+export const saveRandom = (data) => ({
+  type: SAVE_RANDOM,  
+  data: data.data
 });
 
 /* export const toogleLoading = () => ({
