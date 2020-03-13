@@ -5,7 +5,8 @@ import {
   SAVE_SIZE,
   ADD_CART,
   CHANGE_PURCHASE,
-  LOAD_NAV  
+  LOAD_NAV,
+  SAVE_RANDOM  
 } from 'src/actions/types.js';
 
 const initialState = {
@@ -69,6 +70,11 @@ const shop = (state = initialState, action) => {
           ...state.purchase,
           ...action.data
         }
+      }
+    case SAVE_RANDOM :
+      return {
+        ...state,
+        listRandom: action.data
       }
     default:
       return {

@@ -11,6 +11,7 @@ export const ADD_CART = "ADD_CART";
 export const API_ERROR = "API_ERROR";
 export const LOAD_NAV = "LOAD_NAV";
 export const REDIRECT = "REDIRECT";
+export const SAVE_RANDOM = "REDIRECT";
 
 
 

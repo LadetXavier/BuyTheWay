@@ -1,11 +1,65 @@
-import React from 'react';
-//import Carousel from 'src/components/carousel';
+/* eslint-disable import/prefer-default-export */
+import React, { useEffect } from 'react';
+import { saveRandom } from 'src/actions/shop.js';
+import Loader from 'src/components/Loader.js';
+import { Link } from 'react-router-dom';
+import Hierarchy from 'src/components/shop/Hierarchy';
+import PropTypes from 'prop-types';
+import AliceCarousel from 'react-alice-carousel';
+import 'react-alice-carousel/lib/alice-carousel.css';
+import './home.scss';
 
-export const Home = () => {
+export const Home = ({
+  requestAction,
+  isLoading,
+  match,
+  listRandom,
+}) => {
+
+  useEffect(() => {
+    // call api to get detail about product
+    requestAction({
+      url: `http://54.164.43.47:3000/random`,
+      onSuccess: saveRandom,
+      label: 'isLoading',
+    });
+  }, []);
+
+  const responsive = {
+    0: { items: 1 },
+    1024: { items: 4 },
+  };
+
+  console.log(listRandom);
+
+  let displayed = (<Loader />);
+
+  if (!isLoading) {
+    displayed = (
+      <div className="index-picContainer">
+        <AliceCarousel
+          buttonsDisabled={false}
+          dotsDisabled={true}
+          responsive={responsive}
+        >
+          {listRandom.random.map((item) => (
+            <div key={item._id}>
+              <img src={item.picture.picture1} alt="" className="index-pic" />
+            </div>
+          ))}
+        </AliceCarousel>
+      </div>
+    );
+  }
+
+let prevButton = document.getElementsByClassName("alice-carousel__prev-btn-item");
+let nextButton = document.getElementsByClassName("alice-carousel__next-btn-item");
+console.log(prevButton);
+console.log(nextButton);
 
   return (
     <>
-      <h1>home</h1>
+      {displayed}
     </>
   );
 };
