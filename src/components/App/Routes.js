@@ -1,16 +1,15 @@
 import React from 'react'
 import {Switch,Route} from 'react-router-dom';
 
-import {Home, Trend, User,Page404} from 'src/pages';
-import {productContainer,categoryContainer, cartContainer,SignUpContainer} from 'src/container/pages'
 
-
+import { Trend, User,Page404} from 'src/pages';
+import { productContainer, categoryContainer, cartContainer, SignUpContainer, homeContainer} from 'src/container/pages'
 
 
 const Routes = () => {
   return (
     <Switch>
-      <Route path="/" exact component={Home}/>
+      <Route path="/" exact component={homeContainer}/>
       <Route path="/shop/:gender/:category" exact component={categoryContainer}/>
       <Route path="/shop/:gender/:category/:productId" exact component={productContainer}/>
       <Route path="/tendances" exact component={Trend}/>

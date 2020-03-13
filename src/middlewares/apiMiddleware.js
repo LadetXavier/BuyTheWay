@@ -67,10 +67,11 @@ const apiMiddleware = ({dispatch}) => next => action => {
   })
   .catch( error => {
     // dispatch the action to handle api error and dispatch the action for failure    
+
     if(onFailure() !== undefined) {
       dispatch(onFailure());       
       console.error(error)
-    }    
+    }
   })
   .finally( () => {
     // handle loading
