@@ -45,7 +45,7 @@ const apiMiddleware = ({dispatch}) => next => action => {
   if(label) {
     dispatch(apiStart(label));
   }
-  
+  console.log(url);
   // send request with some parameters
   axios.request({
     url,
@@ -53,14 +53,16 @@ const apiMiddleware = ({dispatch}) => next => action => {
     headers: fullHeaders,
     [dataOrParams]: data
   })
-  .then( reponse => {
+  .then( reponse => {      
     // dispatch the action you want to do when the request ended 
+    //console.log(onSuccess(reponse));
     if(onSuccess(reponse) === undefined) {
       console.log('action maker undefined at url',url);
       console.log('reponse',reponse);
       console.log('onSuccess',onSuccess);
 
     } else {
+      //console.log(reponse);      
       dispatch(onSuccess(reponse));
     }   
       
@@ -69,9 +71,9 @@ const apiMiddleware = ({dispatch}) => next => action => {
     // dispatch the action to handle api error and dispatch the action for failure    
 
     if(onFailure() !== undefined) {
-      dispatch(onFailure());       
-      console.error(error)
-    }
+      dispatch(onFailure());      
+    } 
+    console.error(error);   
   })
   .finally( () => {
     // handle loading

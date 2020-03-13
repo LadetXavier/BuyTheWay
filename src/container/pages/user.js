@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 
-import Login from 'src/components/user/Login.js';
+import {User} from 'src/pages';
 
 import {requestAction} from 'src/actions/apiActions.js';
 //import {changePurchase,addCart} from 'src/actions/shop.js';
@@ -12,10 +12,10 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
-  return {   
-    isLogged: state.api.isLogged
+  return {    
+    userData: state.user.userData
   }
 }
 
 
-export const LoginContainer = connect(mapStateToProps,mapDispatchToProps)(Login);
+export const UserContainer = connect(mapStateToProps,mapDispatchToProps)(User);

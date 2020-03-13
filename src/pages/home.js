@@ -65,9 +65,11 @@ let nextButton = document.getElementsByClassName("alice-carousel__next-btn-item"
 console.log(prevButton);
 console.log(nextButton); */
 
+
   return (
     <>
       {displayed}
     </>
   );
 };
+

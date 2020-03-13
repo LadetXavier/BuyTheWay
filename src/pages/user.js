@@ -1,6 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import Cookies from 'js-cookie';
 
-export const User = () => {
+
+import {saveUser} from 'src/actions/user.js';
+
+
+export const User = ({requestAction,userData}) => {  
+
   return (
     <div>
       <h1>user</h1>

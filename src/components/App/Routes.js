@@ -1,10 +1,8 @@
 import React from 'react'
 import {Switch,Route} from 'react-router-dom';
 
-
-import { Trend, User,Page404} from 'src/pages';
-import { productContainer, categoryContainer, cartContainer, SignUpContainer, homeContainer} from 'src/container/pages'
-
+import {Trend, Page404} from 'src/pages';
+import {productContainer,categoryContainer, cartContainer, UserContainer, homeContainer} from 'src/container/pages'
 
 const Routes = () => {
   return (
@@ -13,8 +11,8 @@ const Routes = () => {
       <Route path="/shop/:gender/:category" exact component={categoryContainer}/>
       <Route path="/shop/:gender/:category/:productId" exact component={productContainer}/>
       <Route path="/tendances" exact component={Trend}/>
-      <Route path="/profil" exact component={User}/>
-      <Route path="/signup" exact component={SignUpContainer}/>
+      <Route path="/profil" exact component={UserContainer}/>
+      {/* <Route path="/signup" exact component={SignUpContainer}/> */}
       <Route path="/panier" exact component={cartContainer}/>
       <Route path="*" component={Page404} />
     </Switch>

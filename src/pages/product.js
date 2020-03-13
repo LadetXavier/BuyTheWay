@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import { FormPurchaseContainer as FormPurchase } from 'src/container/components/FormPurchase.js';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
+import Comments from 'src/components/shop/Comments.js';
 
 import './product.scss';
 
@@ -17,12 +18,13 @@ export const Product = ({
   isLoading,
   match,
   productDetail,
+  comments
 }) => {
 
   useEffect(() => {
     // call api to get detail about product
     requestAction({
-      url: `http://54.164.43.47:3000/products/${match.params.productId}`,
+      url: `http://localhost:3000/products/${match.params.productId}`,
       onSuccess: saveProductDetail,
       label: 'isLoading',
     });
@@ -42,6 +44,11 @@ export const Product = ({
   // Once data are collected, display the dynamic content
   if (!isLoading && productDetail !== null) {
     const { product } = productDetail;
+    requestAction({
+      url: `http://54.164.43.47:3000/skus-by-product/${product.sku}`,
+      onSuccess: saveSizeAvailable,
+      label: 'sizeLoading',
+    });
     displayed = (
       <>
         <Hierarchy match={match} categoryName={product.category.name} productName={product.name} />
@@ -63,12 +70,14 @@ export const Product = ({
               {product.price} €
             </p>
             {/* <FormPurchase/> */}
+            
           </div>
         </section>
+        <Comments comments={comments}/>
       </>
     );
   }
-  // console.log ( displayed );
+  
   return (
     <div>
       {displayed}
