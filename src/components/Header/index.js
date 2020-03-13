@@ -17,7 +17,7 @@ import { apiError } from 'src/actions/apiActions';
 const Header = ({requestAction,nav,womenLoading,menLoading}) => {
   useEffect(() => {
     requestAction({
-      url: `http://54.164.43.47:3000/gender/homme`,
+      url: `http://localhost:3000/gender/homme`,
       onSuccess: (data) => ( loadNav(data,'homme')),
       onFailure: apiError,
       label: 'menLoading',
