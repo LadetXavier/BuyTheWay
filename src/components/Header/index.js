@@ -6,7 +6,7 @@ import MediaQuery from 'react-responsive';
 import Animate from 'animate.css-react';
 import 'animate.css/animate.css';
 import Category from 'src/components/Header/category';
-import Icons from 'src/components/Header/icons';
+import { IconsContainer as Icons } from 'src/container/components/Icons';
 import 'src/assets/styles/header.scss';
 import Logo from 'src/assets/Pictures/logoBuyTheWay.png';
 

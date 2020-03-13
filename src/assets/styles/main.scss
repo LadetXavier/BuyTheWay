@@ -1,5 +1,6 @@
 @import './vars'; // colors, fonts etc...
 
+
 @font-face {
   src: $mainFont-src;
   font-family: $mainFont-Family;
@@ -7,4 +8,15 @@
 
 body {
   font-family: $mainFont-Family;
+
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }

@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 
-import {SignUp} from 'src/pages';
+import Comments from 'src/components/shop/Comments.js';
 
 import {requestAction} from 'src/actions/apiActions.js';
 //import {changePurchase,addCart} from 'src/actions/shop.js';
@@ -12,10 +12,10 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const mapStateToProps = (state) => {
-  return {    
-   isSignUp: state.api.isSignUp
+  return {   
+    isLogged: state.api.isLogged
   }
 }
 
 
-export const SignUpContainer = connect(mapStateToProps,mapDispatchToProps)(SignUp);
+export const CommentsContainer = connect(mapStateToProps,mapDispatchToProps)(Comments);

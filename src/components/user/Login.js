@@ -24,14 +24,12 @@ const Login = ({requestAction,isLogged}) => {
   }
 
   return (
-    <form action="" onSubmit={handleConnexion}>    
-      <label htmlFor="Email">Email</label>
-      <input type="email" id="Email" ref={email}/>
-      <label htmlFor="Password">Password</label>
-      <input type="password" id="Password" ref={password}/>
-      <button type="submit" >Se connecter</button>
-      {!isLogged && <Redirect to="/tendances"/>}
-      <Link to="/SignUp">Pas de compte ?</Link>
+    <form className= "user-form" action="" onSubmit={handleConnexion}>    
+      <label className = "user-label" htmlFor="Email">Email</label>
+      <input className = "user-textInput" type="email" id="Email" ref={email}/>
+      <label className = "user-label" htmlFor="Password">Password</label>
+      <input className = "user-textInput" type="password" id="Password" ref={password}/>
+      <button className = "user-submit" type="submit" >Se connecter</button>     
     </form>
   )
 }
