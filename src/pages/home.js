@@ -10,6 +10,7 @@ import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import './home.scss';
 import Cookies from 'js-cookie';
+import error_403 from 'src/assets/Pictures/error_403.png';
 
 export const Home = ({
   requestAction,
@@ -35,7 +36,7 @@ export const Home = ({
   console.log(listRandom);
 
   const addDefaultSrc = (e) => {
-    e.target.src = 'src/assets/Pictures/error_403.png';
+    e.target.src = error_403;
     return e.target.src;
   };
 
