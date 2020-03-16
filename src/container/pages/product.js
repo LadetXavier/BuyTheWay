@@ -13,7 +13,8 @@ const mapStateToProps = (state) => {
   return {
     productDetail: state.shop.productDetail,
     isLoading: state.api.isLoading,
-    sizeAvailable: state.shop.sizeAvailable
+    sizeAvailable: state.shop.sizeAvailable,
+    sizeLoading: state.api.sizeLoading
   }
 }
 
