@@ -45,7 +45,7 @@ const apiMiddleware = ({dispatch}) => next => action => {
   if(label) {
     dispatch(apiStart(label));
   }
-  console.log(url);
+  
   // send request with some parameters
   axios.request({
     url,
