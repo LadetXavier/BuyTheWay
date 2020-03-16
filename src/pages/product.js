@@ -10,6 +10,7 @@ import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import Comments from 'src/components/shop/Comments.js';
 
+
 import './product.scss';
 
 
@@ -32,11 +33,8 @@ export const Product = ({
       url: `http://54.164.43.47:3000/products/${match.params.productId}`,
       onSuccess: saveProductDetail,
       label: 'isLoading',
-    });
-
-    
-    // call api to get all the size available    
-    
+    });    
+    // call api to get all the comments      
     /* requestAction({
       url: `http://54.164.43.47:3000/comments/${match.params.productId}`,
       onSuccess: saveComments,
@@ -45,7 +43,6 @@ export const Product = ({
   }, []);
 
   useEffect(() => {
-
     if(!sizeFired && product !== null) {
       setSizeFired(true);
       requestAction({
@@ -53,8 +50,7 @@ export const Product = ({
         onSuccess: saveSizeAvailable,
         label: 'sizeLoading',
       });
-    }
-   
+    }   
   }, [product]);
 
   // Display the loading icon by default
