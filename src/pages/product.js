@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { saveProductDetail,saveSizeAvailable } from 'src/actions/shop.js';
 import Loader from 'src/components/Loader.js';
 import { Link } from 'react-router-dom';
@@ -10,6 +10,7 @@ import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import Comments from 'src/components/shop/Comments.js';
 
+
 import './product.scss';
 
 
@@ -18,8 +19,13 @@ export const Product = ({
   isLoading,
   match,
   productDetail,
-  comments
+  comments,
+  sizeLoading,
+  sizeAvailable
 }) => {
+
+  let [sizeFired, setSizeFired] = useState(false);
+  let [product, setProduct] = useState(null);
 
   useEffect(() => {
     // call api to get detail about product
@@ -27,28 +33,40 @@ export const Product = ({
       url: `http://54.164.43.47:3000/products/${match.params.productId}`,
       onSuccess: saveProductDetail,
       label: 'isLoading',
-    });
+    });    
+    // call api to get all the comments      
+    /* requestAction({
+      url: `http://54.164.43.47:3000/comments/${match.params.productId}`,
+      onSuccess: saveComments,
+      label: 'commentsLoading',
+    }); */
+  }, []);
 
-    // call api to get all the size available
-    /*  requestAction({
-      url: `http://54.164.43.47:3000/skus-by-product/${match.params.productId}`,
-      onSuccess: saveSizeAvailable,
-      label: 'sizeLoading',
-    });  */
-  }, [Product]);
+
+  useEffect(() => {
+    if(!sizeFired && product !== null) {
+      setSizeFired(true);
+      requestAction({
+        url: `http://54.164.43.47:3000/skus-by-product/${product.sku}`,
+        onSuccess: saveSizeAvailable,
+        label: 'sizeLoading',
+      });
+    }   
+  }, [product]);
 
   // Display the loading icon by default
 
   let displayed = (<Loader />);
+  let sizes = <> </>
 
   // Once data are collected, display the dynamic content
-  if (!isLoading && productDetail !== null) {
-    const { product } = productDetail;
-    /*requestAction({
-      url: `http://54.164.43.47:3000/skus-by-product/${product.sku}`,
-      onSuccess: saveSizeAvailable,
-      label: 'sizeLoading',
-    });*/
+
+  if(!isLoading && product === null) {
+    setProduct(productDetail.product); 
+  }
+
+  if ( product !== null) {    
+
     displayed = (
       <>
         <Hierarchy match={match} categoryName={product.category.name} productName={product.name} />
@@ -65,16 +83,22 @@ export const Product = ({
           <div className="product-aside">
             <h2 className="product-name">{product.name}</h2>
             <p className="product-description">{product.description}</p>
+            
             <p className="product-price">
               <span className="far fa-cart-plus cart" />
               {product.price} €
             </p>
-            {/* <FormPurchase/> */}
+
+            { <FormPurchase item={product}/> }
           </div>
         </section>
         <Comments comments={comments} />
       </>
-    );
+    );   
+    if(sizeLoading) {
+      console.log(sizeAvailable)
+
+    }
   }
 
   return (

@@ -51,7 +51,7 @@ const shop = (state = initialState, action) => {
     case SAVE_SIZE :
       return {
         ...state,
-        sizeAvailable: action.data
+        sizeAvailable: action.data.data.skus
       }  
     // Temporary
     case ADD_CART :
