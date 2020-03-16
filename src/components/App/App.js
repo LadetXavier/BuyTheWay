@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 
+
 import { HeaderContainer } from 'src/container/components/Header.js';
+import Footer from 'src/components/Footer';
 import Route from './Routes';
 import 'src/assets/styles/reset.css';
 import 'src/assets/styles/_vars.scss';
@@ -30,6 +32,7 @@ const App = ({ requestAction, connected, changeState }) => {
   <>
     <HeaderContainer />
     <Route />
+    <Footer />
   </>
   );
 };

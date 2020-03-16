@@ -11,9 +11,11 @@ export const ADD_CART = "ADD_CART";
 export const API_ERROR = "API_ERROR";
 export const LOAD_NAV = "LOAD_NAV";
 export const REDIRECT = "REDIRECT";
+export const SAVE_RANDOM = "SAVE_RANDOM";
 export const SAVE_TOKEN = "SAVE_TOKEN";
 export const SAVE_USER = "SAVE_USER";
 export const CHANGE_STATE = "CHANGE_STATE";
+
 
 
 
