@@ -10,6 +10,7 @@ import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import './home.scss';
 import Cookies from 'js-cookie';
+import error403 from 'src/assets/Pictures/error_403.png';
 
 export const Home = ({
   requestAction,
@@ -25,7 +26,7 @@ export const Home = ({
       onSuccess: saveRandom,
       label: 'isLoading',
     });
-  }, []);
+  }, [Home]);
 
   const responsive = {
     0: { items: 1 },
@@ -33,6 +34,11 @@ export const Home = ({
   };
 
   console.log(listRandom);
+
+  const addDefaultSrc = (e) => {
+    e.target.src = error403;
+    return e.target.src;
+  };
 
   let displayed = (<Loader />);
 
@@ -44,9 +50,9 @@ export const Home = ({
           dotsDisabled={true}
           responsive={responsive}
         >
-          {listRandom.random.map((item) => (
+          {listRandom.r.map((item) => (
             <div key={item._id}>
-              <img src={item.picture.picture1} alt="" className="index-pic" />
+              <img src={item.picture.picture1} alt="" className="index-pic" onError={addDefaultSrc} />
             </div>
           ))}
         </AliceCarousel>
@@ -54,10 +60,10 @@ export const Home = ({
     );
   }
 
-let prevButton = document.getElementsByClassName("alice-carousel__prev-btn-item");
+  /* let prevButton = document.getElementsByClassName("alice-carousel__prev-btn-item");
 let nextButton = document.getElementsByClassName("alice-carousel__next-btn-item");
 console.log(prevButton);
-console.log(nextButton);
+console.log(nextButton); */
 
 
   return (
@@ -66,4 +72,3 @@ console.log(nextButton);
     </>
   );
 };
-

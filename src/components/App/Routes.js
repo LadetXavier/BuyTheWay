@@ -2,7 +2,7 @@ import React from 'react'
 import {Switch,Route} from 'react-router-dom';
 
 import {Trend, Page404} from 'src/pages';
-import {productContainer,categoryContainer, cartContainer, UserContainer, homeContainer} from 'src/container/pages'
+import {productContainer,categoryContainer, cartContainer, UserContainer, homeContainer} from 'src/container/pages';
 
 const Routes = () => {
   return (

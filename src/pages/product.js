@@ -42,6 +42,7 @@ export const Product = ({
     }); */
   }, []);
 
+
   useEffect(() => {
     if(!sizeFired && product !== null) {
       setSizeFired(true);
@@ -59,12 +60,13 @@ export const Product = ({
   let sizes = <> </>
 
   // Once data are collected, display the dynamic content
+
   if(!isLoading && product === null) {
     setProduct(productDetail.product); 
   }
 
-  if ( product !== null) {  
-    
+  if ( product !== null) {    
+
     displayed = (
       <>
         <Hierarchy match={match} categoryName={product.category.name} productName={product.name} />
@@ -86,11 +88,11 @@ export const Product = ({
               <span className="far fa-cart-plus cart" />
               {product.price} €
             </p>
+
             { <FormPurchase item={product}/> }
-            
           </div>
         </section>
-        <Comments comments={comments}/>
+        <Comments comments={comments} />
       </>
     );   
     if(sizeLoading) {
@@ -98,7 +100,7 @@ export const Product = ({
 
     }
   }
-  
+
   return (
     <div>
       {displayed}
