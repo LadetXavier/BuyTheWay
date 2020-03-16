@@ -24,7 +24,7 @@ export const Product = ({
   useEffect(() => {
     // call api to get detail about product
     requestAction({
-      url: `http://localhost:3000/products/${match.params.productId}`,
+      url: `http://54.164.43.47:3000/products/${match.params.productId}`,
       onSuccess: saveProductDetail,
       label: 'isLoading',
     });
@@ -44,11 +44,11 @@ export const Product = ({
   // Once data are collected, display the dynamic content
   if (!isLoading && productDetail !== null) {
     const { product } = productDetail;
-    requestAction({
+    /*requestAction({
       url: `http://54.164.43.47:3000/skus-by-product/${product.sku}`,
       onSuccess: saveSizeAvailable,
       label: 'sizeLoading',
-    });
+    });*/
     displayed = (
       <>
         <Hierarchy match={match} categoryName={product.category.name} productName={product.name} />
@@ -70,14 +70,13 @@ export const Product = ({
               {product.price} €
             </p>
             {/* <FormPurchase/> */}
-            
           </div>
         </section>
-        <Comments comments={comments}/>
+        <Comments comments={comments} />
       </>
     );
   }
-  
+
   return (
     <div>
       {displayed}

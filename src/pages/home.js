@@ -26,7 +26,7 @@ export const Home = ({
       onSuccess: saveRandom,
       label: 'isLoading',
     });
-  }, [displayed]);
+  }, [Home]);
 
   const responsive = {
     0: { items: 1 },
