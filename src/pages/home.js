@@ -50,7 +50,7 @@ export const Home = ({
           dotsDisabled={true}
           responsive={responsive}
         >
-          {listRandom.random.map((item) => (
+          {listRandom.r.map((item) => (
             <div key={item._id}>
               <img src={item.picture.picture1} alt="" className="index-pic" onError={addDefaultSrc} />
             </div>
@@ -72,4 +72,3 @@ console.log(nextButton); */
     </>
   );
 };
-
