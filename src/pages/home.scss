@@ -1,20 +1,20 @@
 .index {
-  width: 80%;
+  width: 75vw;
   margin:  auto;
   display: flex;
   flex-wrap: wrap;
-  
-  
-}
-
-.index-picContainer {
-  width: 75vw;
-  height: auto;
-  margin: auto;
-  
+  align-content: center;
 }
 
 .index-pic {
   width: 15vw;
   height: auto;
+}
+
+#tendances, #défis {
+  width: 50%;
+  text-align: center;
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
+  border-bottom: black 1px solid;
 }

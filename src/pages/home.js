@@ -12,6 +12,11 @@ import './home.scss';
 import Cookies from 'js-cookie';
 import error403 from 'src/assets/Pictures/error_403.png';
 
+const responsive = {
+  0: { items: 1 },
+  1024: { items: 4 },
+};
+
 export const Home = ({
   requestAction,
   isLoading,
@@ -28,11 +33,6 @@ export const Home = ({
     });
   }, [Home]);
 
-  const responsive = {
-    0: { items: 1 },
-    1024: { items: 4 },
-  };
-
   console.log(listRandom);
 
   const addDefaultSrc = (e) => {
@@ -44,19 +44,28 @@ export const Home = ({
 
   if (!isLoading) {
     displayed = (
-      <div className="index-picContainer">
-        <AliceCarousel
-          buttonsDisabled={false}
-          dotsDisabled={true}
-          responsive={responsive}
-        >
-          {listRandom.r.map((item) => (
-            <div key={item._id}>
-              <img src={item.picture.picture1} alt="" className="index-pic" onError={addDefaultSrc} />
-            </div>
-          ))}
-        </AliceCarousel>
-      </div>
+      <>
+        <div className="index">
+          <div id="tendances">
+            <p>Tendances</p>
+          </div>
+          <div id="défis">
+            <p>Défis</p>
+          </div>
+          <AliceCarousel
+            buttonsDisabled={true}
+            dotsDisabled={false}
+            responsive={responsive}
+            infinite={false}
+          >
+            {listRandom.r.map((item) => (
+              <div key={item._id}>
+                <img src={item.picture.picture1} alt="" className="index-pic" onError={addDefaultSrc} />
+              </div>
+            ))}
+          </AliceCarousel>
+        </div>
+      </>
     );
   }
 
