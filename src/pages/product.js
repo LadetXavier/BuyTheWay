@@ -96,7 +96,7 @@ export const Product = ({
       </>
     );   
     if(sizeLoading) {
-      console.log(sizeAvailable)
+      
 
     }
   }

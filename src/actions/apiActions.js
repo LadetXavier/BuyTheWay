@@ -22,7 +22,7 @@ export const requestAction = ({
  data = null,
  token = null,
  headers = null,
- callBack = () => {},
+ callBackSuccess = () => {},
  // onSuccess and onFailure are actionMaker that will be dispatched when the call API fail and success
  onSuccess = () => {},
  onFailure = () => {},
@@ -38,7 +38,7 @@ export const requestAction = ({
       data,
       headers,
       onSuccess,
-      callBack,
+      callBackSuccess,
       onFailure,
       label,
     }

@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import Comments from 'src/components/shop/Comments.js';
 
 import {requestAction} from 'src/actions/apiActions.js';
-//import {changePurchase,addCart} from 'src/actions/shop.js';
 
 const mapDispatchToProps = (dispatch) => {
   return {

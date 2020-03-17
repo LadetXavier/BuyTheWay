@@ -8,11 +8,10 @@ import 'src/assets/styles/icons.scss';
 
 
 const Icons = ({ connected, userLoading, userData}) => {
-  //console.log(userData);  
+  
   const [hasAccount,setHasAccount] = useState(true);
   
-  const handleSwitch = (e) => {
-    console.log('oups',hasAccount);
+  const handleSwitch = (e) => {    
     e.preventDefault();
     setHasAccount(!hasAccount);    
   }
@@ -52,7 +51,7 @@ const Icons = ({ connected, userLoading, userData}) => {
       <li className="user"><Link to="/profil" className="far fa-user icons" />
         {displayed}
       </li>
-      <li><Link to="/cart" className="far fa-shopping-cart icons" /></li>
+      <li><Link to="/panier" className="far fa-shopping-cart icons" /></li>
       <li><Link to="/" className="far fa-search icons" /></li>
     </ul>
   </>
