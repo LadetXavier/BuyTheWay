@@ -19,7 +19,7 @@ const FormPurchase = ({sizeAvailable,requestAction,item}) => {
   const handleSubmit = (e) => {
     e.preventDefault()
     setModalOn(true);  
-    /* requestAction({
+    requestAction({
       method:"POST",
       url:"http://54.164.43.47:3000/cart/add",
       data:{
@@ -33,7 +33,7 @@ const FormPurchase = ({sizeAvailable,requestAction,item}) => {
         }]
       },
       label:'addCartLoading'    
-    }); */
+    });
   }
 
   if(sizeAvailable !== undefined) {
@@ -44,7 +44,7 @@ const FormPurchase = ({sizeAvailable,requestAction,item}) => {
       <>
     <form name="purchase" onSubmit={handleSubmit}>
        <select name="size" id="size" onChange={handleSizeChange}>
-        {sizeAvailable.map((size) => (
+        { sizeAvailable.map((size) => (
           <option value={size.size} key={size._id}> { size.size }</option>
         ))}
       </select> 

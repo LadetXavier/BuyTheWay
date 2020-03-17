@@ -3,10 +3,11 @@ import {
   SAVE_HEADER,
   SAVE_PRODUCT_DETAIL,
   SAVE_SIZE,
-  ADD_CART,
+  SAVE_CART,
   CHANGE_PURCHASE,
   LOAD_NAV,
-  SAVE_RANDOM  
+  SAVE_RANDOM ,
+  CHANGE_STATE 
 } from 'src/actions/types.js';
 
 const initialState = {
@@ -52,16 +53,21 @@ const shop = (state = initialState, action) => {
       return {
         ...state,
         sizeAvailable: action.data.data.skus
-      }  
-    // Temporary
-    case ADD_CART :
-      return {
-        ...state,
-        cart: [
-          ...state.cart,
-          action.data
-        ]
-      } 
+      }      
+    case SAVE_CART :
+      if(action.data.cart.length > 0) {
+        return {
+          ...state,        
+          cart: action.data.cart[action.data.cart.length-1]
+        } 
+      }
+      else {
+        return {
+          ...state,
+          cart: null
+        }
+      }
+      
     case CHANGE_PURCHASE :
       return {
         ...state,
@@ -74,6 +80,11 @@ const shop = (state = initialState, action) => {
       return {
         ...state,
         listRandom: action.data
+      }
+    case CHANGE_STATE :
+      return {
+        ...state,
+        ...action.data
       }
     default:
       return {

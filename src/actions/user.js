@@ -24,8 +24,7 @@ export const saveUser = (data) => ({
 
 export const changeState = (state) => ({  
   type:CHANGE_STATE,
-  data: state
-  
+  data: state  
 })
 
 

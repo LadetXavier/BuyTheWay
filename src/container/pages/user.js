@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import {User} from 'src/pages';
 
 import {requestAction} from 'src/actions/apiActions.js';
-//import {changePurchase,addCart} from 'src/actions/shop.js';
 
 const mapDispatchToProps = (dispatch) => {
   return {
