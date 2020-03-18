@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import { FormPurchaseContainer as FormPurchase } from 'src/container/components/FormPurchase.js';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
-import Comments from 'src/components/shop/Comments.js';
+import Comments from 'src/components/shop/Comments';
 
 
 import './product.scss';
@@ -60,12 +60,13 @@ export const Product = ({
   // Display the loading icon by default
 
   let displayed = (<Loader />);
-  let sizes = <> </>
+  let sizes = "<> </>";
 
   // Once data are collected, display the dynamic content
 
+
   if(!isLoading && product === null && productDetail !== null) {
-    setProduct(productDetail.product);    
+    setProduct(productDetail.product);
   }
 
   if ( product !== null) { 
@@ -112,6 +113,7 @@ export const Product = ({
 
 Product.propTypes = {
   requestAction: PropTypes.func.isRequired,
+  sizeLoading: PropTypes.bool,
   isLoading: PropTypes.bool.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
@@ -138,4 +140,5 @@ Product.propTypes = {
 
 Product.defaultProps = {
   productDetail: null,
+  sizeLoading: null,
 };

@@ -11,28 +11,29 @@ import {
   //TOOGLE_LOADING
 } from './types.js';
 
-export const saveProducts = data => ({
+
+export const saveProducts = (data) => ({
   type: SAVE_PRODUCTS,
-  data
+  data,
 });
 
-export const saveProductDetail = data => ({
+export const saveProductDetail = (data) => ({
   type: SAVE_PRODUCT_DETAIL,
-  data: data.data
+  data: data.data,
 });
-export const saveHeader = data => ({
+export const saveHeader = (data) => ({
   type: SAVE_HEADER,
-  data
+  data,
 });
 
-export const saveSizeAvailable = data => ({
+export const saveSizeAvailable = (data) => ({
   type: SAVE_SIZE,
-  data
+  data,
 });
 
-export const changePurchase = data => ({
+export const changePurchase = (data) => ({
   type: CHANGE_PURCHASE,
-  data
+  data,
 });
 
 export const saveCart = data => ({
@@ -40,15 +41,15 @@ export const saveCart = data => ({
   data: data.data
 });
 
-export const loadNav = (data,gender) => ({
+export const loadNav = (data, gender) => ({
   type: LOAD_NAV,
   gender,
-  data: data
+  data,
 });
 
 export const saveRandom = (data) => ({
-  type: SAVE_RANDOM,  
-  data: data.data
+  type: SAVE_RANDOM,
+  data: data.data,
 });
 
 export const changeStateShop = (state) => ({  
@@ -57,5 +58,5 @@ export const changeStateShop = (state) => ({
 });
 
 /* export const toogleLoading = () => ({
-  type: TOOGLE_LOADING
+  type: TOOGLE_LOADING,
 }) */

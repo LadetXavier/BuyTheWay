@@ -14,7 +14,9 @@ import error403 from 'src/assets/Pictures/error_403.png';
 
 const responsive = {
   0: { items: 1 },
-  1024: { items: 4 },
+  850: { items: 2 },
+  1050: { items: 3 },
+  1450: { items: 4 },
 };
 
 export const Home = ({
@@ -46,8 +48,13 @@ export const Home = ({
 
   if (!isLoading && listRandom !== undefined ) {
     displayed = (
-      <>
+      
         <div className="index">
+          <div className="video-container" >
+            <div className="video-foreground">
+              <iframe width="1335" height="405" src="https://www.youtube.com/embed/QpBN1RKId5A?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=QpBN1RKId5A&mute=1" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" />
+            </div>
+          </div>
           <div id="tendances">
             <p>Tendances</p>
           </div>
@@ -67,7 +74,7 @@ export const Home = ({
             ))}
           </AliceCarousel>
         </div>
-      </>
+      
     );
   }
 
