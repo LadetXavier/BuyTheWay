@@ -13,12 +13,12 @@ import { saveUser } from 'src/actions/user.js';
 
 
 // == Composant
-const App = ({ requestAction, connected, changeState }) => {
+const App = ({ requestAction, connected, changeStateUser }) => {
 
   useEffect(() => {   
     // call api to get detail about product
     if(Cookies.get('user_id') !== undefined && Cookies.get('access_token') != undefined) {
-      if(!connected) { changeState({ connected:true }) }
+      if(!connected) { changeStateUser({ connected:true }) }
 
       requestAction({
         url: `http://54.164.43.47:3000/user/${Cookies.get('user_id')}`,

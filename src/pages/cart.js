@@ -6,7 +6,7 @@ import {saveCart} from 'src/actions/shop.js'
 import Loader from 'src/components/Loader.js';
 import Modal from 'src/components/shop/Modal.js';
 
-export const Cart = ({cart = null, requestAction, isLoading, isValidate, changeCart, changeState}) => {
+export const Cart = ({cart, requestAction, isLoading, isValidate, changeCart, changeState}) => {
 
 
   let [modalOn,setModalOn] = useState(false);  
@@ -37,8 +37,7 @@ export const Cart = ({cart = null, requestAction, isLoading, isValidate, changeC
     displayed = (<p>L'achat de produit est réservé aux utilisateurs connectés</p>);
   }
 
-  if(!isLoading && cart !== null ) {
-    console.log(cart);
+  if(!isLoading && cart !== null ) {    
     let cartList = cart.items.map((item) => (
       <CartCard key={ item._id } product={ item }/>
     ))    

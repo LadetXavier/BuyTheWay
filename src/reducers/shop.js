@@ -11,7 +11,7 @@ import {
 } from 'src/actions/types.js';
 
 const initialState = {
-  cart:[],
+  cart:null,
   purchase:{
     size:'',
     quantity:1
@@ -32,13 +32,11 @@ const shop = (state = initialState, action) => {
           [action.gender]: action.data.data.category 
         }
       }
-
     case SAVE_PRODUCTS :      
       return {
         ...state,
         listProducts: action.data.data.category
       };
-
     case SAVE_PRODUCT_DETAIL:
       return {
         ...state,
@@ -66,8 +64,7 @@ const shop = (state = initialState, action) => {
           ...state,
           cart: null
         }
-      }
-      
+      }      
     case CHANGE_PURCHASE :
       return {
         ...state,
