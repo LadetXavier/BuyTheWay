@@ -2,7 +2,7 @@ import {
   REDIRECT,
   SAVE_TOKEN,
   SAVE_USER,
-  CHANGE_STATE
+  CHANGE_STATE_USER
 } from './types.js';
 
 export const redirect = (url) => ({
@@ -23,7 +23,7 @@ export const saveUser = (data) => ({
 })
 
 export const changeState = (state) => ({  
-  type:CHANGE_STATE,
+  type:CHANGE_STATE_USER,
   data: state  
 })
 

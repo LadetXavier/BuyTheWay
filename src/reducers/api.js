@@ -1,4 +1,9 @@
-import {API_START,API_END,API_ERROR} from 'src/actions/types.js';
+import {
+  API_START,
+  API_END,
+  API_ERROR,
+  CHANGE_STATE_API
+} from 'src/actions/types.js';
 
 const initialState = {
   isLoading:true,
@@ -20,12 +25,16 @@ const shop = (state = initialState, action) => {
         ...state,
         [action.payload]: false
       }
-    case API_ERROR : {
+    case API_ERROR : 
       return {
         ...state,
         error:true
+      }    
+    case CHANGE_STATE_API :
+      return {
+        ...state,
+        ...action.data
       }
-    }
     default :
       return {
         ...state

@@ -16,7 +16,8 @@ export const Category = ({
   requestAction,
   listProducts,
   isLoading,
-  hasError
+  hasError,
+  changeState
 }) => {
   useEffect(() => {
     requestAction({
@@ -25,6 +26,8 @@ export const Category = ({
       onFailure: apiError,
       label: 'isLoading',
     });
+
+    return () => { changeState({ isLoading:true }); }
   }, [match]);
   // Display the loading icon by default
   let displayed = <Loader />;
