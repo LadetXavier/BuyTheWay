@@ -30,8 +30,7 @@ const Icons = ({ connected, userLoading, userData, changeStateUser }) => {
       return rank.name === userData.user.rank;
     })
     maxXP = maxXP.breakpoint+1; 
-    const purcentXp = userData.user.fidelity*100/maxXP;
-    console.log(purcentXp);
+    const purcentXp = userData.user.fidelity*100/maxXP;    
     displayed = (
       <div className="user-content user-signIn">
         <p className="user-nickname">{userData.user.nickname}</p>

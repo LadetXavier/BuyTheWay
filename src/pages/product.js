@@ -68,9 +68,7 @@ export const Product = ({
     setProduct(productDetail.product);    
   }
 
-  if ( product !== null) {  
-    console.log(product);
-
+  if ( product !== null) { 
     displayed = (
       <>
         <Hierarchy match={match} categoryName={product.category.type} productName={product.name} />
