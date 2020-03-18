@@ -7,7 +7,7 @@ import Loader from 'src/components/Loader.js';
 import Modal from 'src/components/shop/Modal.js';
 import { getUserData } from 'src/globalFunc.js';
 
-export const Cart = ({cart, requestAction, isLoading, isValidate, changeCart, changeState}) => {
+export const Cart = ({cart, requestAction, isLoading, connected, changeCart, changeState, isValidate}) => {
 
 
   let [modalOn,setModalOn] = useState(false);  
@@ -22,17 +22,13 @@ export const Cart = ({cart, requestAction, isLoading, isValidate, changeCart, ch
       })
     }
     return () => { changeState({ isLoading:true }); }
-  }, [])
+  }, [connected])
 
   const handleValidate = () => {
     setModalOn(true);
     requestAction({
       method:'POST',
-      url: `http://54.164.43.47:3000/cart/validate/${cart.user}`,
-      callBackSuccess: () => { 
-        changeCart({cart:null});
-        getUserData(requestAction);
-       },      
+      url: `http://54.164.43.47:3000/cart/validate/${cart.user}`,         
       label: 'isValidate',
     })
   }
@@ -50,7 +46,14 @@ export const Cart = ({cart, requestAction, isLoading, isValidate, changeCart, ch
         {cartList}
         <p>{cart.total_price}</p>
         <button onClick={handleValidate}>Valider</button>
-        { modalOn && <Modal text="Validation de la commande en cours" closer={setModalOn} timeout="3000" /> }
+        { modalOn && <Modal text="Votre commande a été validé" closer={setModalOn} timeout="5000" 
+        onClose={
+          () => { 
+          changeCart({cart:null});
+          getUserData(requestAction);
+          }
+        } 
+        loading={ isValidate }/> }
       </>
     )
     

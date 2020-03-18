@@ -16,7 +16,8 @@ const mapStateToProps = (state) => {
   return {
     cart: state.shop.cart,
     isLoading: state.api.isLoading,
-    isValidate: state.api.isValidate
+    isValidate: state.api.isValidate,
+    connected: state.user.connected
   }
 }
 

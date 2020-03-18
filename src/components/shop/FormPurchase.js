@@ -4,22 +4,22 @@ import Modal from 'src/components/shop/Modal.js';
 
 
 const FormPurchase = ({sizeAvailable,requestAction,item}) => {  
-  let displayed = <> </>
+  let displayed = <> </>;
   const [sizeSelected, setSizeSelected] = useState("");
   const [quantitySelected, setQuantitySelected] = useState(1);
   let [modalOn,setModalOn] = useState(false);  
-  let modal = <> </>
+  let [modal,setModal] = useState(<></>);
   const handleSizeChange = (e) => {
     setSizeSelected(e.target.value);    
   }
   const handleQuantityChange = (e) => {
     setQuantitySelected(e.target.value);
   }
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) => {    
     e.preventDefault();
     setModalOn(true);
     if(Cookies.get('user_id') !== undefined) { 
-      modal=(<Modal text="L'article a été ajouté au panier" closer={setModalOn} timeout = "3000"/>)     
+      setModal(<Modal text="L'article a été ajouté au panier" closer={setModalOn} timeout = "3000"/>)     
       requestAction({
         method:"POST",
         url:"http://54.164.43.47:3000/cart/add",
@@ -39,7 +39,7 @@ const FormPurchase = ({sizeAvailable,requestAction,item}) => {
       });
     }
     else {
-      modal= <Modal text="L'achat de produit est réservé aux utilisateurs connectés" closer={setModalOn} timeout = "3000"/>
+      setModal(<Modal text="L'achat de produit est réservé aux utilisateurs connectés" closer={setModalOn} timeout = "3000"/>);
     }
   }
 
@@ -55,10 +55,9 @@ const FormPurchase = ({sizeAvailable,requestAction,item}) => {
           <option value={size.size} key={size._id}> { size.size }</option>
         ))}
       </select> 
-      <input type="number" id="quantity" name="quantity" min="1" max="99" onChange={handleQuantityChange} ></input>
+      <input type="number" id="quantity" name="quantity" min="1" max="99" onChange={handleQuantityChange} value={ quantitySelected }></input>
       <button type="submit">Acheter</button>
-    </form>
-    { modalOn && <Modal text="L'article a été ajouté au panier" closer={setModalOn} timeout = "3000"/> }
+    </form>   
     </>
     )
   }
