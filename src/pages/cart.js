@@ -5,6 +5,7 @@ import CartCard from 'src/components/shop/cartCard.js';
 import {saveCart} from 'src/actions/shop.js'
 import Loader from 'src/components/Loader.js';
 import Modal from 'src/components/shop/Modal.js';
+import { getUserData } from 'src/globalFunc.js';
 
 export const Cart = ({cart, requestAction, isLoading, isValidate, changeCart, changeState}) => {
 
@@ -28,7 +29,10 @@ export const Cart = ({cart, requestAction, isLoading, isValidate, changeCart, ch
     requestAction({
       method:'POST',
       url: `http://54.164.43.47:3000/cart/validate/${cart.user}`,
-      callBackSuccess: () => { changeCart({cart:null}) },      
+      callBackSuccess: () => { 
+        changeCart({cart:null});
+        getUserData(requestAction);
+       },      
       label: 'isValidate',
     })
   }
