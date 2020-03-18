@@ -2,7 +2,7 @@ import {
   API_START,
   API_END,
   API_ERROR,
-  CHANGE_STATE
+  CHANGE_STATE_API
 } from 'src/actions/types.js';
 
 const initialState = {
@@ -30,7 +30,7 @@ const shop = (state = initialState, action) => {
         ...state,
         error:true
       }    
-    case CHANGE_STATE :
+    case CHANGE_STATE_API :
       return {
         ...state,
         ...action.data

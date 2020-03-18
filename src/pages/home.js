@@ -27,12 +27,14 @@ export const Home = ({
 
   useEffect(() => {
     // call api to get detail about product
-    changeState({ isLoading:true });
+    
     requestAction({
       url: `http://54.164.43.47:3000/random`,
       onSuccess: saveRandom,
       label: 'isLoading',
     });
+
+    return () => { changeState({ isLoading:true }); }
   }, []);
 
   const addDefaultSrc = (e) => {
@@ -42,7 +44,7 @@ export const Home = ({
 
   let displayed = (<Loader />);
 
-  if (!isLoading) {
+  if (!isLoading && listRandom !== undefined ) {
     displayed = (
       <>
         <div className="index">

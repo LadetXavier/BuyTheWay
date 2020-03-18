@@ -14,7 +14,10 @@ export const REDIRECT = "REDIRECT";
 export const SAVE_RANDOM = "SAVE_RANDOM";
 export const SAVE_TOKEN = "SAVE_TOKEN";
 export const SAVE_USER = "SAVE_USER";
-export const CHANGE_STATE = "CHANGE_STATE";
+export const CHANGE_STATE_API = "CHANGE_STATE_API";
+export const CHANGE_STATE_SHOP = "CHANGE_STATE_SHOP";
+export const CHANGE_STATE_USER = "CHANGE_STATE_USER";
+
 
 
 

@@ -2,7 +2,7 @@ import {
   API,
   API_START,
   API_END,API_ERROR,
-  CHANGE_STATE
+  CHANGE_STATE_API
 } from './types.js';
 
 export const apiStart = label => ({
@@ -21,7 +21,7 @@ export const apiError = hasError => ({
 });
 
 export const changeState = value =>({
-  type: CHANGE_STATE,
+  type: CHANGE_STATE_API,
   data: value
 })
 
