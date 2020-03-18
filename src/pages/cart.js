@@ -6,7 +6,7 @@ import {saveCart} from 'src/actions/shop.js'
 import Loader from 'src/components/Loader.js';
 import Modal from 'src/components/shop/Modal.js';
 
-export const Cart = ({cart, requestAction, isLoading, isValidate, changeCart}) => {
+export const Cart = ({cart = null, requestAction, isLoading, isValidate, changeCart, changeState}) => {
 
 
   let [modalOn,setModalOn] = useState(false);  
@@ -20,6 +20,7 @@ export const Cart = ({cart, requestAction, isLoading, isValidate, changeCart}) =
         label: 'isLoading',
       })
     }
+    return () => { changeState({ isLoading:true }); }
   }, [])
 
   const handleValidate = () => {
@@ -27,12 +28,16 @@ export const Cart = ({cart, requestAction, isLoading, isValidate, changeCart}) =
     requestAction({
       method:'POST',
       url: `http://54.164.43.47:3000/cart/validate/${cart.user}`,
-      callBackSuccess: () => { changeState({cart:null}) },      
+      callBackSuccess: () => { changeCart({cart:null}) },      
       label: 'isValidate',
     })
   }
 
-  if(!isLoading && cart != null ) {
+  if(Cookies.get('user_id') === undefined) {
+    displayed = (<p>L'achat de produit est réservé aux utilisateurs connectés</p>);
+  }
+
+  if(!isLoading && cart !== null ) {
     console.log(cart);
     let cartList = cart.items.map((item) => (
       <CartCard key={ item._id } product={ item }/>
@@ -52,8 +57,7 @@ export const Cart = ({cart, requestAction, isLoading, isValidate, changeCart}) =
   }
   return (
     <div>    
-      {displayed}
-      
+      {displayed}      
     </div>
   )
 }

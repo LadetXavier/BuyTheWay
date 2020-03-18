@@ -1,4 +1,4 @@
-import { SAVE_TOKEN, SAVE_USER, CHANGE_STATE } from 'src/actions/types.js';
+import { SAVE_TOKEN, SAVE_USER, CHANGE_STATE_USER } from 'src/actions/types.js';
 import Cookies from 'js-cookie';
 
 const initialState = {
@@ -22,7 +22,7 @@ const shop = (state = initialState, action) => {
         ...state,
         userData: action.data
       }
-    case CHANGE_STATE :
+    case CHANGE_STATE_USER :
       return {
         ...state,
         ...action.data

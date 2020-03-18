@@ -7,7 +7,7 @@ import {
   CHANGE_PURCHASE,
   LOAD_NAV,
   SAVE_RANDOM ,
-  CHANGE_STATE 
+  CHANGE_STATE_SHOP 
 } from 'src/actions/types.js';
 
 const initialState = {
@@ -81,7 +81,7 @@ const shop = (state = initialState, action) => {
         ...state,
         listRandom: action.data
       }
-    case CHANGE_STATE :
+    case CHANGE_STATE_SHOP :
       return {
         ...state,
         ...action.data

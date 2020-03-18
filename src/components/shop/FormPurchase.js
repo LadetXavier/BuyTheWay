@@ -3,13 +3,12 @@ import Cookies from 'js-cookie';
 import Modal from 'src/components/shop/Modal.js';
 
 
-const FormPurchase = ({sizeAvailable,requestAction,item}) => {
-
+const FormPurchase = ({sizeAvailable,requestAction,item}) => {  
   let displayed = <> </>
   const [sizeSelected, setSizeSelected] = useState("");
   const [quantitySelected, setQuantitySelected] = useState(1);
   let [modalOn,setModalOn] = useState(false);  
-  
+  let modal = <> </>
   const handleSizeChange = (e) => {
     setSizeSelected(e.target.value);    
   }
@@ -17,23 +16,31 @@ const FormPurchase = ({sizeAvailable,requestAction,item}) => {
     setQuantitySelected(e.target.value);
   }
   const handleSubmit = (e) => {
-    e.preventDefault()
-    setModalOn(true);  
-    requestAction({
-      method:"POST",
-      url:"http://54.164.43.47:3000/cart/add",
-      data:{
-        user: Cookies.get('user_id'),      
-        items:[{
-          product_id: item._id,
-          size: sizeSelected,
-          quantity: quantitySelected,
-          price: item.price,
-          sku: item.sku
-        }]
-      },
-      label:'addCartLoading'    
-    });
+    e.preventDefault();
+    setModalOn(true);
+    if(Cookies.get('user_id') !== undefined) { 
+      modal=(<Modal text="L'article a été ajouté au panier" closer={setModalOn} timeout = "3000"/>)     
+      requestAction({
+        method:"POST",
+        url:"http://54.164.43.47:3000/cart/add",
+        data:{
+          user: Cookies.get('user_id'),      
+          items:[{
+            product_id: item._id,
+            size: sizeSelected,
+            quantity: quantitySelected,
+            price: item.price,
+            sku: item.sku,
+            name: item.name,
+            picture: item.picture.picture1
+          }]
+        },
+        label:'addCartLoading'    
+      });
+    }
+    else {
+      modal= <Modal text="L'achat de produit est réservé aux utilisateurs connectés" closer={setModalOn} timeout = "3000"/>
+    }
   }
 
   if(sizeAvailable !== undefined) {
@@ -59,6 +66,7 @@ const FormPurchase = ({sizeAvailable,requestAction,item}) => {
   return (
     <div>
       {displayed}
+      {modalOn && modal}
     </div>
     
   )

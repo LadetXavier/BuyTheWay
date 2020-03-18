@@ -2,18 +2,27 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { LoginContainer as Login } from 'src/container/components/Login.js';
 import { SignUpContainer as SignUp } from 'src/container/components/SignUp.js';
+import Cookies from 'js-cookie';
+
 
 
 import 'src/assets/styles/icons.scss';
 
 
-const Icons = ({ connected, userLoading, userData}) => {
+const Icons = ({ connected, userLoading, userData, changeStateUser }) => {
   
   const [hasAccount,setHasAccount] = useState(true);
   
   const handleSwitch = (e) => {    
     e.preventDefault();
     setHasAccount(!hasAccount);    
+  }
+
+  const handleSignOut = (e) => {
+    e.preventDefault();
+    Cookies.remove('user_id');
+    Cookies.remove('access_token');
+    changeStateUser({ connected: false });
   }
   let displayed = <> </>
   if(connected && !userLoading ) {    
@@ -24,7 +33,8 @@ const Icons = ({ connected, userLoading, userData}) => {
         <div className= "user-gaugeContainer">
           <p className= "user-gaugeNumber">586 / 1200</p>
           <div className="user-gauge"></div>          
-        </div>        
+        </div>  
+        <a href="" className= "user-fakeLink" onClick={handleSignOut}>Deconnexion</a>      
       </div>
     ); 
   }

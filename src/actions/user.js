@@ -22,7 +22,7 @@ export const saveUser = (data) => ({
   
 })
 
-export const changeState = (state) => ({  
+export const changeStateUser = (state) => ({  
   type:CHANGE_STATE_USER,
   data: state  
 })
