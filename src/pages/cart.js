@@ -5,8 +5,9 @@ import CartCard from 'src/components/shop/cartCard.js';
 import {saveCart} from 'src/actions/shop.js'
 import Loader from 'src/components/Loader.js';
 import Modal from 'src/components/shop/Modal.js';
+import { getUserData } from 'src/globalFunc.js';
 
-export const Cart = ({cart, requestAction, isLoading, isValidate, changeCart}) => {
+export const Cart = ({cart, requestAction, isLoading, connected, changeCart, changeState, isValidate}) => {
 
 
   let [modalOn,setModalOn] = useState(false);  
@@ -20,20 +21,23 @@ export const Cart = ({cart, requestAction, isLoading, isValidate, changeCart}) =
         label: 'isLoading',
       })
     }
-  }, [])
+    return () => { changeState({ isLoading:true }); }
+  }, [connected])
 
   const handleValidate = () => {
     setModalOn(true);
     requestAction({
       method:'POST',
-      url: `http://54.164.43.47:3000/cart/validate/${cart.user}`,
-      callBackSuccess: () => { changeState({cart:null}) },      
+      url: `http://54.164.43.47:3000/cart/validate/${cart.user}`,         
       label: 'isValidate',
     })
   }
 
-  if(!isLoading && cart != null ) {
-    console.log(cart);
+  if(Cookies.get('user_id') === undefined) {
+    displayed = (<p>L'achat de produit est réservé aux utilisateurs connectés</p>);
+  }
+
+  if(!isLoading && cart !== null ) {    
     let cartList = cart.items.map((item) => (
       <CartCard key={ item._id } product={ item }/>
     ))    
@@ -42,7 +46,14 @@ export const Cart = ({cart, requestAction, isLoading, isValidate, changeCart}) =
         {cartList}
         <p>{cart.total_price}</p>
         <button onClick={handleValidate}>Valider</button>
-        { modalOn && <Modal text="Validation de la commande en cours" closer={setModalOn} timeout="3000" /> }
+        { modalOn && <Modal text="Votre commande a été validé" closer={setModalOn} timeout="5000" 
+        onClose={
+          () => { 
+          changeCart({cart:null});
+          getUserData(requestAction);
+          }
+        } 
+        loading={ isValidate }/> }
       </>
     )
     
@@ -52,8 +63,7 @@ export const Cart = ({cart, requestAction, isLoading, isValidate, changeCart}) =
   }
   return (
     <div>    
-      {displayed}
-      
+      {displayed}      
     </div>
   )
 }

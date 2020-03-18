@@ -68,11 +68,10 @@ export const Product = ({
     setProduct(productDetail.product);    
   }
 
-  if ( product !== null) {    
-
+  if ( product !== null) { 
     displayed = (
       <>
-        <Hierarchy match={match} categoryName={product.category.name} productName={product.name} />
+        <Hierarchy match={match} categoryName={product.category.type} productName={product.name} />
         <section className="product">
           <div className="product-picContainer">
             <AliceCarousel

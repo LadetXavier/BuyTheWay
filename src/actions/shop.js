@@ -51,7 +51,7 @@ export const saveRandom = (data) => ({
   data: data.data
 });
 
-export const changeState = (state) => ({  
+export const changeStateShop = (state) => ({  
   type:CHANGE_STATE_SHOP,
   data: state  
 });

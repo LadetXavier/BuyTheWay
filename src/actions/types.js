@@ -17,6 +17,7 @@ export const SAVE_USER = "SAVE_USER";
 export const CHANGE_STATE_API = "CHANGE_STATE_API";
 export const CHANGE_STATE_SHOP = "CHANGE_STATE_SHOP";
 export const CHANGE_STATE_USER = "CHANGE_STATE_USER";
+export const SAVE_RANK = "SAVE_RANK";
 
 
 
