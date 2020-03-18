@@ -22,14 +22,22 @@
   border-bottom: black 1px solid;
 }
 
-#introVideo {
-  width: 75vw;
-  height: auto;
-  margin: auto;
+.video-container{
+  width:75vw;
+  height:65vh;
+  overflow:hidden;
+  position:relative;
 }
 
-/*#video {
-  width: 75vw;
-  heigth: 75vh;
-  margin: auto;
-}*/
+.video-container iframe{
+  position: absolute;
+  top: -60px;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 120px);
+  pointer-events: none;
+}
+
+.video-foreground{
+  pointer-events:none;
+}

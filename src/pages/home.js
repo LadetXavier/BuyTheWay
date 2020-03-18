@@ -46,8 +46,10 @@ export const Home = ({
     displayed = (
       <>
         <div className="index">
-          <div id="introVideo">
-            {/*<iframe width="1335" height="405" src="https://www.youtube.com/embed/8lqrok_ECFM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true" />*/}
+          <div class="video-container" >
+            <div class="video-foreground">
+              <iframe width="1335" height="405" src="https://www.youtube.com/embed/8lqrok_ECFM?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=8lqrok_ECFM&mute=1" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen="true" />
+            </div>
           </div>
           <div id="tendances">
             <p>Tendances</p>
