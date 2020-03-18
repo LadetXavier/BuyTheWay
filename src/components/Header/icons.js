@@ -12,7 +12,7 @@ import 'src/assets/styles/icons.scss';
 const Icons = ({ connected, userLoading, userData, changeStateUser }) => {
   
   const [hasAccount,setHasAccount] = useState(true);
-  
+  let maxXP = null;
   const handleSwitch = (e) => {    
     e.preventDefault();
     setHasAccount(!hasAccount);    
@@ -25,14 +25,20 @@ const Icons = ({ connected, userLoading, userData, changeStateUser }) => {
     changeStateUser({ connected: false });
   }
   let displayed = <> </>
-  if(connected && !userLoading ) {    
-   displayed = (
+  if(connected && !userLoading && userData.ranks !== undefined) { 
+    maxXP = userData.ranks.find((rank) => {
+      return rank.name === userData.user.rank;
+    })
+    maxXP = maxXP.breakpoint+1; 
+    const purcentXp = userData.user.fidelity*100/maxXP;
+    console.log(purcentXp);
+    displayed = (
       <div className="user-content user-signIn">
         <p className="user-nickname">{userData.user.nickname}</p>
         <p className="user-rank">{userData.user.rank}</p>
         <div className= "user-gaugeContainer">
-          <p className= "user-gaugeNumber">586 / 1200</p>
-          <div className="user-gauge"></div>          
+          <p className= "user-gaugeNumber">{userData.user.fidelity} / {maxXP} </p>
+          <div className="user-gauge" style={{width: `${purcentXp}%`}}></div>          
         </div>  
         <a href="" className= "user-fakeLink" onClick={handleSignOut}>Deconnexion</a>      
       </div>

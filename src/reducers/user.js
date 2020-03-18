@@ -1,4 +1,4 @@
-import { SAVE_TOKEN, SAVE_USER, CHANGE_STATE_USER } from 'src/actions/types.js';
+import { SAVE_TOKEN, SAVE_USER, CHANGE_STATE_USER, SAVE_RANK } from 'src/actions/types.js';
 import Cookies from 'js-cookie';
 
 const initialState = {
@@ -20,13 +20,24 @@ const shop = (state = initialState, action) => {
     case SAVE_USER :      
       return {
         ...state,
-        userData: action.data
+        userData: {
+          ...state.userData,
+          ...action.data
+        } 
       }
     case CHANGE_STATE_USER :
       return {
         ...state,
         ...action.data
       }
+      case SAVE_RANK :
+        return {
+          ...state,
+          userData: {
+            ...state.userData,
+            ...action.data
+          }          
+        }
     default :
       return {
         ...state
