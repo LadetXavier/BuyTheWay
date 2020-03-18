@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import { FormPurchaseContainer as FormPurchase } from 'src/container/components/FormPurchase.js';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
-import Comments from 'src/components/shop/Comments.js';
+import Comments from 'src/components/shop/Comments';
 
 
 import './product.scss';

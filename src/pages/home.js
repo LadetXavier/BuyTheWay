@@ -46,6 +46,9 @@ export const Home = ({
     displayed = (
       <>
         <div className="index">
+          <div id="introVideo">
+            {/*<iframe width="1335" height="405" src="https://www.youtube.com/embed/8lqrok_ECFM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true" />*/}
+          </div>
           <div id="tendances">
             <p>Tendances</p>
           </div>

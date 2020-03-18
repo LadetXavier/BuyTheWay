@@ -1,4 +1,5 @@
 .index {
+  max-width: 1800px;
   width: 75vw;
   margin:  auto;
   display: flex;
@@ -12,9 +13,23 @@
 }
 
 #tendances, #défis {
-  width: 43.75em;
+  width: 36.5vw;
   text-align: center;
   padding-bottom: 0.5em;
   margin-bottom: 0.5em;
+  padding-top: 0.5em;
+  margin-top: 0.5em;
   border-bottom: black 1px solid;
 }
+
+#introVideo {
+  width: 75vw;
+  height: auto;
+  margin: auto;
+}
+
+/*#video {
+  width: 75vw;
+  heigth: 75vh;
+  margin: auto;
+}*/
