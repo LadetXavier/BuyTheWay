@@ -57,11 +57,12 @@ export const Product = ({
   // Display the loading icon by default
 
   let displayed = (<Loader />);
-  let sizes = <> </>
+  let sizes = "<> </>";
 
   // Once data are collected, display the dynamic content
 
   if(!isLoading && product === null) {
+    console.log(`ProductDetail:${productDetail}`);
     setProduct(productDetail.product); 
   }
 
@@ -110,6 +111,7 @@ export const Product = ({
 
 Product.propTypes = {
   requestAction: PropTypes.func.isRequired,
+  sizeLoading: PropTypes.bool,
   isLoading: PropTypes.bool.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
@@ -136,4 +138,5 @@ Product.propTypes = {
 
 Product.defaultProps = {
   productDetail: null,
+  sizeLoading: null,
 };
