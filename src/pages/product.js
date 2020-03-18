@@ -21,13 +21,14 @@ export const Product = ({
   productDetail,
   comments,
   sizeLoading,
-  sizeAvailable
+  changeState
 }) => {
 
   let [sizeFired, setSizeFired] = useState(false);
   let [product, setProduct] = useState(null);
 
   useEffect(() => {
+    setProduct(null);
     // call api to get detail about product
     requestAction({
       url: `http://54.164.43.47:3000/products/${match.params.productId}`,
@@ -40,6 +41,8 @@ export const Product = ({
       onSuccess: saveComments,
       label: 'commentsLoading',
     }); */
+
+    return () => { changeState({isLoading: true}); }
   }, []);
 
 
@@ -61,16 +64,15 @@ export const Product = ({
 
   // Once data are collected, display the dynamic content
 
-  if(!isLoading && product === null) {
-    console.log(`ProductDetail:${productDetail}`);
-    setProduct(productDetail.product); 
+
+  if(!isLoading && product === null && productDetail !== null) {
+    setProduct(productDetail.product);
   }
 
-  if ( product !== null) {    
-
+  if ( product !== null) { 
     displayed = (
       <>
-        <Hierarchy match={match} categoryName={product.category.name} productName={product.name} />
+        <Hierarchy match={match} categoryName={product.category.type} productName={product.name} />
         <section className="product">
           <div className="product-picContainer">
             <AliceCarousel
@@ -97,7 +99,7 @@ export const Product = ({
       </>
     );   
     if(sizeLoading) {
-      console.log(sizeAvailable)
+      
 
     }
   }

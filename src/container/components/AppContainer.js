@@ -2,13 +2,13 @@ import {connect} from 'react-redux';
 
 import App from 'src/components/App/App.js';
 import { requestAction } from 'src/actions/apiActions.js';
-import { changeState } from 'src/actions/user.js'
+import { changeStateUser } from 'src/actions/user.js'
 
 
 const mapDispatchToProps = (dispatch) => {
   return {
     requestAction : (request) => dispatch(requestAction(request)),  
-    changeState: (data) => dispatch(changeState(data))   
+    changeStateUser: (data) => dispatch(changeStateUser(data))   
   }
 }
 

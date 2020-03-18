@@ -1,4 +1,9 @@
-import {API,API_START,API_END,API_ERROR} from './types.js';
+import {
+  API,
+  API_START,
+  API_END,API_ERROR,
+  CHANGE_STATE_API
+} from './types.js';
 
 export const apiStart = label => ({
   type: API_START,
@@ -15,6 +20,11 @@ export const apiError = hasError => ({
   error: hasError
 });
 
+export const changeState = value =>({
+  type: CHANGE_STATE_API,
+  data: value
+})
+
 // apiAction used to create call API
 export const requestAction = ({
  url = "",
@@ -22,7 +32,7 @@ export const requestAction = ({
  data = null,
  token = null,
  headers = null,
- callBack = () => {},
+ callBackSuccess = () => {},
  // onSuccess and onFailure are actionMaker that will be dispatched when the call API fail and success
  onSuccess = () => {},
  onFailure = () => {},
@@ -38,7 +48,7 @@ export const requestAction = ({
       data,
       headers,
       onSuccess,
-      callBack,
+      callBackSuccess,
       onFailure,
       label,
     }

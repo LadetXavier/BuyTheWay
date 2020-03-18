@@ -4,11 +4,13 @@ import {
   SAVE_HEADER,
   SAVE_SIZE,
   CHANGE_PURCHASE,
-  ADD_CART,
+  SAVE_CART,
   LOAD_NAV,
   SAVE_RANDOM,
-  // TOOGLE_LOADING
-} from './types';
+  CHANGE_STATE_SHOP
+  //TOOGLE_LOADING
+} from './types.js';
+
 
 export const saveProducts = (data) => ({
   type: SAVE_PRODUCTS,
@@ -34,9 +36,9 @@ export const changePurchase = (data) => ({
   data,
 });
 
-export const addCart = (data) => ({
-  type: ADD_CART,
-  data,
+export const saveCart = data => ({
+  type: SAVE_CART,
+  data: data.data
 });
 
 export const loadNav = (data, gender) => ({
@@ -48,6 +50,11 @@ export const loadNav = (data, gender) => ({
 export const saveRandom = (data) => ({
   type: SAVE_RANDOM,
   data: data.data,
+});
+
+export const changeStateShop = (state) => ({  
+  type:CHANGE_STATE_SHOP,
+  data: state  
 });
 
 /* export const toogleLoading = () => ({
