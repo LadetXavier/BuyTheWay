@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
 
 import { Home } from 'src/pages';
-import { requestAction } from 'src/actions/apiActions.js';
+import { requestAction, changeState } from 'src/actions/apiActions.js';
 
 const mapDispatchToProps = (dispatch) => {  
   return {
     requestAction : (request) => {      
       return (dispatch(requestAction(request)))  
-      }
+      },
+    changeState: (value) => ( dispatch(changeState(value)))
   }
 }
 

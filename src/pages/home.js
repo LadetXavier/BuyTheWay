@@ -22,18 +22,18 @@ export const Home = ({
   isLoading,
   match,
   listRandom,
+  changeState
 }) => {
 
   useEffect(() => {
     // call api to get detail about product
+    changeState({ isLoading:true });
     requestAction({
       url: `http://54.164.43.47:3000/random`,
       onSuccess: saveRandom,
       label: 'isLoading',
     });
-  }, [Home]);
-
-  console.log(listRandom);
+  }, []);
 
   const addDefaultSrc = (e) => {
     e.target.src = error403;

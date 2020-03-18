@@ -27,7 +27,7 @@ export const Cart = ({cart, requestAction, isLoading, isValidate, changeCart}) =
     requestAction({
       method:'POST',
       url: `http://54.164.43.47:3000/cart/validate/${cart.user}`,
-      callBackSuccess: () => {changeState({cart:null})},      
+      callBackSuccess: () => { changeState({cart:null}) },      
       label: 'isValidate',
     })
   }
@@ -42,7 +42,7 @@ export const Cart = ({cart, requestAction, isLoading, isValidate, changeCart}) =
         {cartList}
         <p>{cart.total_price}</p>
         <button onClick={handleValidate}>Valider</button>
-        { modalOn && <Modal text="Validation de la commande en cours" closer={setModalOn} timeout="3000" />}
+        { modalOn && <Modal text="Validation de la commande en cours" closer={setModalOn} timeout="3000" /> }
       </>
     )
     
