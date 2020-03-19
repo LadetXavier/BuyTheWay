@@ -10,7 +10,6 @@
 .index-pic {
   width: 25em;
   overflow: hidden;
-  
 }
 
 .video-container{
@@ -22,7 +21,7 @@
   padding-top: 30px; 
   height: 0;
 }
- 
+
 .video-container iframe,
 .video-container object,
 .video-container embed {
@@ -60,4 +59,10 @@ height: 100%;
   margin-bottom: 0.5em;
   border-bottom: black 2px solid;
   }
+}
+
+.carousel {
+  //max-width: 1850px;
+  width: 100vw;
+  overflow: hidden;
 }

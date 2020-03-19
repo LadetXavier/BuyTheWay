@@ -49,13 +49,13 @@ const Header = ({requestAction,nav,womenLoading,menLoading}) => {
 
       <MediaQuery minDeviceWidth={1200}>
         <nav className="navbar-desktop">
-          <Animate component="div" className="nav-links" appear="fadeInLeft" durationAppear={1750}>
+          <Animate component="div" className="nav-links" id="logo" appear="fadeInLeft" durationAppear={1750}>
             <Link to="/"> <img src={Logo} alt="logo" className="logo-desktop" /> </Link>
           </Animate>
           <Animate component="div" className="nav-links" appear="fadeInDown" durationAppear={1750}>
             <Category ref={ref} class1="dropdown" class2="dropdown-content" data={{ nav, womenLoading, menLoading }} />
           </Animate>
-          <Animate component="div" className="nav-links" appear="fadeInRight" durationAppear={1750}>
+          <Animate component="div" id="icon" className="nav-links" appear="fadeInRight" durationAppear={1750}>
             <Icons />
           </Animate>
         </nav>

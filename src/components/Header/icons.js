@@ -48,14 +48,20 @@ const Icons = ({ connected, userLoading, userData}) => {
 
   return(
     <>
-    <ul className="nav-icons">
-      <li className="user"><Link to="/profil" className="far fa-user icons" />
-        {displayed}
-      </li>
-      <li><Link to="/cart" className="far fa-shopping-cart icons" /></li>
-      <li><Link to="/" className="far fa-search icons" /></li>
-    </ul>
-  </>
+      <ul className="nav-icons">
+        <li className="user">
+          <Link to="/profil">
+            <span className="far fa-user icons" />
+          </Link>
+          {displayed}
+        </li>
+        <li>
+          <Link to="/cart">
+            <span className="far fa-shopping-cart icons" />
+          </Link>
+        </li>
+      </ul>
+    </>
   );
 }
   
