@@ -14,7 +14,9 @@ import error403 from 'src/assets/Pictures/error_403.png';
 
 const responsive = {
   0: { items: 1 },
-  1024: { items: 4 },
+  800: { items: 2 },
+  1000: { items: 3 },
+  1200: { items: 4 },
 };
 
 export const Home = ({
@@ -65,8 +67,6 @@ export const Home = ({
             mouseDragEnabled
             autoPlay
             autoPlayInterval={3500}
-            onResized
-
           >
             {listRandom.r.map((item) => (
               <div key={item._id}>
@@ -79,12 +79,6 @@ export const Home = ({
       
     );
   }
-
-  /* let prevButton = document.getElementsByClassName("alice-carousel__prev-btn-item");
-let nextButton = document.getElementsByClassName("alice-carousel__next-btn-item");
-console.log(prevButton);
-console.log(nextButton); */
-
 
   return (
     <>
