@@ -21,7 +21,11 @@ const FormPurchase = ({sizeAvailable,requestAction, item}) => {
 
   const handleSizeChange = (e) => {
     setSizeSelected(e.target.value);
-    setstock( getStock()); 
+    let newStock = getStock();
+    setstock(newStock); 
+    if( quantitySelected > newStock) {
+      setQuantitySelected(newStock);
+    }
   }
   const handleQuantityChange = (e) => {
     setQuantitySelected(e.target.value);
@@ -60,8 +64,13 @@ const FormPurchase = ({sizeAvailable,requestAction, item}) => {
       setstock(sizeAvailable[0].quantity);      
     }
     let quantity = null;
-    if(stock > 0) {
-      quantity= (<input type="number" id="quantity" name="quantity" min="1" max={stock} onChange={handleQuantityChange} value={ quantitySelected }></input>);
+    if(stock > 0) {      
+      quantity= (
+      <>
+        <input type="number" id="quantity" name="quantity" min="1" max={stock} onChange={handleQuantityChange} value={ quantitySelected }/>
+        { quantitySelected >= stock && <p>Derniers articles en stock</p>}
+      </>
+        );
     }
     else {
       quantity= <p>Out of stock</p>

@@ -56,7 +56,7 @@ const Header = ({requestAction,nav,womenLoading,menLoading}) => {
             <Category ref={ref} class1="dropdown" class2="dropdown-content" data={{ nav, womenLoading, menLoading }} />
           </Animate>
           <Animate component="div" className="nav-links" appear="fadeInRight" durationAppear={1750}>
-            <Icons />
+          <Icons />
           </Animate>
         </nav>
       </MediaQuery>

@@ -39,10 +39,10 @@ const Category = React.forwardRef(({ class1, class2, class3, data }, ref) => {
         </div>
       </div>
       <div className={`${class1}`}>
-        <div><Link id="trend" className="categories" to="/">TENDANCES</Link></div>
+        <div><Link id="trend" className="categories" to="/tendances">TENDANCES</Link></div>
       </div>
       <div className={`${class1}`}>
-        <div><Link id="challenges" className="categories" to="/">DEFIS</Link></div>
+        <div><Link id="challenges" className="categories" to="/defi">DEFIS</Link></div>
       </div>
     </div>
   );
