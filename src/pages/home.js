@@ -61,7 +61,12 @@ export const Home = ({
             buttonsDisabled={true}
             dotsDisabled={false}
             responsive={responsive}
-            infinite={false}
+            infinite={true}
+            mouseDragEnabled
+            autoPlay
+            autoPlayInterval={3500}
+            onResized
+
           >
             {listRandom.r.map((item) => (
               <div key={item._id}>
@@ -69,6 +74,7 @@ export const Home = ({
               </div>
             ))}
           </AliceCarousel>
+          
         </div>
       
     );
