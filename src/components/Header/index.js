@@ -32,6 +32,13 @@ const Header = ({requestAction,nav,womenLoading,menLoading}) => {
   const ref = React.createRef();
   const handleMobileClick = () => {
     ref.current.classList.toggle('displayNone');
+    let dropdowns = ref.current.getElementsByClassName("dropleft-content");
+    console.log(dropdowns);
+    if( ref.current.classList.contains('displayNone')){
+      dropdowns[0].classList.add('displayNone');
+      dropdowns[1].classList.add('displayNone');      
+    }
+
   };
   return (
     <>

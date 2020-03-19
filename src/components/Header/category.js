@@ -10,11 +10,12 @@ const Category = React.forwardRef(({ classLinkContainer, classDropdown, classLis
 
   // handler to manage switching dropdown on mobile device
   const handleMobileClick = (refGender) => {
+    let isOpen = refGender.current.classList.contains('displayNone');        
     refMen.current.classList.add('displayNone');
     refWomen.current.classList.add('displayNone');
-    refGender.current.classList.remove('displayNone');
-    
+    ( isOpen && refGender.current.classList.remove('displayNone'))    
   };
+
   // when loading end, create link list 
   if (!data.menLoading && !data.womenLoading ) {    
     men = (data.nav.homme.map((current) => (<Link to={`/shop/homme/${current.customId}`} key={current._id}>{current.name}</Link>)));
