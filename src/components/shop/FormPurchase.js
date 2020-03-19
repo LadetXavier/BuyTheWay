@@ -89,7 +89,8 @@ const FormPurchase = ({sizeAvailable,requestAction, item}) => {
       <>
     <form name="purchase" onSubmit={handleSubmit}>
        <select name="size" id="size" onChange={handleSizeChange}>
-        { sizeAvailable.map((size) => (
+        { // dynamic sizes
+          sizeAvailable.map((size) => (
           <option value={size.size} key={size._id}> { size.size }</option>
         ))}
       </select> 

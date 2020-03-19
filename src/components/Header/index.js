@@ -41,7 +41,7 @@ const Header = ({requestAction,nav,womenLoading,menLoading}) => {
             <div className="far fa-bars icons" onClick={handleMobileClick} />
             <Link to="/"> <img src={Logo} alt="logo" className="logo-mobile" /> </Link>
             <Icons />
-            <Category ref={ref} class1="" class2="dropleft-content displayNone" class3={`displayNone width100vw`} data={{ nav, womenLoading, menLoading }} />
+            <Category ref={ref} classLinkContainer="" classDropdown="dropleft-content displayNone" classListContainer={`displayNone width100vw`} data={{ nav, womenLoading, menLoading }} />
           </div>
         </nav>
       </MediaQuery>
@@ -53,7 +53,7 @@ const Header = ({requestAction,nav,womenLoading,menLoading}) => {
             <Link to="/"> <img src={Logo} alt="logo" className="logo-desktop" /> </Link>
           </Animate>
           <Animate component="div" className="nav-links" appear="fadeInDown" durationAppear={1750}>
-            <Category ref={ref} class1="dropdown" class2="dropdown-content" data={{ nav, womenLoading, menLoading }} />
+            <Category ref={ref} classLinkContainer="dropdown" classDropdown="dropdown-content" data={{ nav, womenLoading, menLoading }} />
           </Animate>
           <Animate component="div" className="nav-links" appear="fadeInRight" durationAppear={1750}>
           <Icons />
