@@ -11,8 +11,9 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 import Comments from 'src/components/shop/Comments';
 
 
-import './product.scss';
 
+
+import './product.scss';
 
 export const Product = ({
   requestAction,
@@ -45,7 +46,7 @@ export const Product = ({
     return () => { changeState({isLoading: true}); }
   }, []);
 
-
+  // effect used to launch axios request once the product is defined
   useEffect(() => {
     if(!sizeFired && product !== null) {
       setSizeFired(true);
@@ -58,13 +59,9 @@ export const Product = ({
   }, [product]);
 
   // Display the loading icon by default
-
-  let displayed = (<Loader />);
-  let sizes = "<> </>";
+  let displayed = (<Loader />);  
 
   // Once data are collected, display the dynamic content
-
-
   if(!isLoading && product === null && productDetail !== null) {
     setProduct(productDetail.product);
   }
@@ -85,17 +82,12 @@ export const Product = ({
           </div>
           <div className="product-aside">
             <h2 className="product-name">{product.name}</h2>
-            <p className="product-description">{product.description}</p>
-            
-            <p className="product-price">
-              <span className="far fa-cart-plus cart" />
-              {product.price} €
-            </p>
+            <p className="product-description">{product.description}</p>           
 
             { <FormPurchase item={product}/> }
           </div>
         </section>
-        <Comments comments={comments} />
+        {/* <Comments comments={comments} /> */}
       </>
     );   
     if(sizeLoading) {

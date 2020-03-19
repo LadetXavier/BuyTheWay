@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 
-import {Category} from 'src/pages';
+import {Trend} from 'src/pages';
 import {requestAction} from 'src/actions/apiActions.js';
 
 const mapDispatchToProps = (dispatch) => {  
@@ -19,4 +19,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export const categoryContainer = connect(mapStateToProps, mapDispatchToProps)(Category);
+export const TrendContainer = connect(mapStateToProps, mapDispatchToProps)(Trend);

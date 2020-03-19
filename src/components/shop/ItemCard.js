@@ -10,7 +10,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import Button from "@material-ui/core/Button";
 import { Link } from 'react-router-dom';
 
-
+// component to display single product
 const ItemCard = ({ item, match }) => {
   const { picture, name, price, description } = item;
   return (

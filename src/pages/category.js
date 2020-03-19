@@ -5,12 +5,11 @@ import { apiError } from 'src/actions/apiActions.js';
 import Loader from 'src/components/Loader.js';
 import { Link } from 'react-router-dom';
 import Hierarchy from 'src/components/shop/Hierarchy.js';
-//import ItemCard from 'src/components/shop/ItemCard.js';
-import ItemCard from 'src/components/shop/ItemCard/index.js';
-//import { data } from 'src/components/ItemCard/data';
+import ItemCard from 'src/components/shop/ItemCard.js';
 import PropTypes from 'prop-types';
 import './category.scss';
 
+// page category that list products of a selected category
 export const Category = ({
   match,
   requestAction,
@@ -35,9 +34,7 @@ export const Category = ({
   // Once datas are collected, display the dynamic content
   if (!isLoading) {
     if (hasError || listProducts === undefined) {
-      displayed = <p>Un problème est survenu, il semblerait que notre serveur soit momentanément innacessible, veuillez réessayer plus tard.</p>;
-      //console.log(data.category[0].picture.picture1);
-      //displayed = (<ItemCard item={item} />);
+      displayed = <p>Un problème est survenu, il semblerait que notre serveur soit momentanément innacessible, veuillez réessayer plus tard.</p>;      
     }
     else {
       const categoryName = listProducts[0].category.name;
