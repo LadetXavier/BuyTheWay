@@ -10,6 +10,9 @@ import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 import Comments from 'src/components/shop/Comments';
 
+
+
+
 import './product.scss';
 
 export const Product = ({
@@ -79,12 +82,7 @@ export const Product = ({
           </div>
           <div className="product-aside">
             <h2 className="product-name">{product.name}</h2>
-            <p className="product-description">{product.description}</p>
-            
-            <p className="product-price">
-              <span className="far fa-cart-plus cart" />
-              {product.price} €
-            </p>
+            <p className="product-description">{product.description}</p>           
 
             { <FormPurchase item={product}/> }
           </div>

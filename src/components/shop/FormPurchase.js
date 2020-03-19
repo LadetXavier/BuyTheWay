@@ -2,6 +2,16 @@ import React, {useEffect,useState} from 'react'
 import Cookies from 'js-cookie';
 import Modal from 'src/components/shop/Modal.js';
 
+// Material Ui import
+import { makeStyles } from '@material-ui/core/styles';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import TextField from '@material-ui/core/TextField';
+import Select from '@material-ui/core/Select';
+import Input from "@material-ui/core/Input";
+
 // Component to handle adding product to cart
 const FormPurchase = ({sizeAvailable,requestAction, item}) => {  
   let displayed = <> </>;
@@ -77,25 +87,54 @@ const FormPurchase = ({sizeAvailable,requestAction, item}) => {
     if(stock > 0) {      
       quantity= (
       <>
-        <input type="number" id="quantity" name="quantity" min="1" max={stock} onChange={handleQuantityChange} value={ quantitySelected }/>
-        { quantitySelected >= stock && <p>Derniers articles en stock</p>}
+         <TextField
+          id="standard-number"          
+          type="number"
+          value= { quantitySelected }
+          onChange={handleQuantityChange}
+          classes={{root:"product-input"}}
+          input={<Input  classes={{input:"text-center"}}/>}
+          InputLabelProps={{
+            shrink: true,            
+          }}
+          inputProps={{
+            min: "1", 
+            max: stock,
+            className: "text-center",
+          }}          
+        />        
+        { quantitySelected >= stock && <p className="comment" >Derniers articles en stock</p>}
       </>
         );
     }
     else {
-      quantity= <p>Out of stock</p>
+      quantity= <p className="comment-error" >Out of stock</p>
     }
     displayed = (
       <>
     <form name="purchase" onSubmit={handleSubmit}>
-       <select name="size" id="size" onChange={handleSizeChange}>
+      <FormControl classes={{root: "product-input" }}>        
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          input={<Input  classes={{input:"text-center"}}/>}
+          value={sizeSelected}
+          onChange={handleSizeChange}
+          
+        >
         { // dynamic sizes
-          sizeAvailable.map((size) => (
-          <option value={size.size} key={size._id}> { size.size }</option>
-        ))}
-      </select> 
-      {quantity}      
-      <button type="submit">Acheter</button>
+          sizeAvailable.map((size) => (          
+          <MenuItem value={size.size} key={size._id}> { size.size }</MenuItem>
+        ))}          
+        </Select>
+      </FormControl> 
+      {quantity}     
+      <p className="product-price">
+        <span className="far fa-cart-plus cart" />
+        {item.price} €
+        {quantitySelected > 1 && <p className="comment-price" > Total price : {Math.round( quantitySelected*item.price * 10 + Number.EPSILON ) / 10} €</p>}
+      </p> 
+      <button type="submit" className="product-submit" >Acheter</button>
     </form>   
     </>
     )
