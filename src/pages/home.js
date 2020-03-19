@@ -11,6 +11,8 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 import './home.scss';
 import Cookies from 'js-cookie';
 import error403 from 'src/assets/Pictures/error_403.png';
+import tendance from 'src/assets/Pictures/tendance.jpg';
+import defi from 'src/assets/Pictures/defi.jpg';
 
 const responsive = {
   0: { items: 1 },
@@ -53,11 +55,13 @@ export const Home = ({
               <iframe width="1335" height="405" src="https://www.youtube.com/embed/8lqrok_ECFM?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=8lqrok_ECFM&mute=1" frameBorder="0"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" />
             </div>
           </div>
-          <div className="TD" id="tendances">
+          <div className="TD">
             <p>Tendances</p>
+            <img src={tendance} alt="" className="TD" onError={addDefaultSrc} />
           </div>
-          <div className="TD" id="défis">
+          <div className="TD">
             <p>Défis</p>
+            <img src={defi} alt="" className="TD" onError={addDefaultSrc} />
           </div>
           <AliceCarousel
             buttonsDisabled={true}

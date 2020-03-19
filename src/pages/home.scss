@@ -9,18 +9,8 @@
 
 .index-pic {
   width: 25em;
-  //height: auto;
+  overflow: hidden;
   
-}
-
-#tendances, #défis {
-  width: 36.5vw;
-  text-align: center;
-  padding-bottom: 0.5em;
-  margin-bottom: 0.5em;
-  padding-top: 0.5em;
-  margin-top: 0.5em;
-  border-bottom: black 1px solid;
 }
 
 .video-container{
@@ -57,7 +47,17 @@ height: 100%;
 }
 
 .TD{
-  margin-left: auto;
-  margin-right: auto;
-
+  margin: auto;
+  width: 36.5vw;
+  text-align: center;
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
+  padding-top: 0.5em;
+  margin-top: 0.5em;
+  p {
+  font-weight: bold;
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
+  border-bottom: black 2px solid;
+  }
 }
