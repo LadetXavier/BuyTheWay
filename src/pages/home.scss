@@ -8,7 +8,8 @@
 }
 
 .index-pic {
-  width: 25em;
+  width: 75%;
+  //position: relative;
   overflow: hidden;
 }
 
@@ -63,6 +64,7 @@ height: 100%;
 
 .carousel {
   //max-width: 1850px;
-  width: 100vw;
+  padding-left: 5em;
+  width: 100%;
   overflow: hidden;
 }

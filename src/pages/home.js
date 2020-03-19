@@ -50,7 +50,7 @@ export const Home = ({
       <div className="index">
         <div className="video-container" >
           <div className="video-foreground">
-            <iframe width="1335" height="405" src="https://www.youtube.com/embed/8lqrok_ECFM?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=8lqrok_ECFM&mute=1" frameBorder="0"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" />
+            <iframe width="1335" height="405" src="https://www.youtube.com/embed/QpBN1RKId5A?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=8lqrok_ECFM&mute=1" frameBorder="0"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" />
           </div>
         </div>
         <div className="TD">
