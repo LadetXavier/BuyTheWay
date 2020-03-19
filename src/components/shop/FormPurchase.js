@@ -132,7 +132,7 @@ const FormPurchase = ({sizeAvailable,requestAction, item}) => {
       <p className="product-price">
         <span className="far fa-cart-plus cart" />
         {item.price} €
-        {quantitySelected > 1 && <p className="comment-price" > Total price : {Math.round( quantitySelected*item.price * 10 + Number.EPSILON ) / 10} €</p>}
+        {quantitySelected > 1 && <span className="comment-price" > Total price : {Math.round( quantitySelected*item.price * 10 + Number.EPSILON ) / 10} €</span>}
       </p> 
       <button type="submit" className="product-submit" >Acheter</button>
     </form>   
