@@ -45,7 +45,7 @@ export const Challenge = ({
 
   if (!isLoading && challenges !== undefined) {
     displayed = (
-      <div>
+      <div className="index">
         <h1>Challenge</h1>
         <img src={tartanBanniere} alt="" />
       </div>
