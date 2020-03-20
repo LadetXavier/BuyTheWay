@@ -50,7 +50,7 @@ const FormPurchase = ({sizeAvailable,requestAction, item}) => {
   }
   const handleSubmit = (e) => {    
     e.preventDefault();
-    setModalOn(true);
+    setModalOn(true);    
     // If user connected then send a axios request, else error message
     if(Cookies.get('user_id') !== undefined) { 
       setModal(<Modal text="L'article a été ajouté au panier" closer={setModalOn} timeout = "3000"/>)     
@@ -63,7 +63,7 @@ const FormPurchase = ({sizeAvailable,requestAction, item}) => {
             product_id: item._id,
             size: sizeSelected,
             quantity: quantitySelected,
-            price: item.price,
+            price: parseFloat(item.price),
             sku: item.sku,
             name: item.name,
             picture: item.picture.picture1
@@ -84,7 +84,7 @@ const FormPurchase = ({sizeAvailable,requestAction, item}) => {
     }
     let quantity = null;
     // handling stock
-    if(stock > 0) {      
+    if(stock > 0) {        
       quantity= (
       <>
          <TextField

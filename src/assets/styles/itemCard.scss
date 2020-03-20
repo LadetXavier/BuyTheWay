@@ -1,0 +1,19 @@
+.itemCard-container {
+  display: inline-block;
+}
+
+.itemCard-price {
+  
+}
+
+.itemCard-stock {
+  color: #1a9349;
+  font-weight: bold;
+}
+
+.itemCard-content { 
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

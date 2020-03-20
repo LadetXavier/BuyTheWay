@@ -45,13 +45,16 @@ export const Category = ({
         <>
           <Hierarchy match={match} categoryName={categoryName} />
           <section className="list-products">
-            {productArray}
+            <div className="list-container">
+              <div className="list-inline">
+                {productArray}
+              </div>
+            </div>
           </section>
         </>
       );
     }
   }
-
   return (
     <div>
       {displayed}
