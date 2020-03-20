@@ -12,6 +12,7 @@ import Comments from 'src/components/shop/Comments';
 
 
 
+const responsive = {0: { items: 1 }};
 
 import './product.scss';
 
@@ -27,6 +28,7 @@ export const Product = ({
 
   let [sizeFired, setSizeFired] = useState(false);
   let [product, setProduct] = useState(null);
+  
 
   useEffect(() => {
     setProduct(null);
@@ -74,7 +76,7 @@ export const Product = ({
           <div className="product-picContainer">
             <AliceCarousel
               buttonsDisabled={true}
-              responsive={1}
+              responsive={responsive}
             >
               <img src={product.picture.picture1} className="product-pic" />
               <img src={product.picture.picture2} className="product-pic" />
