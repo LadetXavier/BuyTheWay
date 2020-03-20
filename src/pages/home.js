@@ -59,11 +59,15 @@ export const Home = ({
         </div>
         <div className="TD">
           <p>Tendances</p>
-          <img src={tendance} alt="" className="TD" onError={addDefaultSrc} />
+          <Link to="/tendances">
+            <img src={tendance} alt="" onError={addDefaultSrc} />
+          </Link>
         </div>
         <div className="TD">
           <p>Défis</p>
-          <img src={defi} alt="" className="TD" onError={addDefaultSrc} />
+          <Link to="/defi">
+            <img src={defi} alt="" onError={addDefaultSrc} />
+          </Link>
         </div>
         <div className="carousel">
           <AliceCarousel
@@ -76,7 +80,9 @@ export const Home = ({
             autoPlayInterval={3500}
           >
             {listRandom.r.map((item) => (
-              <img src={item.picture.picture1} alt="" className="index-pic" key={item._id} onError={addDefaultSrc} />
+              <Link to={`/shop/${item.category.gender}/${item.category.id}/${item._id}`}>
+                <img src={item.picture.picture1} alt="" className="index-pic" key={item._id} onError={addDefaultSrc} />
+              </Link>
             ))}
           </AliceCarousel>
         </div>

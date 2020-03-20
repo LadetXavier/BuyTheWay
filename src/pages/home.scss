@@ -54,12 +54,27 @@ height: 100%;
   margin-bottom: 0.5em;
   padding-top: 0.5em;
   margin-top: 0.5em;
+  
   p {
   font-weight: bold;
   padding-bottom: 0.5em;
   margin-bottom: 0.5em;
   border-bottom: black 2px solid;
   }
+
+  img {
+    margin: auto;
+    width: 36.5vw;
+    text-align: center;
+    padding-bottom: 0.5em;
+    margin-bottom: 0.5em;
+    padding-top: 0.5em;
+    margin-top: 0.5em;
+  }
+}
+
+.Tendanceimg:hover {
+  box-shadow: 5px 5px 10px black;
 }
 
 .carousel {
@@ -68,3 +83,5 @@ height: 100%;
   width: 100%;
   overflow: hidden;
 }
+
+
