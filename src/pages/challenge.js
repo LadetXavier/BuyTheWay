@@ -47,7 +47,7 @@ export const Challenge = ({
     displayed = (
       <div className="index">
         <h1>Challenge</h1>
-        <img src={tartanBanniere} alt="" />
+        <img src={tartanBanniere} className="bannière" alt="" />
       </div>
     );
   }
