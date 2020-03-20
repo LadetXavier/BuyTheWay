@@ -13,6 +13,7 @@ import Comments from 'src/components/shop/Comments';
 
 import './product.scss';
 
+const responsive = {0: { items: 1 }};
 
 export const Product = ({
   requestAction,
@@ -26,6 +27,7 @@ export const Product = ({
 
   let [sizeFired, setSizeFired] = useState(false);
   let [product, setProduct] = useState(null);
+  
 
   useEffect(() => {
     // call api to get detail about product
@@ -74,7 +76,7 @@ export const Product = ({
           <div className="product-picContainer">
             <AliceCarousel
               buttonsDisabled={true}
-              responsive={1}
+              responsive={responsive}
             >
               <img src={product.picture.picture1} className="product-pic" />
               <img src={product.picture.picture2} className="product-pic" />
