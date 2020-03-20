@@ -1,0 +1,18 @@
+@use 'src/assets/styles/vars' as *;
+
+.button-submit {
+  display: block;  
+  border: 2px solid ;
+  border-radius: none;
+  background-color: $buttonColor;
+  color:white;
+  font-size:1.3rem;
+  padding: 0.15rem 0.6rem;
+  font-weight: 900;  
+}
+
+.button-submit:hover {
+  border: 2px solid $buttonColor;
+  background-color: #fff;
+  color: $buttonColor;
+}

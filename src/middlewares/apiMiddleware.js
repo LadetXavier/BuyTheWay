@@ -2,7 +2,7 @@ import axios from 'axios';
 import Cookies from 'js-cookie';
 
 import {API} from 'src/actions/types.js';
-import {apiStart, apiEnd} from 'src/actions/apiActions.js';
+import { apiStart, apiEnd } from 'src/actions/apiActions.js';
 
 const apiMiddleware = ({dispatch}) => next => action => {
 
@@ -19,7 +19,7 @@ const apiMiddleware = ({dispatch}) => next => action => {
     data,       
     onSuccess,
     onFailure,
-    callBack,
+    callBackSuccess,
     label,
     headers    
   } = action.payload;
@@ -39,7 +39,7 @@ const apiMiddleware = ({dispatch}) => next => action => {
   const fullHeaders = {
     ...headers,
     'Content-Type': 'application/json',
-    'Authentification': `Bearer ${token}`,    
+    'Authorization': `Bearer ${token}`,    
   }
   // dispatch an action for handling loader
   if(label) {
@@ -60,16 +60,17 @@ const apiMiddleware = ({dispatch}) => next => action => {
       console.log('action maker undefined at url',url);
       console.log('reponse',reponse);
       console.log('onSuccess',onSuccess);
-
     } else {
       //console.log(reponse);      
-      dispatch(onSuccess(reponse));
+      dispatch(onSuccess(reponse));      
+    }
+    if(callBackSuccess() !== undefined) {
+      callBackSuccess();
     }   
       
   })
   .catch( error => {
-    // dispatch the action to handle api error and dispatch the action for failure    
-
+    // dispatch the action to handle api error and dispatch the action for failure  
     if(onFailure() !== undefined) {
       dispatch(onFailure());      
     } 

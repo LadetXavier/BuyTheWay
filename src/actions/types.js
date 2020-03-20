@@ -7,14 +7,18 @@ export const SAVE_PRODUCT_DETAIL = "SAVE_PRODUCT_DETAIL";
 export const SAVE_HEADER = "SAVE_HEADER";
 export const SAVE_SIZE =  "SAVE_SIZE";
 export const CHANGE_PURCHASE =  "CHANGE_PURCHASE";
-export const ADD_CART = "ADD_CART";
+export const SAVE_CART = "SAVE_CART";
 export const API_ERROR = "API_ERROR";
 export const LOAD_NAV = "LOAD_NAV";
 export const REDIRECT = "REDIRECT";
 export const SAVE_RANDOM = "SAVE_RANDOM";
 export const SAVE_TOKEN = "SAVE_TOKEN";
 export const SAVE_USER = "SAVE_USER";
-export const CHANGE_STATE = "CHANGE_STATE";
+export const CHANGE_STATE_API = "CHANGE_STATE_API";
+export const CHANGE_STATE_SHOP = "CHANGE_STATE_SHOP";
+export const CHANGE_STATE_USER = "CHANGE_STATE_USER";
+export const SAVE_RANK = "SAVE_RANK";
+
 
 
 

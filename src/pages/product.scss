@@ -1,3 +1,6 @@
+@use "src/assets/styles/input";
+@use "src/assets/styles/vars" as *;
+
 .product {
   width: 80%;
   margin: 0 auto;
@@ -6,17 +9,24 @@
 }
 
 .product-picContainer {
-  width: 30vw;
+  width: 100%;
   height: auto;
+  @media screen and (min-width: $breakLarge) {
+    width: 40%;
+  }
 }
 
 .product-pic {
-  width: 30vw;
+  width: 100%;
   height: auto;
 }
 
-.product-aside {
-  margin-left: 3em;
+.product-aside {  
+  width: 100%;
+  @media screen and (min-width: $breakLarge) {
+    width: 50%;
+    margin-left: 3em;
+  }
 }
 
 .product-name {
@@ -32,11 +42,51 @@
 
 .product-price {
   font-size: 1.5em;
-  float: right;
+  margin-top:1rem;
+  text-align: center;
 }
 
 .cart {
   margin-right: 1em;
 }
+
+.product-submit {
+  @extend .button-submit;  
+  margin:auto;
+  margin-top:1.5rem;
+}
+
+form .display-block {
+  display: block;
+}
+
+div .product-input { 
+  width: 50%;  
+}
+
+div .text-center {
+  text-align: center;
+}
+
+.comment {
+  color:grey;
+  font-style: italic;
+  margin-top:1rem;
+    
+}
+
+.comment-error {
+  @extend .comment;
+  color:darkred;
+  text-align: right;
+}
+
+.comment-price {
+  @extend .comment;
+  font-size: 0.9rem;
+  display: block;
+}
+
+
 
 

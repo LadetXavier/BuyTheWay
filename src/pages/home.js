@@ -25,18 +25,20 @@ export const Home = ({
   isLoading,
   match,
   listRandom,
+  changeState
 }) => {
 
   useEffect(() => {
     // call api to get detail about product
+    
     requestAction({
       url: `http://54.164.43.47:3000/random`,
       onSuccess: saveRandom,
       label: 'isLoading',
     });
-  }, [Home]);
 
-  console.log(listRandom);
+    return () => { changeState({ isLoading:true }); }
+  }, []);
 
   const addDefaultSrc = (e) => {
     e.target.src = error403;
@@ -45,12 +47,14 @@ export const Home = ({
 
   let displayed = (<Loader />);
 
-  if (!isLoading) {
+  if (!isLoading && listRandom !== undefined ) {
     displayed = (
+
       <div className="index">
         <div className="video-container" >
           <div className="video-foreground">
             <iframe width="1335" height="405" src="https://www.youtube.com/embed/QpBN1RKId5A?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=8lqrok_ECFM&mute=1" frameBorder="0"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" />
+
           </div>
         </div>
         <div className="TD">

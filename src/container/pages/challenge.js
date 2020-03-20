@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { Home } from 'src/pages';
+import { Challenge } from 'src/pages';
 import { requestAction, changeState } from 'src/actions/apiActions.js';
 
 const mapDispatchToProps = (dispatch) => {  
@@ -17,4 +17,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export const homeContainer = connect(mapStateToProps, mapDispatchToProps)(Home);
+export const ChallengeContainer = connect(mapStateToProps, mapDispatchToProps)(Challenge);

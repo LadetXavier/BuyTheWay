@@ -11,9 +11,10 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 import Comments from 'src/components/shop/Comments';
 
 
-import './product.scss';
 
 const responsive = {0: { items: 1 }};
+
+import './product.scss';
 
 export const Product = ({
   requestAction,
@@ -22,7 +23,7 @@ export const Product = ({
   productDetail,
   comments,
   sizeLoading,
-  sizeAvailable
+  changeState
 }) => {
 
   let [sizeFired, setSizeFired] = useState(false);
@@ -30,6 +31,7 @@ export const Product = ({
   
 
   useEffect(() => {
+    setProduct(null);
     // call api to get detail about product
     requestAction({
       url: `http://54.164.43.47:3000/products/${match.params.productId}`,
@@ -42,9 +44,11 @@ export const Product = ({
       onSuccess: saveComments,
       label: 'commentsLoading',
     }); */
+
+    return () => { changeState({isLoading: true}); }
   }, []);
 
-
+  // effect used to launch axios request once the product is defined
   useEffect(() => {
     if(!sizeFired && product !== null) {
       setSizeFired(true);
@@ -57,21 +61,17 @@ export const Product = ({
   }, [product]);
 
   // Display the loading icon by default
-
-  let displayed = (<Loader />);
-  let sizes = <> </>
+  let displayed = (<Loader />);  
 
   // Once data are collected, display the dynamic content
-
-  if(!isLoading && product === null) {
-    setProduct(productDetail.product); 
+  if(!isLoading && product === null && productDetail !== null) {
+    setProduct(productDetail.product);
   }
 
-  if ( product !== null) {    
-
+  if ( product !== null) { 
     displayed = (
       <>
-        <Hierarchy match={match} categoryName={product.category.name} productName={product.name} />
+        <Hierarchy match={match} categoryName={product.category.type} productName={product.name} />
         <section className="product">
           <div className="product-picContainer">
             <AliceCarousel
@@ -84,21 +84,16 @@ export const Product = ({
           </div>
           <div className="product-aside">
             <h2 className="product-name">{product.name}</h2>
-            <p className="product-description">{product.description}</p>
-            
-            <p className="product-price">
-              <span className="far fa-cart-plus cart" />
-              {product.price} €
-            </p>
+            <p className="product-description">{product.description}</p>           
 
             { <FormPurchase item={product}/> }
           </div>
         </section>
-        <Comments comments={comments} />
+        {/* <Comments comments={comments} /> */}
       </>
     );   
     if(sizeLoading) {
-      console.log(sizeAvailable)
+      
 
     }
   }
@@ -112,6 +107,7 @@ export const Product = ({
 
 Product.propTypes = {
   requestAction: PropTypes.func.isRequired,
+  sizeLoading: PropTypes.bool,
   isLoading: PropTypes.bool.isRequired,
   match: PropTypes.shape({
     params: PropTypes.shape({
@@ -138,4 +134,5 @@ Product.propTypes = {
 
 Product.defaultProps = {
   productDetail: null,
+  sizeLoading: null,
 };

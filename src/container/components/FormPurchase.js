@@ -2,14 +2,13 @@ import {connect} from 'react-redux';
 
 import FormPurchase from 'src/components/shop/FormPurchase.js';
 
-import {requestAction} from 'src/actions/apiActions.js';
-import {changePurchase,addCart} from 'src/actions/shop.js';
+import { requestAction } from 'src/actions/apiActions.js';
+import { changePurchase } from 'src/actions/shop.js';
 
 const mapDispatchToProps = (dispatch) => {
   return {
     requestAction : (request) => dispatch(requestAction(request)),
-    changePurchase : (data) => dispatch(changePurchase(data)),
-    addCart: (productID) => dispatch(addCart(productID))
+    changePurchase : (data) => dispatch(changePurchase(data)),    
   }
 }
 
