@@ -1,8 +1,7 @@
 import React from 'react'
 import './cartCard.scss';
 
-const CartCard = ({product}) => { 
-  console.log(product);
+const CartCard = ({product}) => {   
   const handleSuppression = () => {
     
   }

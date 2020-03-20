@@ -25,13 +25,13 @@ const Category = React.forwardRef(({ classLinkContainer, classDropdown, classLis
   return (
     <div className={`link-container ${classListContainer}`} ref={ref}>
       <div className={classLinkContainer}>
-        <div onClick={() => {handleMobileClick(refMen)} }><Link id="men" className="categories" to="/">HOMMES</Link></div>
+        <div onClick={() => {handleMobileClick(refMen)} }><Link id="trend" className="categories" to="" onClick={(e) => {e.preventDefault()}} >HOMMES</Link></div>
         <div ref={refMen} className={classDropdown}>
           {men}
         </div>
       </div>
       <div className={classLinkContainer}>
-        <div onClick={() => {handleMobileClick(refWomen)}}><Link id="women" className="categories" to="/">FEMMES</Link></div>
+        <div onClick={() => {handleMobileClick(refWomen)}}><Link id="trend" className="categories" to="" onClick={(e) => {e.preventDefault()}}>FEMMES</Link></div>
         <div ref={refWomen} className={classDropdown}>
           {women}
         </div>

@@ -12,7 +12,7 @@ export const Cart = ({cart, requestAction, isLoading, connected, changeCart, cha
 
 
   let [modalOn,setModalOn] = useState(false);  
-
+  //console.log('cart',cart);
   let displayed = <Loader />;
   useEffect(() => {
     if(Cookies.get('user_id') !== undefined) {
