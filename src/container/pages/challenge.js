@@ -13,7 +13,8 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
   return {
     listRandom: state.shop.listRandom,
-    isLoading: state.api.isLoading
+    isLoading: state.api.isLoading,
+    challenges: state.shop.challenges
   }
 }
 

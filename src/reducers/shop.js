@@ -7,7 +7,9 @@ import {
   CHANGE_PURCHASE,
   LOAD_NAV,
   SAVE_RANDOM ,
-  CHANGE_STATE_SHOP 
+  CHANGE_STATE_SHOP,
+  SAVE_CHALLENGES,
+  SAVE_TREND 
 } from 'src/actions/types.js';
 
 const initialState = {
@@ -64,7 +66,7 @@ const shop = (state = initialState, action) => {
           ...state,
           cart: null
         }
-      }      
+      }
     case CHANGE_PURCHASE :
       return {
         ...state,
@@ -83,6 +85,16 @@ const shop = (state = initialState, action) => {
         ...state,
         ...action.data
       }
+    case SAVE_CHALLENGES: 
+    return {
+      ...state,
+      challenges: action.data
+    }
+    case SAVE_TREND: 
+    return {
+      ...state,
+      trend: action.data
+    }
     default:
       return {
         ...state
