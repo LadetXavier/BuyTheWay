@@ -1,0 +1,19 @@
+@use 'src/assets/styles/input';
+
+.cart-total {
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: right;
+  margin-right: 2rem;
+  margin: 1rem 2rem;
+}
+
+.cart-error {
+
+}
+
+.cart-submit {
+ @extend .button-submit;
+ margin-left: auto;
+ margin-right: 2rem;
+}

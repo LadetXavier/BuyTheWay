@@ -1,9 +1,56 @@
+@use 'src/assets/styles/input';
+@use 'src/assets/styles/vars' as *;
+
+
+
 .cartCard {
   padding: 1rem;
-  border: 1px solid black;
+  border-top: solid rgb(186, 186, 186) 1px;
+  border-bottom: solid rgb(186, 186, 186) 1px;
+  box-shadow: 0px 0px 30px rgb(211, 210, 210);
   margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+
+  @media screen and (min-width: $breakLarge) {
+    flex-direction: row;
+  }
 }
 
 .cartCard-img {
+  width: 80%;  
+}
+
+.cartCard-content {
+  display: inline-block;
   width: 20%;
+  max-width: 150px;
+  margin-left: 2rem;
+}
+
+.cartCard-title {
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.cartCard-parameter {
+  font-weight: 100;
+  font-size: 1rem;
+}
+
+.cartCard-label {
+  font-style: italic;
+  color: grey;
+}
+
+.cartCard-suppr {
+  @extend .button-submit;
+  padding-bottom: 0.3rem;
+}
+
+.cartCard-priceContainer {
+  text-align: center;
 }

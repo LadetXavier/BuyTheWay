@@ -6,6 +6,7 @@ import {saveCart} from 'src/actions/shop.js'
 import Loader from 'src/components/Loader.js';
 import Modal from 'src/components/shop/Modal.js';
 import { getUserData } from 'src/globalFunc.js';
+import 'src/assets/styles/cart.scss';
 
 export const Cart = ({cart, requestAction, isLoading, connected, changeCart, changeState, isValidate}) => {
 
@@ -44,8 +45,8 @@ export const Cart = ({cart, requestAction, isLoading, connected, changeCart, cha
     displayed = (
       <>
         {cartList}
-        <p>{cart.total_price}</p>
-        <button onClick={handleValidate}>Valider</button>
+        <p className="cart-total">{cart.total_price} €</p>
+        <button onClick={handleValidate} className="cart-submit">Valider</button>
         { modalOn && <Modal text="Votre commande a été validé" closer={setModalOn} timeout="5000" 
         onClose={
           () => { 
@@ -59,7 +60,7 @@ export const Cart = ({cart, requestAction, isLoading, connected, changeCart, cha
     
   }
   else if (!isLoading) {
-    displayed =( <p>Votre panier est vide</p> )
+    displayed =( <p className="cart-error">Votre panier est vide</p> )
   }
   return (
     <div>    

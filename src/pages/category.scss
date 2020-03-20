@@ -1,5 +1,12 @@
 .list-products {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  width: 100%;
+  text-align: center;
+}
+
+.list-inline {
+  display: inline;  
+}
+
+.list-container {
+  display: inline-block;  
 }
