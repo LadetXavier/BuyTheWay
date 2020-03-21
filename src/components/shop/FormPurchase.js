@@ -116,9 +116,7 @@ const FormPurchase = ({sizeAvailable,requestAction, item}) => {
       quantity= <p className="comment-error" >Out of stock</p>
     }
 
-    displayed = (
-      <>
-    <form name="purchase" onSubmit={handleSubmit}>
+    let sizeDisplayed = (
       <FormControl classes={{ root: "product-input" }}>        
         <Select
           labelId="demo-simple-select-label"
@@ -128,13 +126,21 @@ const FormPurchase = ({sizeAvailable,requestAction, item}) => {
           onChange={handleSizeChange}
           
         >
-        { // dynamic sizes
-          sizeAvailable.map((size) => (          
-          <MenuItem value={size.size} key={size._id}> { size.size }</MenuItem>
-        ))}          
+          { // dynamic sizes
+            sizeAvailable.map((size) => (          
+            <MenuItem value={size.size} key={size._id}> { size.size }</MenuItem>
+          ))}          
         </Select>
       </FormControl> 
-      {quantity}     
+    )
+
+    displayed = (
+      <>
+    <form name="purchase" onSubmit={handleSubmit}>
+      <div className="selector-container">
+      {sizeDisplayed}
+      {quantity}
+      </div>           
       <p className="product-price">
         <span className="far fa-cart-plus cart" />
         {item.price} €
