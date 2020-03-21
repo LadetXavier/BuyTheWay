@@ -4,14 +4,11 @@ import { LoginContainer as Login } from 'src/container/components/Login.js';
 import { SignUpContainer as SignUp } from 'src/container/components/SignUp.js';
 import Cookies from 'js-cookie';
 
-
-
 import 'src/assets/styles/icons.scss';
-
 
 const Icons = ({ connected, userLoading, userData, changeStateUser }) => {
   
-  const [hasAccount,setHasAccount] = useState(true);
+  const [hasAccount,setHasAccount] = useState(true);  
   let maxXP = null;
   const handleSwitch = (e) => {    
     e.preventDefault();
