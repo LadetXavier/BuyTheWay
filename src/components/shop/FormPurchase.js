@@ -46,7 +46,12 @@ const FormPurchase = ({sizeAvailable,requestAction, item}) => {
     }
   }
   const handleQuantityChange = (e) => {
-    setQuantitySelected(e.target.value);
+    if(e.target.value > stock) {
+      setQuantitySelected(stock);
+    } 
+    else {
+      setQuantitySelected(e.target.value);
+    }
   }
   const handleSubmit = (e) => {    
     e.preventDefault();
@@ -103,21 +108,22 @@ const FormPurchase = ({sizeAvailable,requestAction, item}) => {
             className: "text-center",
           }}          
         />        
-        { quantitySelected >= stock && <p className="comment" >Derniers articles en stock</p>}
+        { quantitySelected >= stock && <p className="comment" >Derniers articles en stock</p> }
       </>
         );
     }
     else {
       quantity= <p className="comment-error" >Out of stock</p>
     }
+
     displayed = (
       <>
     <form name="purchase" onSubmit={handleSubmit}>
-      <FormControl classes={{root: "product-input" }}>        
+      <FormControl classes={{ root: "product-input" }}>        
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          input={<Input  classes={{input:"text-center"}}/>}
+          input={<Input  classes={{ input:"text-center" }}/>}
           value={sizeSelected}
           onChange={handleSizeChange}
           
