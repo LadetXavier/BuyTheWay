@@ -7,7 +7,31 @@
   margin: auto;
 }
 
-.bannière {
+.tendance {
+  margin-top: 5vh;
   max-width: 100%;
   width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 4vw;
+}
+
+.banniere {
+  width: 55em;
+}
+
+
+#lorem {
+  text-align: justify;
+  width: 30vw;
+  margin-left: 2vw;
+}
+
+.title {
+  max-width: 100%;
+  width: 100vw;
+}
+
+#articleTitle {
+
 }
