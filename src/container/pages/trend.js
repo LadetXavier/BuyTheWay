@@ -1,22 +1,22 @@
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
-import {Trend} from 'src/pages';
-import {requestAction} from 'src/actions/apiActions.js';
+import { Trend } from 'src/pages';
+import { requestAction, changeState } from 'src/actions/apiActions.js';
+
 
 const mapDispatchToProps = (dispatch) => {  
   return {
-    requestAction : (request) => {      
-      return (dispatch(requestAction(request)))  
-      }
-  }
-}
+    requestAction : (request) => (dispatch(requestAction(request))), 
+    changeState: (value) => ( dispatch(changeState(value)))
+  };
+};
 
 const mapStateToProps = (state) => {
   return {
-    listProducts: state.shop.listProducts,
+    trend: state.shop.trend,
     isLoading: state.api.isLoading,
     hasError: state.api.error
-  }
-}
+  };
+};
 
 export const TrendContainer = connect(mapStateToProps, mapDispatchToProps)(Trend);

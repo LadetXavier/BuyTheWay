@@ -5,7 +5,7 @@ import { requestAction, changeState } from 'src/actions/apiActions.js';
 
 const mapDispatchToProps = (dispatch) => {  
   return {
-    requestAction : (request) => (dispatch(requestAction(request))), 
+    requestAction: (request) => (dispatch(requestAction(request))), 
     changeState: (value) => ( dispatch(changeState(value)))
   }
 }

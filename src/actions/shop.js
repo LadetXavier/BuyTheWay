@@ -7,7 +7,9 @@ import {
   SAVE_CART,
   LOAD_NAV,
   SAVE_RANDOM,
-  CHANGE_STATE_SHOP
+  CHANGE_STATE_SHOP,
+  SAVE_CHALLENGES,
+  SAVE_TREND
   //TOOGLE_LOADING
 } from './types.js';
 
@@ -54,6 +56,14 @@ export const saveRandom = (data) => ({
 
 export const changeStateShop = (state) => ({  
   type:CHANGE_STATE_SHOP,
+  data: state  
+});
+export const saveChallenges = (state) => ({  
+  type:SAVE_CHALLENGES,
+  data: state  
+});
+export const saveTrend = (state) => ({  
+  type:SAVE_TREND,
   data: state  
 });
 

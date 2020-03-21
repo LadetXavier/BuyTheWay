@@ -51,19 +51,22 @@ export const Home = ({
     displayed = (
 
       <div className="index">
-        <div className="video-container" >
+        <div className="video-container">
           <div className="video-foreground">
             <iframe width="1335" height="405" src="https://www.youtube.com/embed/QpBN1RKId5A?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=8lqrok_ECFM&mute=1" frameBorder="0"  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" />
-
           </div>
         </div>
         <div className="TD">
           <p>Tendances</p>
-          <img src={tendance} alt="" className="TD" onError={addDefaultSrc} />
+          <Link to="/tendances">
+            <img src={tendance} alt="" onError={addDefaultSrc} />
+          </Link>
         </div>
         <div className="TD">
           <p>Défis</p>
-          <img src={defi} alt="" className="TD" onError={addDefaultSrc} />
+          <Link to="/defi">
+            <img src={defi} alt="" onError={addDefaultSrc} />
+          </Link>
         </div>
         <div className="carousel">
           <AliceCarousel
@@ -76,7 +79,9 @@ export const Home = ({
             autoPlayInterval={3500}
           >
             {listRandom.r.map((item) => (
-              <img src={item.picture.picture1} alt="" className="index-pic" key={item._id} onError={addDefaultSrc} />
+              <Link to={`/shop/${item.category.gender}/${item.category.id}/${item._id}`}>
+                <img src={item.picture.picture1} alt="" className="index-pic" key={item._id} onError={addDefaultSrc} />
+              </Link>
             ))}
           </AliceCarousel>
         </div>
