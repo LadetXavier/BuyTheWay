@@ -27,3 +27,21 @@
 #email {
   background-color: #fff;
 }
+
+#newsLetter {
+  display: flex;
+  flex-direction: column;
+  
+  label {
+    margin-bottom: 1em;
+  }
+
+  input {
+    margin-bottom: 0.5em;
+  }
+
+  button {
+    margin: auto;
+    width: 8em;
+  }
+}
