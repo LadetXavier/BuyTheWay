@@ -35,7 +35,7 @@ export const Cart = ({cart, requestAction, isLoading, connected, changeCart, cha
   }
 
   if(Cookies.get('user_id') === undefined) {
-    displayed = (<p>L'achat de produit est réservé aux utilisateurs connectés</p>);
+    displayed = (<p className="cart-error">L'achat de produit est réservé aux utilisateurs connectés</p>);
   }
 
   if(!isLoading && cart !== null ) {    

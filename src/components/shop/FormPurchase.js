@@ -46,7 +46,12 @@ const FormPurchase = ({sizeAvailable,requestAction, item}) => {
     }
   }
   const handleQuantityChange = (e) => {
-    setQuantitySelected(e.target.value);
+    if(e.target.value > stock) {
+      setQuantitySelected(stock);
+    } 
+    else {
+      setQuantitySelected(e.target.value);
+    }
   }
   const handleSubmit = (e) => {    
     e.preventDefault();
@@ -103,32 +108,39 @@ const FormPurchase = ({sizeAvailable,requestAction, item}) => {
             className: "text-center",
           }}          
         />        
-        { quantitySelected >= stock && <p className="comment" >Derniers articles en stock</p>}
+        { quantitySelected >= stock && <p className="comment" >Derniers articles en stock</p> }
       </>
         );
     }
     else {
       quantity= <p className="comment-error" >Out of stock</p>
     }
-    displayed = (
-      <>
-    <form name="purchase" onSubmit={handleSubmit}>
-      <FormControl classes={{root: "product-input" }}>        
+
+    let sizeDisplayed = (
+      <FormControl classes={{ root: "product-input" }}>        
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          input={<Input  classes={{input:"text-center"}}/>}
+          input={<Input  classes={{ input:"text-center" }}/>}
           value={sizeSelected}
           onChange={handleSizeChange}
           
         >
-        { // dynamic sizes
-          sizeAvailable.map((size) => (          
-          <MenuItem value={size.size} key={size._id}> { size.size }</MenuItem>
-        ))}          
+          { // dynamic sizes
+            sizeAvailable.map((size) => (          
+            <MenuItem value={size.size} key={size._id}> { size.size }</MenuItem>
+          ))}          
         </Select>
       </FormControl> 
-      {quantity}     
+    )
+
+    displayed = (
+      <>
+    <form name="purchase" onSubmit={handleSubmit}>
+      <div className="selector-container">
+      {sizeDisplayed}
+      {quantity}
+      </div>           
       <p className="product-price">
         <span className="far fa-cart-plus cart" />
         {item.price} €
