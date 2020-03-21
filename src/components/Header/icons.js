@@ -25,7 +25,7 @@ const Icons = ({connected,userLoading}) => {
           
         </li>
         <li>
-          <Link to="/cart">
+          <Link to="/panier">
             <span className="far fa-shopping-cart icons" />
           </Link>
         </li>
