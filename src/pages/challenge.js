@@ -47,7 +47,7 @@ export const Challenge = ({
     displayed = (
       <div className="index">
         <img src={tartanBanniere} className="bannière" alt="" />
-        <h1 className="challengeTitle">Le défi de la semaine: confiné en tartan beige !</h1>
+        <h1 className="challengeTitle">Le défi du mois: confiné en tartan beige !</h1>
       </div>
     );
   }
