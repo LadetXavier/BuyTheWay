@@ -20,7 +20,7 @@
   border-bottom: solid rgb(186, 186, 186) 1px;
   box-shadow: 0px 0px 30px rgb(211, 210, 210);
   text-transform: capitalize;
-  
+
   a {
     margin-right: 0.25em;
     text-decoration: none;
@@ -86,7 +86,7 @@ letter-spacing: 1px;
 }
 .nav-icons{
   display: flex; 
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   flex-direction:row
 }
 
@@ -102,8 +102,8 @@ letter-spacing: 1px;
 -------------------------------- */
 
 .logo-mobile {
-  width: 7.7em;
-  height: 2.2em;
+  max-width: 100%;
+  height: auto;
   }
 
   .navbar-mobile {
@@ -114,7 +114,6 @@ letter-spacing: 1px;
     //align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    flex-direction: row;
     margin-bottom: 1em;
     text-transform: capitalize;
     
