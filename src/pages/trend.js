@@ -39,12 +39,14 @@ export const Trend = ({
       <div className="index">
         <article className="tendance">
           <img src={tendanceBanniere} className="banniere" alt="" />
-          <aside id="lorem">
-            <h1 className="title">Titre article tendances</h1>
+          <aside className="aside">
+            <h1 className="title">Votre attestation de déplacement toujours sur vous !</h1>
+            <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris suscipit a turpis eu pharetra. Praesent cursus urna diam, ut pellentesque mauris ultrices vitae. Aliquam congue purus vitae tincidunt tincidunt. Integer sed ultrices dolor. Nunc ornare massa libero. Ut quam mauris, congue ac turpis ut, pulvinar hendrerit nibh. Cras blandit luctus quam, non facilisis elit sagittis sit amet.
 
             Nulla a molestie turpis, eget rutrum nunc. Maecenas facilisis magna eget molestie auctor. Morbi interdum quam non turpis commodo euismod. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque libero turpis, condimentum non dui vitae, rutrum pulvinar dui. Integer vel turpis eget ipsum mollis condimentum. Praesent cursus sem tellus, consectetur tristique mauris efficitur quis.
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris suscipit a turpis eu pharetra. Praesent cursus urna diam, ut pellentesque mauris ultrices vitae. Aliquam congue purus vitae tincidunt tincidunt. Integer sed ultrices dolor. Nunc ornare massa libero. Ut quam mauris, congue ac turpis ut, pulvinar hendrerit nibh. Cras blandit luctus quam, non facilisis elit sagittis sit amet.
+            </p>
           </aside>
         </article>
       </div>
