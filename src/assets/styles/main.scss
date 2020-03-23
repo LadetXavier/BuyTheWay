@@ -21,3 +21,22 @@ html {
   box-sizing: inherit;
 }
 
+#root {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.error404 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.error404-comment {
+  text-align: center;
+  font-style: italic;
+}
+

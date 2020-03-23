@@ -32,6 +32,7 @@ export const Product = ({
 
   useEffect(() => {
     setProduct(null);
+    
     // call api to get detail about product
     requestAction({
       url: `http://54.164.43.47:3000/products/${match.params.productId}`,
@@ -51,7 +52,7 @@ export const Product = ({
   // effect used to launch axios request once the product is defined
   useEffect(() => {
     if(!sizeFired && product !== null) {
-      setSizeFired(true);
+      setSizeFired(true);      
       requestAction({
         url: `http://54.164.43.47:3000/skus-by-product/${product.sku}`,
         onSuccess: saveSizeAvailable,

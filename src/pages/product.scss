@@ -26,6 +26,7 @@
   @media screen and (min-width: $breakLarge) {
     width: 50%;
     margin-left: 3em;
+    max-width: 400px;
   }
 }
 
@@ -61,7 +62,8 @@ form .display-block {
 }
 
 div .product-input { 
-  width: 50%;  
+  width: 40%;  
+  max-width: 150px;  
 }
 
 div .text-center {
@@ -72,19 +74,26 @@ div .text-center {
   color:grey;
   font-style: italic;
   margin-top:1rem;
-    
+  text-align: center;  
 }
 
 .comment-error {
   @extend .comment;
   color:darkred;
   text-align: right;
+  display: inline-block;
 }
 
 .comment-price {
   @extend .comment;
   font-size: 0.9rem;
   display: block;
+}
+
+.selector-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 
