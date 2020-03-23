@@ -46,7 +46,10 @@ export const Challenge = ({
   if (!isLoading && challenges !== undefined) {
     displayed = (
       <div className="index">
-        <img src={tartanBanniere} className="bannière" alt="" />
+        <div className="challenge-img-container">
+          <img src={tartanBanniere} className="banner" alt="" />
+        </div>
+        
         <h1 className="challengeTitle">Le défi du mois: confiné en tartan beige !</h1>
       </div>
     );

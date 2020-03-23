@@ -1,5 +1,5 @@
 .tendance {
-  margin-top: 5vh;
+  margin-top: 5rem;
   max-width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -8,20 +8,27 @@
 }
 
 
-.banniere {
-  width: 55em;
-  height: 30em;
+.trend-banner {
+  margin-left: 2rem;
+  width: 100%;    
 }
 
+.trend-container {
+  width: 50%;  
+}
 
-.aside {
-  text-align: justify;
-  width: 30vw;
-  margin-left: 2vw;
+.aside {   
+  margin: auto;
+  margin-left: 4rem;
+  width: 30vw;  
 }
 
 .title {
   margin-bottom: 1em;
   font-size: 1.5em;
   font-weight: bold;
+}
+
+.trend-aside-content {
+  text-align: justify;
 }
