@@ -1,5 +1,5 @@
 .footer {
-  max-width: 100vw;
+  max-width: 100%;
   height: 15vh;
   margin-top: 5em;
   display: flex;
@@ -26,4 +26,22 @@
 
 #email {
   background-color: #fff;
+}
+
+#newsLetter {
+  display: flex;
+  flex-direction: column;
+  
+  label {
+    margin-bottom: 1em;
+  }
+
+  input {
+    margin-bottom: 0.5em;
+  }
+
+  button {
+    margin: auto;
+    width: 8em;
+  }
 }

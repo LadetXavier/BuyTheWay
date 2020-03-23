@@ -1,13 +1,27 @@
-.index {
+.tendance {
+  margin-top: 5vh;
   max-width: 100%;
-  width: 100vw;
   display: flex;
   flex-wrap: wrap;
-  align-content: center;
-  margin: auto;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-.bannière {
-  max-width: 100%;
-  width: 100vw;
+
+.banniere {
+  width: 55em;
+  height: 30em;
+}
+
+
+.aside {
+  text-align: justify;
+  width: 30vw;
+  margin-left: 2vw;
+}
+
+.title {
+  margin-bottom: 1em;
+  font-size: 1.5em;
+  font-weight: bold;
 }

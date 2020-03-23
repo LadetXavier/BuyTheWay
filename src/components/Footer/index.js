@@ -8,11 +8,10 @@ import './style.scss';
 
 
 const Footer = () => {
-  // BlahBlah
   return (
     <>
       <footer className="footer">
-        <form>
+        <form id="newsLetter">
           <label htmlFor="email">Entrez votre adresse email:</label>
           <input type="email" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$" placeholder="email" />
           <button type="submit">OK</button>

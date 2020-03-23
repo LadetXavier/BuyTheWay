@@ -64,7 +64,6 @@ const Header = ({requestAction,nav,womenLoading,menLoading}) => {
           </Animate>
           <Animate component="div" id="icon" className="nav-links" appear="fadeInRight" durationAppear={1750}>
             <Icons />
-
           </Animate>
         </nav>
       </MediaQuery>
